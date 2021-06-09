@@ -1,0 +1,16 @@
+.links{
+    text-decoration: none;
+    color: grey;
+}
+.Navbody{
+    height:70px;
+    background-color: rgb(61,19,12);
+
+}
+@media screen and (max-width: 790px) {
+    .Navbody {
+        height:105px;
+     
+    }
+    
+  }
