@@ -253,6 +253,21 @@ const AccessButton = styled.button`
 	}
 `;
 
+const Authorbutton = styled.button`
+	cursor: pointer;
+	color: rgb(230, 230, 230);
+	font-size: 18px;
+	font-family: Open Sans, sans-serif;
+	background-color: #1b1919;
+	outline: none;
+	border: 0px;
+	text-decoration-color: rgb(230, 230, 230);
+	letter-spacing: normal;
+	font-weight: 400;
+	text-align: left;
+	text-size-adjust: 100%;
+`;
+
 export {
 	Allcoursebox,
 	Conatiner,
@@ -273,4 +288,5 @@ export {
 	Buttonbox,
 	PreviewButton,
 	AccessButton,
+	Authorbutton
 };

@@ -9,6 +9,9 @@ import {
 	TITLE_FAILURE,
 	TITLE_REQUEST,
 	TITLE_SUCCESS,
+	PREVIEW_FAILURE,
+	PREVIEW_REQUEST,
+	PREVIEW_SUCCESS,
 } from "./actionType";
 
 const initialstate = {
@@ -16,6 +19,7 @@ const initialstate = {
 	isLoading: false,
 	isError: false,
 	isSuccess: false,
+	previewdata:""
 };
 
 //basically reducer is a switch case function , perform the operation based on the type of request
@@ -53,7 +57,6 @@ export const courseReducer = (state = initialstate, { type, payload }) => {
 				isSuccess: false,
 			};
 		case TITLE_SUCCESS:
-			console.log(payload);
 			return {
 				...state,
 				coursedata: payload,
@@ -62,6 +65,28 @@ export const courseReducer = (state = initialstate, { type, payload }) => {
 				isSuccess: true,
 			};
 		case TITLE_FAILURE:
+			return {
+				...state,
+				isLoading: false,
+				isError: true,
+			};
+		//based on ID , we are diplaying data to user
+		case PREVIEW_REQUEST:
+			return {
+				...state,
+				isLoading: true,
+				isError: false,
+				isSuccess: false,
+			};
+		case PREVIEW_SUCCESS:
+			return {
+				...state,
+				previewdata: payload,
+				isLoading: false,
+				isError: false,
+				isSuccess: true,
+			};
+		case PREVIEW_FAILURE:
 			return {
 				...state,
 				isLoading: false,

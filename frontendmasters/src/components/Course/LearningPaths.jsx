@@ -1,9 +1,10 @@
 import React from "react";
+import { GetFullAccess } from "./GetFullAccess";
 
 export const LearningPaths = () => {
 	return (
 		<div>
-			<h1>Learning paths</h1>
+			<GetFullAccess />
 		</div>
 	);
 };

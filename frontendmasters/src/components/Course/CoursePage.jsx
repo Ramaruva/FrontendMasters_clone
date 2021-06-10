@@ -21,6 +21,7 @@ import {
 } from "./CoursePageStyles";
 import { Popular } from "../Popular/Popular";
 import "./CoursePage.css";
+import { AuthorData } from "../AuthorDetails/AuthorData";
 export const CoursePage = () => {
 	const [title, setTitle] = useState("");
 	const dispatch = useDispatch();
@@ -109,7 +110,8 @@ export const CoursePage = () => {
 			</Content>
 			<Content id="learning" className="tabcontent">
 				{/* learning paths*/}
-				<LearningPaths />
+				{/* <LearningPaths /> */}
+				<AuthorData/>
 			</Content>
 		</>
 	);

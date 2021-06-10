@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { FetchCoursedata } from "../../redux/Courses/action";
+import { FetchCoursedata, PreviewCoursedata } from "../../redux/Courses/action";
 import { LoaderSpinner } from "./Loader";
 
 //importing styles from "AllCoursesStyles-page"
@@ -25,7 +25,9 @@ import {
 	Buttonbox,
 	PreviewButton,
 	AccessButton,
+	Authorbutton,
 } from "./AllCoursesStyles";
+import { FilterAuthordata } from "../../redux/Author/authoraction";
 
 export const AllCourses = ({ title }) => {
 	console.log(title);
@@ -42,6 +44,14 @@ export const AllCourses = ({ title }) => {
 			dispatch(FetchCoursedata());
 		}
 	}, [dispatch]);
+
+	const handlePreview = (id) => {
+		dispatch(PreviewCoursedata(id));
+	};
+
+	const handleAuthordata = (authorname) => {
+		dispatch(FilterAuthordata(authorname));
+	};
 
 	return isLoading ? (
 		<LoaderSpinner />
@@ -64,7 +74,13 @@ export const AllCourses = ({ title }) => {
 												<ProfileImage src={item.profile_pic}></ProfileImage>
 											</Profilebox>
 											<Profilecontent>
-												<AuthorName>{item.author_name}</AuthorName>
+												<Authorbutton
+													onClick={() => {
+														handleAuthordata(item.author_name);
+													}}
+												>
+													{item.author_name}
+												</Authorbutton>
 												<CompanyName>{item.company_name}</CompanyName>
 											</Profilecontent>
 										</Pro>
@@ -75,7 +91,13 @@ export const AllCourses = ({ title }) => {
 												<Subtitles>{item.sub_titles ? "CC" : "No"}</Subtitles>
 											</Timebox>
 											<Buttonbox>
-												<PreviewButton>Watch Free Preview</PreviewButton>
+												<PreviewButton
+													onClick={() => {
+														handlePreview(item.id);
+													}}
+												>
+													Watch Free Preview
+												</PreviewButton>
 												<AccessButton>Get Full Access</AccessButton>
 											</Buttonbox>
 										</AboutAuthor>
