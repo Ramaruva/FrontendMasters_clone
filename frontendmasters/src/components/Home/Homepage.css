@@ -1,0 +1,72 @@
+.Onvideo{
+   margin-top: -40%;
+   margin-bottom: 30px;
+
+}
+
+.Onvideo>h1{
+   font-weight: 600;
+   font-size: 40px;
+   color:white;
+ 
+ }
+ .Subject-flex{
+
+     background-color: black;
+     margin: auto;
+     margin-top: -20px;
+     height: fit-content;
+ }
+ .Subject{
+    
+     padding: 35px;
+     display: flex;
+     flex-wrap: wrap;
+     margin: auto;
+     background-color: black;
+   justify-content: center;
+     max-width: 60%px;
+     height: fit-content;
+     
+ }
+ #Subimage{
+    width: 80px;
+    height:80px;
+    margin-top: 10px;
+    transition-delay: 0s;
+    transition-duration:0.3s ;
+
+ }
+ /* .Subject>div>img{
+    
+   width: 80px;
+   height:80px;
+   margin-top: 10px;
+   transition-delay: 0s;
+   transition-duration:0.3s ;
+} */
+#Subimage:hover{
+    
+    width: 100px;
+    height:100px;
+    margin-top: 0px;
+ }
+.Subject>div{
+   
+    width: 100px;
+    height:100px;
+ }
+
+ @media screen and (max-width: 790px) {
+    .Onvideo>h1{
+        font-weight: 400;
+        font-size: 20px;
+        color:white;
+      
+      }
+      .Onvideo{
+        margin-top: -50%;
+        margin-bottom: 0px;
+     
+     }
+  }

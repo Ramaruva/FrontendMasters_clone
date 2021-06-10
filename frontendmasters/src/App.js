@@ -1,11 +1,18 @@
-import "./App.css";
-import { CoursePage } from "./components/Course/CoursePage";
+
+
+import './App.css';
+import Carousel from './components/carousal/carousal';
+import Home from './components/Home/Home';
+import { Routes } from './routes/Routes';
+
+
+
 function App() {
-	return (
-		<div className="App">
-			<CoursePage />
-		</div>
-	);
+  return (
+    <div className="App">
+         <Routes />
+    </div>
+  );
 }
 
 export default App;
