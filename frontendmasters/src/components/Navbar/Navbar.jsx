@@ -8,11 +8,14 @@ function Navbars() {
   return (
     <div className="Navbody" >
       <Navbar>
+        <Link to="/">
         <img
           height="40px"
           src="https://static.frontendmasters.com/assets/fm/js/frontendmasters.e1e10b58c1.svg"
           alt="LOGO"
         />
+        </Link>
+        
         <div
           style={{
             width: "400px",
@@ -22,7 +25,7 @@ function Navbars() {
           }}
         >
           <Hover>
-            <Link className="links">
+            <Link to="/courses" className="links">
               Courses
             </Link>
           </Hover>
