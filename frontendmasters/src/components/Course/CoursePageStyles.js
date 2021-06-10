@@ -117,6 +117,7 @@ const Input = styled.input`
 	margin-top: 5px;
 	font-size: 18px;
 	/* border-radius: 5px; */
+	outline: none;
 	border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px;
 	float: right;
