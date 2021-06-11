@@ -21,7 +21,11 @@ import {
 } from "./CoursePageStyles";
 import { Popular } from "../Popular/Popular";
 import "./CoursePage.css";
+
 import { Link, Route, Switch, useParams } from "react-router-dom";
+
+import { AuthorData } from "../AuthorDetails/AuthorData";
+
 export const CoursePage = () => {
   const [title, setTitle] = useState("");
   const dispatch = useDispatch();
@@ -48,6 +52,7 @@ export const CoursePage = () => {
   const handleHead = (e) => {
     setHead(e.target.id);
   };
+
 
   return (
     <>
@@ -107,6 +112,7 @@ export const CoursePage = () => {
      
     </>
   );
+
 };
 
  
