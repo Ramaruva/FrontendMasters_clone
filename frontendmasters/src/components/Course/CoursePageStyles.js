@@ -112,14 +112,13 @@ const Inputbox = styled.div`
 
 const Input = styled.input`
 	background-color: rgb(56, 56, 56);
-	width: 80%;
-	height: 35px;
+	width: 85%;
+	height: 30px;
 	border: 1px solid whitesmoke;
 	color: whitesmoke;
-	margin-top: 5px;
 	font-size: 18px;
 	/* border-radius: 5px; */
-	outline: none;
+	/* outline: none; */
 	/* border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px;
 	 */

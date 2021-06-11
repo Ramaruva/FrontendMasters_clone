@@ -33,7 +33,7 @@ const Profilebox1 = styled.div`
 	width: 150px;
 	cursor: pointer;
 	height: fit-content;
-	/* border: 1px solid white; */
+	/* border: 1px solid rgba(0, 0, 0, 0.8); */
 	border-radius: 50%;
 	float: left;
 `;
@@ -44,17 +44,18 @@ const ProfileImage1 = styled.img`
 `;
 const Profilecontent1 = styled.div`
 	width: 63%;
-	height: 150px;
+	height: 100px;
+	/* border: 1px solid #222; */
 	/* border: 1px solid rgba(0, 0, 0, 0.8); */
-	/* border: 1px solid white; */
 	margin-left: 170px;
+	margin-top: 20px;
 `;
 const AuthorName1 = styled.h2`
 	cursor: pointer;
 	color: rgb(192, 45, 40);
 	font-size: 31px;
 	font-family: Open Sans, sans-serif;
-
+	margin-top: 10px;
 	text-decoration-color: rgb(192, 45, 40);
 	letter-spacing: normal;
 	font-weight: 400;
@@ -63,7 +64,7 @@ const AuthorName1 = styled.h2`
 `;
 const CompanyName1 = styled.p`
 	cursor: pointer;
-	margin-top: -15px;
+	margin-top: -5px;
 	color: rgb(138, 138, 138);
 	font-family: Open Sans, sans-serif;
 	font-size: 27px;
@@ -75,7 +76,7 @@ const CompanyName1 = styled.p`
 const Pro1 = styled.div`
 	width: 95%;
 	height: 160px;
-	/* border: 1px solid white; */
+	border: 1px solid rgba(0, 0, 0, 0.8);
 	margin: 10px auto;
 `;
 
@@ -123,7 +124,7 @@ const Social1 = styled.div`
 	margin-top: 150px;
 `;
 
-//rgba(0, 0, 0, 0.8)
+//#222
 export const AuthorData = () => {
 	const [authordata, setAuthorData] = useState("");
 
@@ -179,7 +180,7 @@ export const AuthorData = () => {
 							<ProfileImage1 src={profile_pic}></ProfileImage1>
 						</Profilebox1>
 						<Profilecontent1>
-							<AuthorName1>{author_name}</AuthorName1>
+							<AuthorName1>{author}</AuthorName1>
 							<CompanyName1>{company_name}</CompanyName1>
 							<AboutAuthor2>
 								<Aboutcontent1>{about_author}</Aboutcontent1>
@@ -222,6 +223,7 @@ export const AuthorData = () => {
 			<br />
 			<br />
 			<Heading>{author} 's Courses</Heading>
+			<br />
 			<hr size="1" width="1240" align="center" />
 			<br />
 			<Allcoursebox>
@@ -229,7 +231,7 @@ export const AuthorData = () => {
 					.filter((item) => item.author_name === author)
 					.map((item) => {
 						return (
-							<div key={item.id}>
+							<div  key={item.id}>
 								<Conatiner bgimage={item.background_image}>
 									<Minicontainer>
 										<Content>
