@@ -2,7 +2,7 @@
     display: flex;
     overflow: auto;
     flex-direction: row;
-    width: 86%;
+    width: 85%;
     margin: auto;
     box-sizing: border-box;
     background-color: rgb(9,81,152);
@@ -46,7 +46,7 @@
 .PrvBtn{
     position: absolute;
     left: 10px;
-    top: 360px;
+    top: 310px;
     display: flex;
     align-items: center;
     margin-top: -20px;
@@ -54,7 +54,7 @@
 .NxtBtn{
     position: absolute;
     right: 40px;
-    top: 350px;
+    top: 300px;
     padding: 10px;
     margin-top: -20px;
 }

@@ -29,11 +29,49 @@ color: white;
     margin: auto;
     flex-wrap: wrap;
 }
-.storeAd:nth-child(1){
+.storeAd>img:nth-child(1){
+
     height: 45px;
     width: 135px;
 }
-.storeAd:nth-child(2){
+.storeAd>img:nth-child(2){
     height: 65px;
     width: 170px;
+    margin-top: -10px;
 }
+.anchortag {
+	text-decoration: none;
+	margin-left: 7px;
+}
+.Fimage{
+	height: 35px;
+	width: 35px;
+	cursor: pointer;
+	
+}
+.social{
+   width: 80%; 
+   display: flex;
+   margin: auto;
+
+}
+.contact>p>span{
+ 
+ color:rgb(206, 35, 32);
+}
+.contact>p>span:hover{
+    text-decoration: underline;
+    color:rgb(229, 132, 128);
+   }
+   .contact>p{
+       width: 80%;
+       margin: auto;
+ text-align: right;
+   
+   }
+   .contact1{
+display: flex;
+width: 80%;
+margin: auto;
+justify-content: space-between;
+   }

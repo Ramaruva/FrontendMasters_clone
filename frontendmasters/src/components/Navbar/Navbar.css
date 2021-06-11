@@ -3,7 +3,7 @@
 	color: grey;
 }
 .Navbody {
-	height: 70px;
+	height: 80px;
 	background-color: rgb(61, 19, 12);
 }
 @media screen and (max-width: 790px) {
