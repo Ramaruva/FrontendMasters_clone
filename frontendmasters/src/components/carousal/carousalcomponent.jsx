@@ -5,14 +5,14 @@ function Carousalcomponent({img,des,date,name}) {
         <div className="Combody" >
             <div className="Imagebody">
             <img src={img} alt="" />
-            <h4>{name}</h4>
+            <h4 className="C-head">{name}</h4>
             <img id="twitter" src="https://www.lter-europe.net/document-archive/image-gallery/albums/logos/TwitterLogo_55acee.png/image" alt="" />
             </div>
-            <div>
+            <div className="C-des">
                 {des}
             </div>
             <hr />
-            <div>
+            <div className="C-des">
          {date}
             </div>
         </div>

@@ -6,6 +6,8 @@ import Cbtn from "../Home/Homepage.js";
 import { Subjectimg } from "../../LocalData/Localdata";
 import { Link } from "react-router-dom";
 import Carousel from "../carousal/carousal";
+import Midpage from "../Midpage/Midpage";
+import Footer from "../Footer/Footer";
 
 function Home() {
     return (
@@ -47,6 +49,8 @@ function Home() {
         </div>
       </div>
         <Carousel />
+        <Midpage/>
+        <Footer/>
         </div>
         
     )
