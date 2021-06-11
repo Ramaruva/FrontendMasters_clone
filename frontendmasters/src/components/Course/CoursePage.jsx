@@ -24,6 +24,7 @@ import "./CoursePage.css";
 
 import { Link, Redirect, useParams } from "react-router-dom";
 import { AuthorData } from "../AuthorDetails/AuthorData";
+import Footer from "../Footer/Footer";
 
 // import { AuthorData } from "../AuthorDetails/AuthorData";
 
@@ -88,7 +89,9 @@ export const CoursePage = () => {
 							handleHead(e);
 						}}
 					>
-						<Link className="courselinks" to="/courses/all">All Courses</Link>
+						<Link className="courselinks" to="/courses/all">
+							All Courses
+						</Link>
 					</Buttons>
 					<Buttons
 						// className="tablinks"
@@ -98,7 +101,9 @@ export const CoursePage = () => {
 							handleHead(e);
 						}}
 					>
-						<Link className="courselinks"  to="/courses/popular">Popular Courses</Link>
+						<Link className="courselinks" to="/courses/popular">
+							Popular Courses
+						</Link>
 					</Buttons>
 					<Buttons
 					// className="tablinks"

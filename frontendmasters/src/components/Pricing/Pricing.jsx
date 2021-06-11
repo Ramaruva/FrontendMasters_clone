@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Footer from "../Footer/Footer";
 
 import { PricingFrom } from "./PricingFrom";
 import PricingHeading from "./PricingHeading";
@@ -38,7 +39,8 @@ export const Pricing = () => {
 		<>
 			<PricingHeading />
 			<p>
-				if You have already have an account,please <Link to="/login">Login</Link>{" "}
+				if You have already have an account,please{" "}
+				<Link to="/login">Login</Link>{" "}
 			</p>
 			<PricingPackage handlePlan={handlePlan} />
 			<PricingFrom plan={plan} />
@@ -52,6 +54,7 @@ export const Pricing = () => {
 					</a>
 				</p>
 			</Question>
+			<Footer />
 		</>
 	);
 };

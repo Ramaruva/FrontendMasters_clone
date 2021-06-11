@@ -24,6 +24,7 @@ import {
 	Profilecontent2,
 } from "./GetFullAccessStyels";
 import Videoplayer from "./VideoPlayer";
+import Footer from "../Footer/Footer";
 
 const Blackwrraper = styled.div`
 	background-color: black;
@@ -166,45 +167,48 @@ export const GetFullAccess = () => {
 	}, []);
 
 	return (
-		<div>
-			<Previewwraper>
-				<Gridpreview>
-					<Imagewraper>
-						<CourseImage src={background_image}></CourseImage>
-					</Imagewraper>
-					<AboutCourseauth>
-						<Title>{title}</Title>
-						<Pro>
-							<Profilebox>
-								<ProfileImage src={profile_pic}></ProfileImage>
-							</Profilebox>
-							<Profilecontent2>
-								<AuthorName>{author_name}</AuthorName>
-								<CompanyName>{company_name}</CompanyName>
-							</Profilecontent2>
-						</Pro>
-						<Timebox>
-							<Time>{time}</Time>
-							<Subtitles>{sub_titles ? "CC" : null}</Subtitles>
-						</Timebox>
-					</AboutCourseauth>
-				</Gridpreview>
-			</Previewwraper>
-			<br />
-			<br />
-			<Blackwrraper>
-				<Gridvideobox>
-					<Videobox>
-						<Videoplayer video={video_link} />
-					</Videobox>
-					<Descriptionbox>
-						<Aboutcontent>{description}</Aboutcontent>
-						<Aboutcontent>{preview}</Aboutcontent>
-						<Publish>{publish}</Publish>
-						<Unlimitedbutton>Get Unlimited Access Now</Unlimitedbutton>
-					</Descriptionbox>
-				</Gridvideobox>
-			</Blackwrraper>
-		</div>
+		<>
+			<div>
+				<Previewwraper>
+					<Gridpreview>
+						<Imagewraper>
+							<CourseImage src={background_image}></CourseImage>
+						</Imagewraper>
+						<AboutCourseauth>
+							<Title>{title}</Title>
+							<Pro>
+								<Profilebox>
+									<ProfileImage src={profile_pic}></ProfileImage>
+								</Profilebox>
+								<Profilecontent2>
+									<AuthorName>{author_name}</AuthorName>
+									<CompanyName>{company_name}</CompanyName>
+								</Profilecontent2>
+							</Pro>
+							<Timebox>
+								<Time>{time}</Time>
+								<Subtitles>{sub_titles ? "CC" : null}</Subtitles>
+							</Timebox>
+						</AboutCourseauth>
+					</Gridpreview>
+				</Previewwraper>
+				<br />
+				<br />
+				<Blackwrraper>
+					<Gridvideobox>
+						<Videobox>
+							<Videoplayer video={video_link} />
+						</Videobox>
+						<Descriptionbox>
+							<Aboutcontent>{description}</Aboutcontent>
+							<Aboutcontent>{preview}</Aboutcontent>
+							<Publish>{publish}</Publish>
+							<Unlimitedbutton>Get Unlimited Access Now</Unlimitedbutton>
+						</Descriptionbox>
+					</Gridvideobox>
+				</Blackwrraper>
+			</div>
+			<Footer />
+		</>
 	);
 };

@@ -1,77 +1,71 @@
-.flink{
-margin-right: 5px;
-margin-left: 20px;
-text-decoration: none;
-color: white;
+.flink {
+	margin-right: 5px;
+	margin-left: 20px;
+	text-decoration: none;
+	color: white;
+}
+.footerlink {
+	margin: auto;
+	margin-top: 50px;
+	display: flex;
+	flex-wrap: wrap;
+	width: 80%;
 
-
+	padding: 10px;
 }
-.footerlink{
-    margin: auto;
-    margin-top: 50px;
-    display: flex;
-    flex-wrap: wrap;
-    width: 80%;
- 
-    padding: 10px;
-  
+.linkdiv {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 16px;
+	/* width: 55%; */
 }
-.linkdiv{
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 16px;
-    /* width: 55%; */
-
+.storeAd {
+	display: flex;
+	width: 80%;
+	margin: auto;
+	flex-wrap: wrap;
 }
-.storeAd{
-    display: flex;
-    width: 80%;
-    margin: auto;
-    flex-wrap: wrap;
+.storeAd > img:nth-child(1) {
+	height: 45px;
+	width: 135px;
 }
-.storeAd>img:nth-child(1){
-
-    height: 45px;
-    width: 135px;
-}
-.storeAd>img:nth-child(2){
-    height: 65px;
-    width: 170px;
-    margin-top: -10px;
+.storeAd > img:nth-child(2) {
+	height: 65px;
+	width: 170px;
+	margin-top: -10px;
 }
 .anchortag {
 	text-decoration: none;
 	margin-left: 7px;
 }
-.Fimage{
+.Fimage {
 	height: 35px;
 	width: 35px;
 	cursor: pointer;
-	
 }
-.social{
-   width: 80%; 
-   display: flex;
-   margin: auto;
-
+.social {
+	width: 80%;
+	display: flex;
+	margin: auto;
 }
-.contact>p>span{
- 
- color:rgb(206, 35, 32);
+.contact > p > span {
+	color: rgb(206, 35, 32);
 }
-.contact>p>span:hover{
-    text-decoration: underline;
-    color:rgb(229, 132, 128);
-   }
-   .contact>p{
-       width: 80%;
-       margin: auto;
- text-align: right;
-   
-   }
-   .contact1{
-display: flex;
-width: 80%;
-margin: auto;
-justify-content: space-between;
-   }
+.contact > p > span:hover {
+	text-decoration: underline;
+	color: rgb(229, 132, 128);
+}
+.contact > p {
+	width: 80%;
+	margin: auto;
+	text-align: right;
+}
+.contact1 {
+	display: flex;
+	width: 80%;
+	margin: auto;
+	justify-content: space-between;
+}
+.footerbody {
+	background-color: rgb(17, 17, 17);
+}
