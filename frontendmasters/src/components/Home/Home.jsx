@@ -10,11 +10,13 @@ import Carousel from "../carousal/carousal";
 function Home() {
     return (
         <div>
-             <div style={{ position: "relative", zIndex: "-1", width: "100%", height: "90%", }} >
-        <video width="100%" autoplay={1} muted loop>
+        <div style={{ position: "relative", zIndex: "-1", width: "100%", height: "90%", }} >
+        <video  width="100%" autoplay={1} muted loop>
           <source src={hero} type="video/mp4" />
         </video>
+       
       </div>
+      <div >
       <div className="Onvideo">
         <h1>
           <strong>Advance Your Skills</strong>
@@ -25,6 +27,7 @@ function Home() {
         </h1>
         <Cbtn>Browse our courses</Cbtn>
         <Cbtn primary>View Learing Paths</Cbtn>
+      </div>
       </div>
       <div>
         <svg style={{ height: "70", width: "100%", zIndex: "1" }}>
