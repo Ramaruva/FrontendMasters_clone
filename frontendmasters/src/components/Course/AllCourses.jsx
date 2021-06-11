@@ -26,6 +26,7 @@ import {
 	PreviewButton,
 	AccessButton,
 } from "./AllCoursesStyles";
+import { SearchCourses } from "../Popular/SearchCourses";
 
 export const AllCourses = ({ title }) => {
 	console.log(title);
@@ -41,8 +42,23 @@ export const AllCourses = ({ title }) => {
 		if (title.length === 0) {
 			dispatch(FetchCoursedata());
 		}
-	}, [dispatch]);
-
+		
+	}, [dispatch,title]);
+   if(title.length>0)
+   {
+	   console.log(coursedata);
+	   const a=coursedata.filter((item)=>(item.type===title)).map((item)=>(item.title))
+	   console.log(a);
+       return(
+		   <>
+		    {
+				coursedata.filter((item)=>item.type===title).map((item)=>(
+					item&&<SearchCourses key={item.id} item={item} />
+				))
+			}
+		   </>
+	   )
+   }
 	return isLoading ? (
 		<LoaderSpinner />
 	) : isError ? (

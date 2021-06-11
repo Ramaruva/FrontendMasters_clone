@@ -25,7 +25,8 @@ import {
 	ContentBoxpop,
 	CourseImage,
 } from "./PopularStyles";
-export const Popular = () => {
+import { SearchCourses } from "./SearchCourses";
+export const Popular = ({title}) => {
 	const { populardata, isLoading, isError, isSuccess } = useSelector(
 		(state) => state.popular
 	);
@@ -34,8 +35,19 @@ export const Popular = () => {
 
 	useEffect(() => {
 		dispatch(FetchPopulardata());
-	}, [dispatch]);
-
+	}, [dispatch,title]);
+   if(title.length>0)
+   {
+	   return(
+		   <>
+		      {
+				  populardata?.filter((item)=>item.type===title&&item.rating>4).map((item)=>(
+					  item&&<SearchCourses key={item.id} item={item} />
+				  ))
+			  }
+		   </>
+	   )
+   }
 	return isLoading ? (
 		<LoaderSpinner />
 	) : isError ? (
@@ -44,7 +56,7 @@ export const Popular = () => {
 		</h2>
 	) : (
 		<div>
-			{populardata.map((item) => {
+			{populardata.filter((item)=>item.rating>=4).map((item) => {
 				return (
 					<div key={item.id}>
 						<PopularContainer>
