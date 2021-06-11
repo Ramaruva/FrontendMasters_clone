@@ -1,16 +1,27 @@
-.links{
-    text-decoration: none;
-    color: grey;
+.links {
+	text-decoration: none;
+	color: grey;
 }
-.Navbody{
-    height:70px;
-    background-color: rgb(61,19,12);
-
+.Navbody {
+	height: 70px;
+	background-color: rgb(61, 19, 12);
 }
 @media screen and (max-width: 790px) {
-    .Navbody {
-        height:105px;
-     
-    }
-    
-  }
+	.Navbody {
+		height: 105px;
+	}
+}
+
+.authname {
+	text-decoration: none;
+	font-size: 18px;
+	color: rgb(230, 230, 230);
+}
+
+.buttonlink {
+	background-color: rgb(192, 45, 40);
+	font-size: 14px;
+	color: rgb(230, 230, 230);
+	text-decoration: none;
+	margin-top: 20px;
+}

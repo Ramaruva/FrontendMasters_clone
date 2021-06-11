@@ -4,14 +4,14 @@ import thunk from "redux-thunk";
 import { courseReducer } from "./Courses/coursereducer";
 import { filterReducer } from "./FilterCourse/filterreducer";
 import { popualReducer } from "./Popular/popularreducer";
-import { authorReducer } from "./Author/authorreducer";
 
 const rootreducer = combineReducers({
 	course: courseReducer,
 	filter: filterReducer,
 	popular: popualReducer,
-	author:authorReducer
+	
 });
+
 
 /**
  *
