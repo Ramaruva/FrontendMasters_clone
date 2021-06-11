@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router";
 import styled from "styled-components";
+import axios from "axios";
 import {
 	Subtitles,
 	Time,
@@ -125,12 +127,10 @@ const Unlimitedbutton = styled.button`
 `;
 
 export const GetFullAccess = () => {
-	const { previewdata, isLoading, isError } = useSelector(
-		(state) => state.course
-	);
+	const [previewData, setPreviewData] = useState("");
 	// console.log(previewdata);
 
-//destructuring the data from previewdata.....
+	//destructuring the data from previewdata.....
 	const {
 		author_name,
 		background_image,
@@ -143,8 +143,27 @@ export const GetFullAccess = () => {
 		video_link,
 		preview,
 		publish,
-	} = previewdata;
+	} = previewData;
 
+	const { id } = useParams();
+
+	const PreviewCoursedata = () => {
+		//using axios for making network request from server endpoint
+		//we are using our own mockserver as database
+		return axios
+			.get(`https://ramserver54.herokuapp.com/courses/${id}`)
+			.then((res) => {
+				setPreviewData(res.data);
+				// console.log(res.data);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	};
+
+	useEffect(() => {
+		PreviewCoursedata();
+	}, []);
 
 	return (
 		<div>
