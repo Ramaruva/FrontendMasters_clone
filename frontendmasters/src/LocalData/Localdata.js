@@ -68,3 +68,4 @@ export const Subjectimg =["data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNjM
    date:"11:43pm · Apr 28, 2020"
 }
 ]
+export const footerlink=["Courses","Learn","Teachers","Guides","Pricing","Login","Join Now","FAQ"]

@@ -3,7 +3,16 @@
    margin-bottom: 30px;
 
 }
+body{
+   background-color: rgb(34,34,34);
 
+}
+.dots{
+ 
+
+   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAF0lEQVQYV2NkQAKMULYvAwPDZhgHLAYAD6kBBEMDSU4AAAAASUVORK5CYII=");
+
+}
 .Onvideo>h1{
    font-weight: 600;
    font-size: 40px;
@@ -24,7 +33,7 @@
      flex-wrap: wrap;
      margin: auto;
      background-color: black;
-   justify-content: center;
+    justify-content: center;
      max-width: 60%px;
      height: fit-content;
      
@@ -60,7 +69,7 @@
  @media screen and (max-width: 790px) {
     .Onvideo>h1{
         font-weight: 400;
-        font-size: 20px;
+        font-size: 25px;
         color:white;
       
       }

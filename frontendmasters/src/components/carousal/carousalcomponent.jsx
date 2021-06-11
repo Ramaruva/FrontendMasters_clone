@@ -6,7 +6,7 @@ function Carousalcomponent({img,des,date,name}) {
             <div className="Imagebody">
             <img src={img} alt="" />
             <h4>{name}</h4>
-            <img id="twitter" src="http://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c53e.png" alt="" />
+            <img id="twitter" src="https://www.lter-europe.net/document-archive/image-gallery/albums/logos/TwitterLogo_55acee.png/image" alt="" />
             </div>
             <div>
                 {des}

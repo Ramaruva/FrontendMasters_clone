@@ -1,8 +1,4 @@
-
-
 import './App.css';
-import Carousel from './components/carousal/carousal';
-import Home from './components/Home/Home';
 import { Routes } from './routes/Routes';
 
 
