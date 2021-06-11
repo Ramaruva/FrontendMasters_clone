@@ -38,3 +38,11 @@ input[type="text"] {
 		border: 1px solid #ccc;
 	}
 }
+
+.courselinks {
+	text-decoration: none;
+	font-family: Open Sans, sans-serif;
+	color: rgb(230, 230, 230);
+	line-height: normal;
+	font-weight: 600;
+}

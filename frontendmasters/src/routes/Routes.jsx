@@ -25,6 +25,9 @@ export const Routes = () => {
 				<Route exact path="/courses/author_name/:author">
 					<AuthorData />
 				</Route>
+				<Route path="/courses/preview-course/:id">
+					<GetFullAccess />
+				</Route>
 				<Route path="/login">
 					<Login />
 				</Route>
