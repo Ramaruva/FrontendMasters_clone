@@ -1,6 +1,6 @@
 import axios from "axios";
 
-//There are the actions for the filtering the course based
+//These are the actions for the filtering the course based
 //on the type of course(React, Redux, Javascript, Nodejs...etc)
 import {
 	TITLE_FAILURE,

@@ -9,7 +9,9 @@ const rootreducer = combineReducers({
 	course: courseReducer,
 	filter: filterReducer,
 	popular: popualReducer,
+	
 });
+
 
 /**
  *

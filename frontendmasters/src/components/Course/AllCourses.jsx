@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { FetchCoursedata } from "../../redux/Courses/action";
+import { FetchCoursedata, PreviewCoursedata } from "../../redux/Courses/action";
 import { LoaderSpinner } from "./Loader";
 
 //importing styles from "AllCoursesStyles-page"
@@ -11,13 +11,13 @@ import {
 	Minicontainer,
 	Content,
 	Title,
+	Pro,
 	Profilebox,
 	ProfileImage,
 	Profilecontent,
 	AuthorName,
 	CompanyName,
 	AboutAuthor,
-	Pro,
 	Aboutcontent,
 	Timebox,
 	Time,
@@ -26,6 +26,13 @@ import {
 	PreviewButton,
 	AccessButton,
 } from "./AllCoursesStyles";
+import { Link } from "react-router-dom";
+import "../Navbar/Navbar.css";
+
+import { SearchCourses } from "../Popular/SearchCourses";
+
+// import { FilterAuthordata } from "../../redux/Author/authoraction";
+
 
 export const AllCourses = ({ title }) => {
 	console.log(title);
@@ -41,7 +48,34 @@ export const AllCourses = ({ title }) => {
 		if (title.length === 0) {
 			dispatch(FetchCoursedata());
 		}
-	}, [dispatch]);
+
+		
+	}, [dispatch,title]);
+   if(title.length>0)
+   {
+	   console.log(coursedata);
+	   const a=coursedata.filter((item)=>(item.type===title)).map((item)=>(item.title))
+	   console.log(a);
+       return(
+		   <>
+		    {
+				coursedata.filter((item)=>item.type===title).map((item)=>(
+					item&&<SearchCourses key={item.id} item={item} />
+				))
+			}
+		   </>
+	   )
+   }
+
+	
+
+	const handlePreview = (id) => {
+		dispatch(PreviewCoursedata(id));
+	};
+
+	// const handleAuthordata = (authorname) => {
+	// 	dispatch(FilterAuthordata(authorname));
+	// };
 
 	return isLoading ? (
 		<LoaderSpinner />
@@ -64,7 +98,14 @@ export const AllCourses = ({ title }) => {
 												<ProfileImage src={item.profile_pic}></ProfileImage>
 											</Profilebox>
 											<Profilecontent>
-												<AuthorName>{item.author_name}</AuthorName>
+												<AuthorName>
+													<Link
+														className="authname"
+														to={`/courses/author_name/${item.author_name}`}
+													>
+														{item.author_name}
+													</Link>
+												</AuthorName>
 												<CompanyName>{item.company_name}</CompanyName>
 											</Profilecontent>
 										</Pro>
@@ -75,7 +116,13 @@ export const AllCourses = ({ title }) => {
 												<Subtitles>{item.sub_titles ? "CC" : "No"}</Subtitles>
 											</Timebox>
 											<Buttonbox>
-												<PreviewButton>Watch Free Preview</PreviewButton>
+												<PreviewButton
+													onClick={() => {
+														handlePreview(item.id);
+													}}
+												>
+													Watch Free Preview
+												</PreviewButton>
 												<AccessButton>Get Full Access</AccessButton>
 											</Buttonbox>
 										</AboutAuthor>

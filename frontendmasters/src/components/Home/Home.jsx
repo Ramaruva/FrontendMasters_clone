@@ -5,6 +5,7 @@ import hero from "../../assets/hero.mp4";
 import Cbtn from "../Home/Homepage.js";
 import { Subjectimg } from "../../LocalData/Localdata";
 import { Link } from "react-router-dom";
+import Carousel from "../carousal/carousal";
 
 function Home() {
     return (
@@ -45,7 +46,9 @@ function Home() {
           ))}
         </div>
       </div>
+        <Carousel />
         </div>
+        
     )
 }
 

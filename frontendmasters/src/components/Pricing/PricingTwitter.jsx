@@ -1,13 +1,11 @@
 import React from 'react'
 
-function Router() {
+export const PricingTwitter = () => {
     return (
         <div>
-        
-
             
         </div>
     )
 }
 
-export default Router
+ 

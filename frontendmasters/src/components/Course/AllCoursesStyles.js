@@ -162,7 +162,7 @@ const Time = styled.p`
 `;
 const Subtitles = styled.div`
 	width: 30px;
-	height: 20px;
+	height: 25px;
 	/* border: 1px solid white; */
 	margin-left: 10px;
 	margin-top: 13px;
@@ -252,6 +252,15 @@ const AccessButton = styled.button`
 		height: 30px;
 	}
 `;
+const Heading = styled.h1`
+	font-family: Open Sans, sans-serif;
+	display: block;
+	font-size: 46px;
+	color: rgb(230, 230, 230);
+	line-height: normal;
+	font-weight: 600;
+	text-align: center;
+`;
 
 export {
 	Allcoursebox,
@@ -273,4 +282,5 @@ export {
 	Buttonbox,
 	PreviewButton,
 	AccessButton,
+	Heading,
 };
