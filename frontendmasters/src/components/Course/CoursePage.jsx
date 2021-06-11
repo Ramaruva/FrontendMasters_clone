@@ -61,9 +61,9 @@ export const CoursePage = () => {
 							value={title}
 							placeholder="Type to search..."
 						/>
-						<Serachbut onClick={handleFilterCourse}>
+						{/* <Serachbut onClick={handleFilterCourse}>
 							<i className="fa fa-search"></i>
-						</Serachbut>
+						</Serachbut> */}
 					</Inputbtnbox>
 				</Inputbox>
 			</Container>
@@ -110,8 +110,8 @@ export const CoursePage = () => {
 			</Content>
 			<Content id="learning" className="tabcontent">
 				{/* learning paths*/}
-				{/* <LearningPaths /> */}
-				<AuthorData/>
+				<LearningPaths />
+				
 			</Content>
 		</>
 	);

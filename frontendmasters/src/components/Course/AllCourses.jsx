@@ -11,13 +11,13 @@ import {
 	Minicontainer,
 	Content,
 	Title,
+	Pro,
 	Profilebox,
 	ProfileImage,
 	Profilecontent,
 	AuthorName,
 	CompanyName,
 	AboutAuthor,
-	Pro,
 	Aboutcontent,
 	Timebox,
 	Time,
@@ -25,9 +25,9 @@ import {
 	Buttonbox,
 	PreviewButton,
 	AccessButton,
-	Authorbutton,
 } from "./AllCoursesStyles";
-import { FilterAuthordata } from "../../redux/Author/authoraction";
+import { Link } from "react-router-dom";
+import "../Navbar/Navbar.css";
 
 export const AllCourses = ({ title }) => {
 	console.log(title);
@@ -49,9 +49,9 @@ export const AllCourses = ({ title }) => {
 		dispatch(PreviewCoursedata(id));
 	};
 
-	const handleAuthordata = (authorname) => {
-		dispatch(FilterAuthordata(authorname));
-	};
+	// const handleAuthordata = (authorname) => {
+	// 	dispatch(FilterAuthordata(authorname));
+	// };
 
 	return isLoading ? (
 		<LoaderSpinner />
@@ -74,13 +74,14 @@ export const AllCourses = ({ title }) => {
 												<ProfileImage src={item.profile_pic}></ProfileImage>
 											</Profilebox>
 											<Profilecontent>
-												<Authorbutton
-													onClick={() => {
-														handleAuthordata(item.author_name);
-													}}
-												>
-													{item.author_name}
-												</Authorbutton>
+												<AuthorName>
+													<Link
+														className="authname"
+														to={`/courses/${item.author_name}`}
+													>
+														{item.author_name}
+													</Link>
+												</AuthorName>
 												<CompanyName>{item.company_name}</CompanyName>
 											</Profilecontent>
 										</Pro>

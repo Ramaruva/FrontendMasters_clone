@@ -7,14 +7,16 @@ const Heading = styled.h1`
 	color: rgb(230, 230, 230);
 	line-height: normal;
 	font-weight: 600;
-	float: left;
 	margin-left: 20px;
+	float: left;
 `;
 const Container = styled.div`
 	width: 85%;
 	height: 80px;
 	/* border: 1px solid white; */
 	margin: auto;
+	margin-top: 20px;
+
 	@media screen and (max-width: 920px) {
 		height: 110px;
 		h1 {

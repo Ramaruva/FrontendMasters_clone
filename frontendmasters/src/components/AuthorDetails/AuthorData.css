@@ -1,0 +1,10 @@
+.anchortag {
+	text-decoration: none;
+	margin-left: 7px;
+}
+.imagecontrol {
+	height: 50px;
+	width: 50px;
+	cursor: pointer;
+	border-radius: 50%;
+}
