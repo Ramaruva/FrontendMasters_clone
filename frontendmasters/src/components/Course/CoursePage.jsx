@@ -21,11 +21,17 @@ import {
 } from "./CoursePageStyles";
 import { Popular } from "../Popular/Popular";
 import "./CoursePage.css";
+
+import { Link, Redirect, useParams } from "react-router-dom";
 import { AuthorData } from "../AuthorDetails/AuthorData";
+
+// import { AuthorData } from "../AuthorDetails/AuthorData";
+
 export const CoursePage = () => {
 	const [title, setTitle] = useState("");
 	const dispatch = useDispatch();
-
+	const { author_name } = useParams();
+	console.log(author_name);
 	//by changing the title , fetching the data from endpoint of server
 	//fetching the data from server ....dispatching action here...
 
@@ -48,6 +54,10 @@ export const CoursePage = () => {
 		setHead(e.target.id);
 	};
 
+	if (author_name > 0 && author_name !== "all" && author_name !== "popular") {
+		return <AuthorData />;
+	}
+
 	return (
 		<>
 			<Container>
@@ -61,9 +71,9 @@ export const CoursePage = () => {
 							value={title}
 							placeholder="Type to search..."
 						/>
-						{/* <Serachbut onClick={handleFilterCourse}>
+						<Serachbut onClick={handleFilterCourse}>
 							<i className="fa fa-search"></i>
-						</Serachbut> */}
+						</Serachbut>
 					</Inputbtnbox>
 				</Inputbox>
 			</Container>
@@ -72,47 +82,41 @@ export const CoursePage = () => {
 				<Buttonbox>
 					<Buttons
 						id="Frontend Masters Courses"
-						className="tablinks"
+						// className="tablinks"
 						onClick={(e) => {
-							ActivationButtons(e, "all");
+							// 	ActivationButtons(e, "all");
 							handleHead(e);
 						}}
 					>
-						All Courses
+						<Link to="/courses/all">All Courses</Link>
 					</Buttons>
 					<Buttons
-						className="tablinks"
+						// className="tablinks"
 						id="Popular Courses"
 						onClick={(e) => {
-							ActivationButtons(e, "popular");
+							// 	ActivationButtons(e, "popular");
 							handleHead(e);
 						}}
 					>
-						Popular Courses
+						<Link to="/courses/popular">Popular Courses</Link>
 					</Buttons>
 					<Buttons
-						className="tablinks"
-						onClick={(e) => {
-							ActivationButtons(e, "learning");
-						}}
+					// className="tablinks"
+					// onClick={(e) => {
+					//   ActivationButtons(e, "learning");
+					// }}
 					>
 						Learning Paths
 					</Buttons>
 				</Buttonbox>
 			</SmallNav>
-			<Content id="all" className="tabcontent">
-				{/* all courses  */}
+			{author_name === "all" ? (
 				<AllCourses title={title} />
-			</Content>
-			<Content id="popular" className="tabcontent">
-				{/* popular courses  */}
-				<Popular />
-			</Content>
-			<Content id="learning" className="tabcontent">
-				{/* learning paths*/}
-				<LearningPaths />
-				
-			</Content>
+			) : author_name === "popular" ? (
+				<Popular title={title} />
+			) : (
+				<AllCourses title={title} />
+			)}
 		</>
 	);
 };

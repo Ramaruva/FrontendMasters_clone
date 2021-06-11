@@ -29,6 +29,11 @@ import {
 import { Link } from "react-router-dom";
 import "../Navbar/Navbar.css";
 
+import { SearchCourses } from "../Popular/SearchCourses";
+
+// import { FilterAuthordata } from "../../redux/Author/authoraction";
+
+
 export const AllCourses = ({ title }) => {
 	console.log(title);
 	const dispatch = useDispatch();
@@ -43,7 +48,26 @@ export const AllCourses = ({ title }) => {
 		if (title.length === 0) {
 			dispatch(FetchCoursedata());
 		}
-	}, [dispatch]);
+
+		
+	}, [dispatch,title]);
+   if(title.length>0)
+   {
+	   console.log(coursedata);
+	   const a=coursedata.filter((item)=>(item.type===title)).map((item)=>(item.title))
+	   console.log(a);
+       return(
+		   <>
+		    {
+				coursedata.filter((item)=>item.type===title).map((item)=>(
+					item&&<SearchCourses key={item.id} item={item} />
+				))
+			}
+		   </>
+	   )
+   }
+
+	
 
 	const handlePreview = (id) => {
 		dispatch(PreviewCoursedata(id));
@@ -77,7 +101,7 @@ export const AllCourses = ({ title }) => {
 												<AuthorName>
 													<Link
 														className="authname"
-														to={`/courses/${item.author_name}`}
+														to={`/courses/author_name/${item.author_name}`}
 													>
 														{item.author_name}
 													</Link>

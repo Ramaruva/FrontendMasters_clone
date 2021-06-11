@@ -24,7 +24,7 @@ function Navbars() {
 					}}
 				>
 					<Hover>
-						<Link to="/courses" className="links">
+						<Link to="/courses/" className="links">
 							Courses
 						</Link>
 					</Hover>

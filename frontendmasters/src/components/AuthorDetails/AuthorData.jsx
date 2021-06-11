@@ -130,9 +130,9 @@ export const AuthorData = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [isError, setIsError] = useState(false);
 
-	const { author_name } = useParams();
+	const { author } = useParams();
 
-	console.log(author_name);
+	console.log(author);
 
 	const coursedata = useSelector((state) => state.course.coursedata);
 
@@ -140,7 +140,7 @@ export const AuthorData = () => {
 		//using axios for making network request from server endpoint
 		//we are using our own mockserver as database
 		return axios
-			.get(`https://ramserver54.herokuapp.com/authors/${author_name}`)
+			.get(`https://ramserver54.herokuapp.com/authors/${author}`)
 			.then((res) => {
 				setAuthorData(res.data);
 				setIsLoading(true);
@@ -163,13 +163,13 @@ export const AuthorData = () => {
 		profile_pic,
 		blog,
 		company_name,
+		author_name,
 		big_profile,
 		about_author,
 	} = authordata;
 
 	console.log(authordata);
 
-	
 	return (
 		<div>
 			<Backgroundimg1 bgimage={big_profile}>
@@ -221,12 +221,12 @@ export const AuthorData = () => {
 			</Backgroundimg1>
 			<br />
 			<br />
-			<Heading>{author_name} 's Courses</Heading>
+			<Heading>{author} 's Courses</Heading>
 			<hr size="1" width="1240" align="center" />
 			<br />
 			<Allcoursebox>
 				{coursedata
-					.filter((item) => item.author_name === author_name)
+					.filter((item) => item.author_name === author)
 					.map((item) => {
 						return (
 							<div key={item.id}>

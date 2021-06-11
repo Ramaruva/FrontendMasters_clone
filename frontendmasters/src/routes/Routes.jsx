@@ -16,10 +16,13 @@ export const Routes = () => {
 				<Route exact path="/">
 					<Home />
 				</Route>
-				<Route exact path="/courses">
+				<Route exact path="/courses/">
 					<CoursePage />
 				</Route>
 				<Route exact path="/courses/:author_name">
+					<CoursePage />
+				</Route>
+				<Route exact path="/courses/author_name/:author">
 					<AuthorData />
 				</Route>
 				<Route path="/login">
