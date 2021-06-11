@@ -17,6 +17,11 @@
 	font-size: 18px;
 	color: rgb(230, 230, 230);
 }
+.authname2 {
+	text-decoration: none;
+	font-size: 14px;
+	color: rgb(230, 230, 230);
+}
 
 .buttonlink {
 	background-color: rgb(192, 45, 40);

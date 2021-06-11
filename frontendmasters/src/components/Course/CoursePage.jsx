@@ -71,9 +71,9 @@ export const CoursePage = () => {
 							value={title}
 							placeholder="Type to search..."
 						/>
-						<Serachbut onClick={handleFilterCourse}>
+						{/* <Serachbut onClick={handleFilterCourse}>
 							<i className="fa fa-search"></i>
-						</Serachbut>
+						</Serachbut> */}
 					</Inputbtnbox>
 				</Inputbox>
 			</Container>
@@ -88,7 +88,7 @@ export const CoursePage = () => {
 							handleHead(e);
 						}}
 					>
-						<Link to="/courses/all">All Courses</Link>
+						<Link className="courselinks" to="/courses/all">All Courses</Link>
 					</Buttons>
 					<Buttons
 						// className="tablinks"
@@ -98,7 +98,7 @@ export const CoursePage = () => {
 							handleHead(e);
 						}}
 					>
-						<Link to="/courses/popular">Popular Courses</Link>
+						<Link className="courselinks"  to="/courses/popular">Popular Courses</Link>
 					</Buttons>
 					<Buttons
 					// className="tablinks"

@@ -26,13 +26,12 @@ import {
 	PreviewButton,
 	AccessButton,
 } from "./AllCoursesStyles";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "../Navbar/Navbar.css";
 
 import { SearchCourses } from "../Popular/SearchCourses";
 
 // import { FilterAuthordata } from "../../redux/Author/authoraction";
-
 
 export const AllCourses = ({ title }) => {
 	console.log(title);
@@ -48,30 +47,30 @@ export const AllCourses = ({ title }) => {
 		if (title.length === 0) {
 			dispatch(FetchCoursedata());
 		}
+	}, [dispatch, title]);
+	if (title.length > 0) {
+		console.log(coursedata);
+		const a = coursedata
+			.filter((item) => item.type === title)
+			.map((item) => item.title);
+		console.log(a);
+		return (
+			<>
+				{coursedata
+					.filter((item) => item.type === title)
+					.map((item) => item && <SearchCourses key={item.id} item={item} />)}
+			</>
+		);
+	}
 
-		
-	}, [dispatch,title]);
-   if(title.length>0)
-   {
-	   console.log(coursedata);
-	   const a=coursedata.filter((item)=>(item.type===title)).map((item)=>(item.title))
-	   console.log(a);
-       return(
-		   <>
-		    {
-				coursedata.filter((item)=>item.type===title).map((item)=>(
-					item&&<SearchCourses key={item.id} item={item} />
-				))
-			}
-		   </>
-	   )
-   }
-
-	
-
+	// const history = useHistory();
 	const handlePreview = (id) => {
 		dispatch(PreviewCoursedata(id));
 	};
+
+	// if (isSuccess) {
+	// 	history.push("/preview-course");
+	// }
 
 	// const handleAuthordata = (authorname) => {
 	// 	dispatch(FilterAuthordata(authorname));
@@ -116,12 +115,13 @@ export const AllCourses = ({ title }) => {
 												<Subtitles>{item.sub_titles ? "CC" : "No"}</Subtitles>
 											</Timebox>
 											<Buttonbox>
-												<PreviewButton
-													onClick={() => {
-														handlePreview(item.id);
-													}}
-												>
-													Watch Free Preview
+												<PreviewButton>
+													<Link
+														to={`/courses/preview-course/${item.id}`}
+														className="authname2"
+													>
+														Watch Free Preview
+													</Link>
 												</PreviewButton>
 												<AccessButton>Get Full Access</AccessButton>
 											</Buttonbox>

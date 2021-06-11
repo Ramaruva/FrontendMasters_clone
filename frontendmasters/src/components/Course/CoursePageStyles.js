@@ -120,8 +120,10 @@ const Input = styled.input`
 	font-size: 18px;
 	/* border-radius: 5px; */
 	outline: none;
-	border-top-left-radius: 5px;
+	/* border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px;
+	 */
+	border-radius: 5px;
 	float: right;
 	transition: background 0.4s;
 	&::placeholder {
