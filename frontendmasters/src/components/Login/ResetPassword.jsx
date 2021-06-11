@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import React from "react";
+import Footer from "../Footer/Footer";
 
 const Form = styled.div`
 	padding: 30px 30px 20px;
@@ -107,33 +108,36 @@ const Form = styled.div`
 `;
 export const ResetPassword = () => {
 	return (
-		<div>
-			<Form>
-				<form>
-					<div className="formrow">
-						<label className="label">
-							Enter your email or username and we'll email you a link to reset
-							your password.
-						</label>
-						<br></br>
-						<input
-							name="username"
-							type="text"
-							title="Please Enter Valid Email id"
-							required
-							className="inputbox"
-							placeholder="Username or Email"
-						/>
-						<div className="formerror"></div>
-					</div>
+		<>
+			<div>
+				<Form>
+					<form>
+						<div className="formrow">
+							<label className="label">
+								Enter your email or username and we'll email you a link to reset
+								your password.
+							</label>
+							<br></br>
+							<input
+								name="username"
+								type="text"
+								title="Please Enter Valid Email id"
+								required
+								className="inputbox"
+								placeholder="Username or Email"
+							/>
+							<div className="formerror"></div>
+						</div>
 
-					<div className="terms">
-						<button type="submit" className="redButton">
-							Reset Password
-						</button>
-					</div>
-				</form>
-			</Form>
-		</div>
+						<div className="terms">
+							<button type="submit" className="redButton">
+								Reset Password
+							</button>
+						</div>
+					</form>
+				</Form>
+			</div>
+			<Footer />
+		</>
 	);
 };

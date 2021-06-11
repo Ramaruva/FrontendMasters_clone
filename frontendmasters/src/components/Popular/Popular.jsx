@@ -26,7 +26,8 @@ import {
 	CourseImage,
 } from "./PopularStyles";
 import { SearchCourses } from "./SearchCourses";
-export const Popular = ({title}) => {
+import Footer from "../Footer/Footer";
+export const Popular = ({ title }) => {
 	const { populardata, isLoading, isError, isSuccess } = useSelector(
 		(state) => state.popular
 	);
@@ -35,19 +36,16 @@ export const Popular = ({title}) => {
 
 	useEffect(() => {
 		dispatch(FetchPopulardata());
-	}, [dispatch,title]);
-   if(title.length>0)
-   {
-	   return(
-		   <>
-		      {
-				  populardata?.filter((item)=>item.type===title&&item.rating>4).map((item)=>(
-					  item&&<SearchCourses key={item.id} item={item} />
-				  ))
-			  }
-		   </>
-	   )
-   }
+	}, [dispatch, title]);
+	if (title.length > 0) {
+		return (
+			<>
+				{populardata
+					?.filter((item) => item.type === title && item.rating > 4)
+					.map((item) => item && <SearchCourses key={item.id} item={item} />)}
+			</>
+		);
+	}
 	return isLoading ? (
 		<LoaderSpinner />
 	) : isError ? (
@@ -55,39 +53,44 @@ export const Popular = ({title}) => {
 			404 Something went wroung
 		</h2>
 	) : (
-		<div>
-			{populardata.filter((item)=>item.rating>=4).map((item) => {
-				return (
-					<div key={item.id}>
-						<PopularContainer>
-							<CourseImage bgimage={item.background_image}></CourseImage>
-							<ContentBoxpop>
-								<Title>{item.title}</Title>
-								<Pro>
-									<Profilebox>
-										<ProfileImage src={item.profile_pic}></ProfileImage>
-									</Profilebox>
-									<Profilecontent>
-										<AuthorName>{item.author_name}</AuthorName>
-										<CompanyName>{item.company_name}</CompanyName>
-									</Profilecontent>
-								</Pro>
-								<AboutAuthor>
-									<Aboutcontent>{item.about}</Aboutcontent>
-									<Timebox>
-										<Time>{item.time}</Time>
-										<Subtitles>{item.sub_titles ? "CC" : "No"}</Subtitles>
-									</Timebox>
-									<Buttonbox>
-										<PreviewButton>Watch Free Preview</PreviewButton>
-										<AccessButton>Get Full Access</AccessButton>
-									</Buttonbox>
-								</AboutAuthor>
-							</ContentBoxpop>
-						</PopularContainer>
-					</div>
-				);
-			})}
-		</div>
+		<>
+			<div>
+				{populardata
+					.filter((item) => item.rating >= 4)
+					.map((item) => {
+						return (
+							<div key={item.id}>
+								<PopularContainer>
+									<CourseImage bgimage={item.background_image}></CourseImage>
+									<ContentBoxpop>
+										<Title>{item.title}</Title>
+										<Pro>
+											<Profilebox>
+												<ProfileImage src={item.profile_pic}></ProfileImage>
+											</Profilebox>
+											<Profilecontent>
+												<AuthorName>{item.author_name}</AuthorName>
+												<CompanyName>{item.company_name}</CompanyName>
+											</Profilecontent>
+										</Pro>
+										<AboutAuthor>
+											<Aboutcontent>{item.about}</Aboutcontent>
+											<Timebox>
+												<Time>{item.time}</Time>
+												<Subtitles>{item.sub_titles ? "CC" : "No"}</Subtitles>
+											</Timebox>
+											<Buttonbox>
+												<PreviewButton>Watch Free Preview</PreviewButton>
+												<AccessButton>Get Full Access</AccessButton>
+											</Buttonbox>
+										</AboutAuthor>
+									</ContentBoxpop>
+								</PopularContainer>
+							</div>
+						);
+					})}
+			</div>
+			<Footer />
+		</>
 	);
 };

@@ -29,6 +29,7 @@ import {
 	AccessButton,
 	Heading,
 } from "../Course/AllCoursesStyles";
+import Footer from "../Footer/Footer";
 const Profilebox1 = styled.div`
 	width: 150px;
 	cursor: pointer;
@@ -172,97 +173,102 @@ export const AuthorData = () => {
 	console.log(authordata);
 
 	return (
-		<div>
-			<Backgroundimg1 bgimage={big_profile}>
-				<Aboutauthor1>
-					<Pro1>
-						<Profilebox1>
-							<ProfileImage1 src={profile_pic}></ProfileImage1>
-						</Profilebox1>
-						<Profilecontent1>
-							<AuthorName1>{author}</AuthorName1>
-							<CompanyName1>{company_name}</CompanyName1>
-							<AboutAuthor2>
-								<Aboutcontent1>{about_author}</Aboutcontent1>
-							</AboutAuthor2>
-						</Profilecontent1>
-					</Pro1>
-					<Social1>
-						<a href={blog} target="_blank" className="anchortag">
-							<img
-								className="imagecontrol"
-								src="https://icon-library.com/images/circle-blogger-512.png"
-								alt="blog.png"
-							/>
-						</a>
-						<a href={github} target="_blank" className="anchortag">
-							<img
-								className="imagecontrol"
-								src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSydz6A-sYVmfwH5ZYXmGg2-8C4Noq1tYpy4lK0IA2f00cUXXnyZQwcH-nZB6IxcMncY&usqp=CAU"
-								alt="blog.png"
-							/>
-						</a>
-						<a href={Linkedin} target="_blank" className="anchortag">
-							<img
-								className="imagecontrol"
-								src="https://www.pngarea.com/pngs/102/1113783_linkedin-icon-png-twitter-facebook-linkedin-png-download.png"
-								alt="blog.png"
-							/>
-						</a>
+		<>
+			<div>
+				<Backgroundimg1 bgimage={big_profile}>
+					<Aboutauthor1>
+						<Pro1>
+							<Profilebox1>
+								<ProfileImage1 src={profile_pic}></ProfileImage1>
+							</Profilebox1>
+							<Profilecontent1>
+								<AuthorName1>{author}</AuthorName1>
+								<CompanyName1>{company_name}</CompanyName1>
+								<AboutAuthor2>
+									<Aboutcontent1>{about_author}</Aboutcontent1>
+								</AboutAuthor2>
+							</Profilecontent1>
+						</Pro1>
+						<Social1>
+							<a href={blog} target="_blank" className="anchortag">
+								<img
+									className="imagecontrol"
+									src="https://icon-library.com/images/circle-blogger-512.png"
+									alt="blog.png"
+								/>
+							</a>
+							<a href={github} target="_blank" className="anchortag">
+								<img
+									className="imagecontrol"
+									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSydz6A-sYVmfwH5ZYXmGg2-8C4Noq1tYpy4lK0IA2f00cUXXnyZQwcH-nZB6IxcMncY&usqp=CAU"
+									alt="blog.png"
+								/>
+							</a>
+							<a href={Linkedin} target="_blank" className="anchortag">
+								<img
+									className="imagecontrol"
+									src="https://www.pngarea.com/pngs/102/1113783_linkedin-icon-png-twitter-facebook-linkedin-png-download.png"
+									alt="blog.png"
+								/>
+							</a>
 
-						<a href={twitter} target="_blank" className="anchortag">
-							<img
-								className="imagecontrol"
-								src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsEoqArAKCFNxiG1mCGClEVTBMpV590XdDYP5dSUXBJSha4tWwpjcXKtF7mOANbCwg_yI&usqp=CAU"
-								alt="blog.png"
-							/>
-						</a>
-					</Social1>
-				</Aboutauthor1>
-			</Backgroundimg1>
-			<br />
-			<br />
-			<Heading>{author} 's Courses</Heading>
-			<br />
-			<hr size="1" width="1240" align="center" />
-			<br />
-			<Allcoursebox>
-				{coursedata
-					.filter((item) => item.author_name === author)
-					.map((item) => {
-						return (
-							<div  key={item.id}>
-								<Conatiner bgimage={item.background_image}>
-									<Minicontainer>
-										<Content>
-											<Title>{item.title}</Title>
-											<Pro>
-												<Profilebox>
-													<ProfileImage src={item.profile_pic}></ProfileImage>
-												</Profilebox>
-												<Profilecontent>
-													<AuthorName>{item.author_name}</AuthorName>
-													<CompanyName>{item.company_name}</CompanyName>
-												</Profilecontent>
-											</Pro>
-											<AboutAuthor>
-												<Aboutcontent>{item.about}</Aboutcontent>
-												<Timebox>
-													<Time>{item.time}</Time>
-													<Subtitles>{item.sub_titles ? "CC" : "No"}</Subtitles>
-												</Timebox>
-												<Buttonbox>
-													<PreviewButton>Watch Free Preview</PreviewButton>
-													<AccessButton>Get Full Access</AccessButton>
-												</Buttonbox>
-											</AboutAuthor>
-										</Content>
-									</Minicontainer>
-								</Conatiner>
-							</div>
-						);
-					})}
-			</Allcoursebox>
-		</div>
+							<a href={twitter} target="_blank" className="anchortag">
+								<img
+									className="imagecontrol"
+									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsEoqArAKCFNxiG1mCGClEVTBMpV590XdDYP5dSUXBJSha4tWwpjcXKtF7mOANbCwg_yI&usqp=CAU"
+									alt="blog.png"
+								/>
+							</a>
+						</Social1>
+					</Aboutauthor1>
+				</Backgroundimg1>
+				<br />
+				<br />
+				<Heading>{author} 's Courses</Heading>
+				<br />
+				<hr size="1" width="1240" align="center" />
+				<br />
+				<Allcoursebox>
+					{coursedata
+						.filter((item) => item.author_name === author)
+						.map((item) => {
+							return (
+								<div key={item.id}>
+									<Conatiner bgimage={item.background_image}>
+										<Minicontainer>
+											<Content>
+												<Title>{item.title}</Title>
+												<Pro>
+													<Profilebox>
+														<ProfileImage src={item.profile_pic}></ProfileImage>
+													</Profilebox>
+													<Profilecontent>
+														<AuthorName>{item.author_name}</AuthorName>
+														<CompanyName>{item.company_name}</CompanyName>
+													</Profilecontent>
+												</Pro>
+												<AboutAuthor>
+													<Aboutcontent>{item.about}</Aboutcontent>
+													<Timebox>
+														<Time>{item.time}</Time>
+														<Subtitles>
+															{item.sub_titles ? "CC" : "No"}
+														</Subtitles>
+													</Timebox>
+													<Buttonbox>
+														<PreviewButton>Watch Free Preview</PreviewButton>
+														<AccessButton>Get Full Access</AccessButton>
+													</Buttonbox>
+												</AboutAuthor>
+											</Content>
+										</Minicontainer>
+									</Conatiner>
+								</div>
+							);
+						})}
+				</Allcoursebox>
+			</div>
+			<Footer />
+		</>
 	);
 };
