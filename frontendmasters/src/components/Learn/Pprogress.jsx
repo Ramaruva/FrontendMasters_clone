@@ -51,12 +51,9 @@ function Pprogress() {
 
 function Example(props) {
   return (
-    <div style={{ marginBottom: 80 }}>
-      <div style={{ marginTop: 30, display: "flex" }}>
+    <div style={{ marginTop: -280}}>
+      <div style={{ marginTop: 30, display: "flex"}}>
         <div style={{ width: "100%"}}>{props.children}</div>
-     
-      
-        
       </div>
     </div>
   );
