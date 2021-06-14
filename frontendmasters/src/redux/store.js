@@ -2,16 +2,14 @@ import { applyMiddleware, combineReducers, createStore, compose } from "redux";
 import thunk from "redux-thunk";
 
 import { courseReducer } from "./Courses/coursereducer";
-import { filterReducer } from "./FilterCourse/filterreducer";
+import { learnReducer } from "./LearnPaths/learnreducer";
 import { popualReducer } from "./Popular/popularreducer";
 
 const rootreducer = combineReducers({
 	course: courseReducer,
-	filter: filterReducer,
 	popular: popualReducer,
-	
+	learn: learnReducer,
 });
-
 
 /**
  *

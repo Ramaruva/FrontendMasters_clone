@@ -29,7 +29,9 @@ function Navbars() {
 						</Link>
 					</Hover>
 					<Hover>
-						<Link className="links">Learn</Link>
+						<Link to="/learn" className="links">
+							Learn
+						</Link>
 					</Hover>
 					<Hover>
 						<Link to="/pricing" className="links">
@@ -51,7 +53,7 @@ function Navbars() {
 							paddingTop: "5px",
 						}}
 					>
-						<Link
+						<Link to="/pricing"
 							style={{
 								fontWeight: "500",
 								fontSize: "16px",
