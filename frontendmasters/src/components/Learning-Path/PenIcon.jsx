@@ -2,7 +2,7 @@ import React from "react";
 
 export const PenIcon = () => {
 	return (
-		<div>
+		<div style={{ marginTop: "30px" }}>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				x="0px"

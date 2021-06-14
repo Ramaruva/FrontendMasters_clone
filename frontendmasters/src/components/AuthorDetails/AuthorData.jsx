@@ -230,7 +230,7 @@ export const AuthorData = () => {
 				<Heading>{author} 's Courses</Heading>
 				<br />
 
-				<hr size="1"  />
+				<hr className="break" size="1"  />
 
 				<br />
 				<Allcoursebox>

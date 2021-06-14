@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-import './LearnPath.css'
-import Pprogress from './Pprogress';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./LearnPath.css";
+import Pprogress from "./Pprogress";
 
 
 function Section({url,des,title,color}) {
@@ -22,4 +22,4 @@ function Section({url,des,title,color}) {
     )
 }
 
-export default Section
+export default Section;

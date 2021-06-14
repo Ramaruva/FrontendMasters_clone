@@ -27,6 +27,7 @@ import {
 } from "./PopularStyles";
 import { SearchCourses } from "./SearchCourses";
 import Footer from "../Footer/Footer";
+import { Searching } from "../Course/SearchIncludes";
 export const Popular = ({ title }) => {
 	const { populardata, isLoading, isError, isSuccess } = useSelector(
 		(state) => state.popular
@@ -41,7 +42,7 @@ export const Popular = ({ title }) => {
 		return (
 			<>
 				{populardata
-					?.filter((item) => item.type === title && item.rating > 4)
+					?.filter((item) => Searching(item, title) && item.rating > 4)
 					.map((item) => item && <SearchCourses key={item.id} item={item} />)}
 			</>
 		);
