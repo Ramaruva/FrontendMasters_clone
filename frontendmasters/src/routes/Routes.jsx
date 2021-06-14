@@ -4,7 +4,9 @@ import { BootCamp } from "../components/Bootcamp/BootCamp";
 import { CoursePage } from "../components/Course/CoursePage";
 import { GetFullAccess } from "../components/Course/GetFullAccess";
 import Home from "../components/Home/Home";
-import LearnPath from "../components/Learn/LearnPath"
+import LearnPath from "../components/Learn/LearnPath";
+import { LearnFullAccess } from "../components/Learning-Path/LearnFullAccess";
+import { LearnLevelData } from "../components/Learning-Path/LearnLevelData";
 import { Login } from "../components/Login/Login";
 import { ResetPassword } from "../components/Login/ResetPassword";
 import Navbars from "../components/Navbar/Navbar";
@@ -25,7 +27,13 @@ export const Routes = () => {
 					<CoursePage />
 				</Route>
 				<Route exact path="/learn">
-					<LearnPath/>
+					<LearnPath />
+				</Route>
+				<Route exact path="/learn/:level">
+					<LearnLevelData />
+				</Route>
+				<Route exact path="/learn/:level/:id">
+					<LearnFullAccess />
 				</Route>
 				<Route exact path="/courses/:author_name">
 					<CoursePage />

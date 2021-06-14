@@ -31,14 +31,13 @@ export const FilterLearndata = (payload) => (dispatch) => {
 	//using axios for making network request from server endpoint
 	//we are using our own mockserver as database
 	return axios
-		.get(`http://localhost:3004/learningpaths?type=${payload}`)
+		.get(`https://ramserver54.herokuapp.com/profeesional?level=${payload}`)
 		.then((res) => {
 			//dispatching success action here
 			const successAction = learnSuceess(res.data);
 			dispatch(successAction);
-			// FetchCoursedata();
 
-			// console.log(res.data);
+			console.log(res.data);
 		})
 		.catch((error) => {
 			//dispatching error action here

@@ -31,6 +31,7 @@ import "../Navbar/Navbar.css";
 
 import { SearchCourses } from "../Popular/SearchCourses";
 import Footer from "../Footer/Footer";
+import { Searching } from "./SearchIncludes";
 
 // import { FilterAuthordata } from "../../redux/Author/authoraction";
 
@@ -49,6 +50,8 @@ export const AllCourses = ({ title }) => {
 
 	//fetching the data from server ....dispatching action here...
 
+	
+
 	useEffect(() => {
 		if (title.length === 0) {
 			dispatch(FetchCoursedata());
@@ -63,7 +66,7 @@ export const AllCourses = ({ title }) => {
 		return (
 			<>
 				{coursedata
-					.filter((item) => item.type === title)
+					.filter((item) => Searching(item, title))
 					.map((item) => item && <SearchCourses key={item.id} item={item} />)}
 			</>
 		);

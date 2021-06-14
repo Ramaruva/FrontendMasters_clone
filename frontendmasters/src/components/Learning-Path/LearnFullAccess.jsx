@@ -11,17 +11,9 @@ import {
 	ProfileImage,
 	Profilebox,
 	Title,
-} from "./AllCoursesStyles";
+} from "../Course/AllCoursesStyles";
 
-import {
-	Previewwraper,
-	Imagewraper,
-	Gridpreview,
-	CourseImage,
-	AboutCourseauth,
-	Profilecontent2,
-} from "./GetFullAccessStyels";
-import Videoplayer from "./VideoPlayer";
+import Videoplayer from "../Course/VideoPlayer";
 import Footer from "../Footer/Footer";
 import {
 	Blackwrraper,
@@ -31,11 +23,15 @@ import {
 	Aboutcontent,
 	Publish,
 	Unlimitedbutton,
-} from "./GetFullAccessStyels";
+	Previewwraper,
+	Imagewraper,
+	Gridpreview,
+	CourseImage,
+	AboutCourseauth,
+	Profilecontent2,
+} from "../Course/GetFullAccessStyels";
 
-
-
-export const GetFullAccess = () => {
+export const LearnFullAccess = () => {
 	const [previewData, setPreviewData] = useState("");
 	// console.log(previewdata);
 
@@ -55,15 +51,15 @@ export const GetFullAccess = () => {
 	} = previewData;
 
 	const { id } = useParams();
-
-	const PreviewCoursedata = () => {
+	// console.log(id);
+	const PreviewLearndata = () => {
 		//using axios for making network request from server endpoint
 		//we are using our own mockserver as database
 		return axios
-			.get(`https://ramserver54.herokuapp.com/courses/${id}`)
+			.get(`https://ramserver54.herokuapp.com/profeesional/${id}`)
 			.then((res) => {
 				setPreviewData(res.data);
-				// console.log(res.data);
+				console.log(res.data);
 			})
 			.catch((error) => {
 				console.log(error);
@@ -71,7 +67,7 @@ export const GetFullAccess = () => {
 	};
 
 	useEffect(() => {
-		PreviewCoursedata();
+		PreviewLearndata();
 	}, []);
 
 	return (

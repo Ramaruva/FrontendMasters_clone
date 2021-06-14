@@ -5,11 +5,12 @@
 import { LEARN_FAILURE, LEARN_REQUEST, LEARN_SUCCESS } from "./learnactionType";
 
 const initialstate = {
-	coursedata: [],
+	learndata: [],
 	isLoading: false,
 	isError: false,
 	isSuccess: false,
 	previewdata: "",
+	percentage:0
 };
 
 //basically reducer is a switch case function , perform the operation based
@@ -27,7 +28,7 @@ export const learnReducer = (state = initialstate, { type, payload }) => {
 		case LEARN_SUCCESS:
 			return {
 				...state,
-				coursedata: payload,
+				learndata: payload,
 				isLoading: false,
 				isError: false,
 				isSuccess: true,
