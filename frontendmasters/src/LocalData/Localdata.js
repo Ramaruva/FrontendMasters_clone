@@ -121,7 +121,7 @@ export const learnCourse =[
       url:"https://png.pngtree.com/svg/20170719/javascript_633988.png",
       title:"JavaScript",
       des:"Write Professional, Modern JavaScript",
-      color:"yellow"
+      color:"rgb(179, 145, 28)"
 
    },
    {
