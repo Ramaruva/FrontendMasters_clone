@@ -141,7 +141,7 @@ function Footer() {
                 <stop offset="1" style={{stopColor:"#7024C4"}}></stop>
               </linearGradient>
               <circle
-                // style={{fill:url("#INSTASVG_3_")}}
+                // fill:"url(#INSTASVG_3_)"
                 cx="418.31"
                 cy="134.07"
                 r="34.15"
