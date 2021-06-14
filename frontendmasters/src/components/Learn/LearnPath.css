@@ -16,15 +16,19 @@
     margin-right: 10px;
     margin-left: 14px;
     background-color:rgb(56,56,56) ;
+    padding-top: 40px;
+
+   
 }
 .background{
-    width: 250px;
-    height: 250px;
-    object-fit: contain;
+    
+    width: 230px;
+    height: 230px;
     background-image: url("https://static.thenounproject.com/png/48384-200.png");
     background-repeat: no-repeat;
-    background-size: 200px 200px;
+    background-size: 185px 185px;
     background-position: center;
+    opacity: 0.2;
     margin: auto;
 
 
