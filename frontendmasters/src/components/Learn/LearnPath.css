@@ -1,0 +1,44 @@
+.MainContainer{
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    
+    
+}
+.contain{
+    width: 270px;
+    height: 550px;
+    padding: 10px ;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    margin-left: 14px;
+    background-color:rgb(56,56,56) ;
+}
+.background{
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    background-image: url("https://static.thenounproject.com/png/48384-200.png");
+    background-repeat: no-repeat;
+    background-size: 200px 200px;
+    background-position: center;
+    margin: auto;
+
+
+}
+.btn{
+  background-color: rgb(198,53,40);  
+  width:135px ;
+  padding: 5px;
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
