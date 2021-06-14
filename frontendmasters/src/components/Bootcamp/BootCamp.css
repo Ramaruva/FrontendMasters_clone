@@ -11,8 +11,24 @@
 	/* border: 1px solid white; */
 }
 
-hr {
-	width: 70%;
+.break {
+	width: 92%;
 	margin: auto;
-	margin-left: 200px;
+	margin-left: 50px;
+	@media screen and (max-width: 900px) {
+		/* height: 500px; */
+		display: none;
+		/* width: 100%; */
+	}
+}
+
+.break2 {
+	width: 47%;
+	margin: auto;
+	margin-left: 350px;
+	@media screen and (max-width: 900px) {
+		/* height: 500px; */
+		display: none;
+		/* width: 100%; */
+	}
 }

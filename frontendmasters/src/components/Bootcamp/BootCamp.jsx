@@ -433,7 +433,7 @@ export const BootCamp = () => {
 					</Tutorials>
 				</TutorialBox>
 				<br />
-				<Break size="1"></Break>
+				<hr className="break" size="1"></hr>
 				<br />
 				<TutorialBox2>
 					<Tutorials2>
@@ -458,7 +458,8 @@ export const BootCamp = () => {
 					</Tutorials2>
 				</TutorialBox2>
 				<br />
-				<Break size="1"></Break>
+				<hr className="break" size="1"></hr>
+
 				<br />
 				<Heading3>Bootcamp Curriculum</Heading3>
 				<br />
@@ -472,7 +473,8 @@ export const BootCamp = () => {
 						);
 					})}
 				</Campbox>
-				<Break2 size="1"></Break2>
+				<hr className="break2" size="1"></hr>
+
 				<br />
 				<Campbox2>
 					<LinkBox>
