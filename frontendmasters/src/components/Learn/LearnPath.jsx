@@ -5,7 +5,7 @@ import Section from './Section'
 
 function LearnPath() {
     return (
-        <div>
+        <div style={{marginTop:"60px"}} >
                 <svg  xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 54 54" style={{enableBackground:"new 0 0 54 54",height:"130px"}}><defs>
             
             <linearGradient id="paths-linear" x1="0%" y1="0%" x2="100%" y2="100%">
