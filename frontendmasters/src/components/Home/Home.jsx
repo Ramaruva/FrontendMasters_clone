@@ -1,6 +1,5 @@
-
 import React from "react";
-import "../Home/Homepage.css"
+import "../Home/Homepage.css";
 import hero from "../../assets/hero.mp4";
 import Cbtn from "../Home/Homepage.js";
 import { Subjectimg } from "../../LocalData/Localdata";
@@ -56,4 +55,4 @@ function Home() {
     )
 }
 
-export default Home
+export default Home;

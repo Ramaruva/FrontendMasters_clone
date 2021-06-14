@@ -2,6 +2,9 @@
 	text-decoration: none;
 	color: grey;
 }
+.links:hover {
+	filter: brightness(170%);
+}
 .Navbody {
 	height: 80px;
 	background-color: rgb(61, 19, 12);

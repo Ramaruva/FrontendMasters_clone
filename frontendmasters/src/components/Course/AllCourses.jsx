@@ -30,6 +30,7 @@ import { Link, useHistory } from "react-router-dom";
 import "../Navbar/Navbar.css";
 
 import { SearchCourses } from "../Popular/SearchCourses";
+import Footer from "../Footer/Footer";
 
 // import { FilterAuthordata } from "../../redux/Author/authoraction";
 
@@ -83,56 +84,59 @@ export const AllCourses = ({ title }) => {
 			404 Something went wroung
 		</h2>
 	) : (
-		<div>
-			<Allcoursebox>
-				{coursedata.map((item) => {
-					return (
-						<div key={item.id}>
-							<Conatiner bgimage={item.background_image}>
-								<Minicontainer>
-									<Content>
-										<Title>{item.title}</Title>
-										<Pro>
-											<Profilebox>
-												<ProfileImage src={item.profile_pic}></ProfileImage>
-											</Profilebox>
-											<Profilecontent>
-												<AuthorName>
-													<Link
-														className="authname"
-														to={`/courses/author_name/${item.author_name}`}
-													>
-														{item.author_name}
-													</Link>
-												</AuthorName>
-												<CompanyName>{item.company_name}</CompanyName>
-											</Profilecontent>
-										</Pro>
-										<AboutAuthor>
-											<Aboutcontent>{item.about}</Aboutcontent>
-											<Timebox>
-												<Time>{item.time}</Time>
-												<Subtitles>{item.sub_titles ? "CC" : "No"}</Subtitles>
-											</Timebox>
-											<Buttonbox>
-												<PreviewButton>
-													<Link
-														to={`/courses/preview-course/${item.id}`}
-														className="authname2"
-													>
-														Watch Free Preview
-													</Link>
-												</PreviewButton>
-												<AccessButton>Get Full Access</AccessButton>
-											</Buttonbox>
-										</AboutAuthor>
-									</Content>
-								</Minicontainer>
-							</Conatiner>
-						</div>
-					);
-				})}
-			</Allcoursebox>
-		</div>
+		<>
+			<div>
+				<Allcoursebox>
+					{coursedata.map((item) => {
+						return (
+							<div key={item.id}>
+								<Conatiner bgimage={item.background_image}>
+									<Minicontainer>
+										<Content>
+											<Title>{item.title}</Title>
+											<Pro>
+												<Profilebox>
+													<ProfileImage src={item.profile_pic}></ProfileImage>
+												</Profilebox>
+												<Profilecontent>
+													<AuthorName>
+														<Link
+															className="authname"
+															to={`/courses/author_name/${item.author_name}`}
+														>
+															{item.author_name}
+														</Link>
+													</AuthorName>
+													<CompanyName>{item.company_name}</CompanyName>
+												</Profilecontent>
+											</Pro>
+											<AboutAuthor>
+												<Aboutcontent>{item.about}</Aboutcontent>
+												<Timebox>
+													<Time>{item.time}</Time>
+													<Subtitles>{item.sub_titles ? "CC" : "No"}</Subtitles>
+												</Timebox>
+												<Buttonbox>
+													<PreviewButton>
+														<Link
+															to={`/courses/preview-course/${item.id}`}
+															className="authname2"
+														>
+															Watch Free Preview
+														</Link>
+													</PreviewButton>
+													<AccessButton>Get Full Access</AccessButton>
+												</Buttonbox>
+											</AboutAuthor>
+										</Content>
+									</Minicontainer>
+								</Conatiner>
+							</div>
+						);
+					})}
+				</Allcoursebox>
+			</div>
+			<Footer />
+		</>
 	);
 };
