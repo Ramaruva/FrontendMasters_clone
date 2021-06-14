@@ -199,13 +199,13 @@ export const PricingFrom = ({ plan }) => {
           <div className="terms">
             <div className="termservices">
               BY Clicking Startinng Learning ,your agree to our
-              <NavLink to="/">
+              <a href="https://static.frontendmasters.com/assets/legal/MasterServicesAgreement.pdf">
                 <span className="navlink">Terms of service</span>
-              </NavLink>
+              </a>
               and
-              <NavLink to="/">
+              <a href="https://static.frontendmasters.com/assets/legal/PrivacyPolicy.pdf" >
                 <span className="navlink">Privacy Policy</span>
-              </NavLink>
+              </a>
             </div>
             <button type="submit" className="redButton">
               Start Learning

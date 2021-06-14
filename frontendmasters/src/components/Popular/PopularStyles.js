@@ -42,7 +42,7 @@ const ContentBoxpop = styled.div`
 	height: 100%;
 	margin: auto;
 	/* border: 1px solid red; */
-	background-color: #1b1919;
+	background-color: #000;
 	float: right;
 `;
 

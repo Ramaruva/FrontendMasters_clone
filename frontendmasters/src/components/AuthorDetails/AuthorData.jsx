@@ -30,6 +30,7 @@ import {
 	Heading,
 } from "../Course/AllCoursesStyles";
 import Footer from "../Footer/Footer";
+import { BookIcon } from "./BookIcon";
 const Profilebox1 = styled.div`
 	width: 150px;
 	cursor: pointer;
@@ -223,10 +224,14 @@ export const AuthorData = () => {
 					</Aboutauthor1>
 				</Backgroundimg1>
 				<br />
+				<BookIcon />
+				<br />
 				<br />
 				<Heading>{author} 's Courses</Heading>
 				<br />
-				<hr size="1" width="1240" align="center" />
+
+				<hr size="1"  />
+
 				<br />
 				<Allcoursebox>
 					{coursedata

@@ -8,3 +8,9 @@
 	cursor: pointer;
 	border-radius: 50%;
 }
+
+hr {
+	width: 92%;
+	margin: auto;
+	margin-left: 50px;
+}

@@ -8,6 +8,7 @@ margin-right: 15px;
 margin-left: 15px;
 margin-bottom: 10px;
 width: 250px;
+cursor: pointer;
 color: white;
 font-size:20px;
 border:none;

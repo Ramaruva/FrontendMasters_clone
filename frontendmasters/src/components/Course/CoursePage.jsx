@@ -12,9 +12,7 @@ import {
 	Container,
 	SmallNav,
 	Buttons,
-	Content,
 	Buttonbox,
-	Serachbut,
 	Inputbox,
 	Input,
 	Inputbtnbox,
@@ -22,9 +20,8 @@ import {
 import { Popular } from "../Popular/Popular";
 import "./CoursePage.css";
 
-import { Link, Redirect, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { AuthorData } from "../AuthorDetails/AuthorData";
-import Footer from "../Footer/Footer";
 
 // import { AuthorData } from "../AuthorDetails/AuthorData";
 
@@ -72,9 +69,6 @@ export const CoursePage = () => {
 							value={title}
 							placeholder="Type to search..."
 						/>
-						{/* <Serachbut onClick={handleFilterCourse}>
-							<i className="fa fa-search"></i>
-						</Serachbut> */}
 					</Inputbtnbox>
 				</Inputbox>
 			</Container>
@@ -105,13 +99,11 @@ export const CoursePage = () => {
 							Popular Courses
 						</Link>
 					</Buttons>
-					<Buttons
-					// className="tablinks"
-					// onClick={(e) => {
-					//   ActivationButtons(e, "learning");
-					// }}
-					>
-						Learning Paths
+					<Buttons>
+						{" "}
+						<Link className="courselinks" to="/learn">
+							Learning Paths
+						</Link>
 					</Buttons>
 				</Buttonbox>
 			</SmallNav>

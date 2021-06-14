@@ -68,4 +68,12 @@
 }
 .footerbody {
 	background-color: rgb(17, 17, 17);
+	height: 300px;
+}
+
+a {
+	color: #c02d28;
+	cursor: pointer;
+	text-decoration: underline;
+	font-weight: 500;
 }

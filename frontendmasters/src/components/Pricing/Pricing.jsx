@@ -40,7 +40,7 @@ export const Pricing = () => {
 			<PricingHeading />
 			<p>
 				if You have already have an account,please{" "}
-				<Link to="/login">Login</Link>{" "}
+				<Link style={{color:"#dd625e"}} to="/login">Login</Link>{" "}
 			</p>
 			<PricingPackage handlePlan={handlePlan} />
 			<PricingFrom plan={plan} />

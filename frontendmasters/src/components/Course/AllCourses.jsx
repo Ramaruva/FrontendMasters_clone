@@ -35,11 +35,16 @@ import Footer from "../Footer/Footer";
 // import { FilterAuthordata } from "../../redux/Author/authoraction";
 
 export const AllCourses = ({ title }) => {
-	console.log(title);
+	// console.log(title);
 	const dispatch = useDispatch();
 	const { coursedata, isLoading, isError, isSuccess } = useSelector(
 		(state) => state.course
 	);
+
+	const history = useHistory();
+	const handleAccess = () => {
+		history.push("/pricing");
+	};
 	// console.log(coursedata);
 
 	//fetching the data from server ....dispatching action here...
@@ -63,19 +68,6 @@ export const AllCourses = ({ title }) => {
 			</>
 		);
 	}
-
-	// const history = useHistory();
-	const handlePreview = (id) => {
-		dispatch(PreviewCoursedata(id));
-	};
-
-	// if (isSuccess) {
-	// 	history.push("/preview-course");
-	// }
-
-	// const handleAuthordata = (authorname) => {
-	// 	dispatch(FilterAuthordata(authorname));
-	// };
 
 	return isLoading ? (
 		<LoaderSpinner />
@@ -125,7 +117,9 @@ export const AllCourses = ({ title }) => {
 															Watch Free Preview
 														</Link>
 													</PreviewButton>
-													<AccessButton>Get Full Access</AccessButton>
+													<AccessButton onClick={handleAccess}>
+														Get Full Access
+													</AccessButton>
 												</Buttonbox>
 											</AboutAuthor>
 										</Content>
