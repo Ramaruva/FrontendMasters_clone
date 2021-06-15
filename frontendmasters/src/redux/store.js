@@ -1,5 +1,6 @@
 import { applyMiddleware, combineReducers, createStore, compose } from "redux";
 import thunk from "redux-thunk";
+import { authReducer } from "./auth/auhtReducer";
 
 import { courseReducer } from "./Courses/coursereducer";
 import { filterReducer } from "./FilterCourse/filterreducer";
@@ -9,10 +10,10 @@ const rootreducer = combineReducers({
 	course: courseReducer,
 	filter: filterReducer,
 	popular: popualReducer,
-	
+	author:authReducer,
 });
 
-
+console.log(authReducer)
 /**
  *
  * @param {redux state} state
