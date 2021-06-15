@@ -29,7 +29,7 @@ import { SearchCourses } from "./SearchCourses";
 import Footer from "../Footer/Footer";
 import { Searching } from "../Course/SearchIncludes";
 export const Popular = ({ title }) => {
-	const { populardata, isLoading, isError, isSuccess } = useSelector(
+	const { populardata, isLoading, isError } = useSelector(
 		(state) => state.popular
 	);
 	// console.log(populardata);
