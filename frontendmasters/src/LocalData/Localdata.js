@@ -159,6 +159,7 @@ export const learn = [
 	},
 ];
 
+
 export const learnCourse = [
 	{
 		id:7,
@@ -224,3 +225,5 @@ export const learnCourse = [
 		color: "rgb(210,24,142)",
 	},
 ];
+
+

@@ -1,5 +1,5 @@
 .dots {
-	height: 98vh;
+	height: 608px;
 	width: 100%;
 	position: absolute;
 	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAF0lEQVQYV2NkQAKMULYvAwPDZhgHLAYAD6kBBEMDSU4AAAAASUVORK5CYII="),
@@ -8,7 +8,7 @@
 }
 .Middiv {
 	margin-top: -10px;
-	height: 98vh;
+	height: 608px;
 	width: 100%;
 	background-repeat: no-repeat;
 	background-size: 100% 120%;
@@ -66,6 +66,7 @@
 	margin-top: 20px;
 	height: 163px;
 	width: 240px;
+
 }
 .bootcamp > p {
 	width: 400px;

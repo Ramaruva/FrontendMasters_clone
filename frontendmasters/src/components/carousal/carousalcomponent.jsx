@@ -11,7 +11,7 @@ function Carousalcomponent({img,des,date,name}) {
             <div className="C-des">
                 {des}
             </div>
-            <hr />
+            <hr  />
             <div className="C-des">
          {date}
             </div>

@@ -6,7 +6,6 @@
 }
 .footerlink {
 	margin: auto;
-	margin-top: 50px;
 	display: flex;
 	flex-wrap: wrap;
 	width: 80%;
@@ -69,7 +68,6 @@
 .footerbody {
 	background-color: rgb(17, 17, 17);
 	height: 300px;
-	margin-top:-50px;
 }
 
 a {
