@@ -17,8 +17,8 @@ function Footer() {
 
 				<div className="linkdiv">
 					{footerlink.map((el) => (
-						<Link className="flink" to="">
-							{el}
+						<Link className="flink" to={`${el.links}`}>
+							{el.title}
 						</Link>
 					))}
 				</div>
