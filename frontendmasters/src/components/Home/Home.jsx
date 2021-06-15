@@ -58,8 +58,8 @@ function Home() {
 				<div className="Subject">
 					{Subjectimg.map((el) => (
 						<div>
-							<Link to="">
-								<img id="Subimage" src={el} alt="logo" />
+							<Link to={`/learn/${el.title}`}>
+								<img id="Subimage" src={el.image} alt="logo" />
 							</Link>
 						</div>
 					))}

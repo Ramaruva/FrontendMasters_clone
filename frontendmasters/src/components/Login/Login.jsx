@@ -143,7 +143,7 @@ export const Login = () => {
 							/>
 							<div className="formerror"></div>
 						</div>
-						<input type="checkbox" name="checkbox" required />
+						<input type="checkbox" name="checkbox" />
 						<label className="label" htmlFor="pass_id">
 							Remember Me
 						</label>
