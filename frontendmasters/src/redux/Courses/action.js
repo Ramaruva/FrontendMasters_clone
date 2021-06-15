@@ -129,25 +129,25 @@ export const FilterCoursedata = (payload) => (dispatch) => {
 
 //dynamically fetching the data from the server
 
-export const PreviewCoursedata = (payload) => (dispatch) => {
-	const requestAction = previewRequest();
-	dispatch(requestAction);
-	// console.log(payload);
-	//using axios for making network request from server endpoint
-	//we are using our own mockserver as database
-	return axios
-		.get(`https://ramserver54.herokuapp.com/courses/${payload}`)
-		.then((res) => {
-			//dispatching success action here
-			const successAction = previewSuceess(res.data);
-			dispatch(successAction);
-			// FetchCoursedata();
+// export const PreviewCoursedata = (payload) => (dispatch) => {
+// 	const requestAction = previewRequest();
+// 	dispatch(requestAction);
+// 	// console.log(payload);
+// 	//using axios for making network request from server endpoint
+// 	//we are using our own mockserver as database
+// 	return axios
+// 		.get(`https://ramserver54.herokuapp.com/courses/${payload}`)
+// 		.then((res) => {
+// 			//dispatching success action here
+// 			const successAction = previewSuceess(res.data);
+// 			dispatch(successAction);
+// 			// FetchCoursedata();
 
-			console.log(res.data);
-		})
-		.catch((error) => {
-			//dispatching error action here
-			const failureAction = previewFailure(error);
-			dispatch(failureAction);
-		});
-};
+// 			console.log(res.data);
+// 		})
+// 		.catch((error) => {
+// 			//dispatching error action here
+// 			const failureAction = previewFailure(error);
+// 			dispatch(failureAction);
+// 		});
+// };

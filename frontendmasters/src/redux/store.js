@@ -3,17 +3,16 @@ import thunk from "redux-thunk";
 import { authReducer } from "./auth/auhtReducer";
 
 import { courseReducer } from "./Courses/coursereducer";
-import { filterReducer } from "./FilterCourse/filterreducer";
+import { learnReducer } from "./LearnPaths/learnreducer";
 import { popualReducer } from "./Popular/popularreducer";
 
 const rootreducer = combineReducers({
 	course: courseReducer,
-	filter: filterReducer,
 	popular: popualReducer,
 	author:authReducer,
 });
 
-console.log(authReducer)
+
 /**
  *
  * @param {redux state} state

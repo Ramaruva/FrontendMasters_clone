@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { ActivationButtons } from "./activationbuttons";
 import { AllCourses } from "./AllCourses";
-import { LearningPaths } from "./LearningPaths";
+// import { LearningPaths } from "./LearningPaths";
 import { FilterCoursedata } from "../../redux/Courses/action";
 
 //importing styles from CoursePageStyles
@@ -12,9 +11,7 @@ import {
 	Container,
 	SmallNav,
 	Buttons,
-	Content,
 	Buttonbox,
-	Serachbut,
 	Inputbox,
 	Input,
 	Inputbtnbox,
@@ -22,9 +19,8 @@ import {
 import { Popular } from "../Popular/Popular";
 import "./CoursePage.css";
 
-import { Link, Redirect, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { AuthorData } from "../AuthorDetails/AuthorData";
-import Footer from "../Footer/Footer";
 
 // import { AuthorData } from "../AuthorDetails/AuthorData";
 
@@ -48,6 +44,7 @@ export const CoursePage = () => {
 	// useEffect(() => {
 	// 	dispatch(FilterCoursedata(title));
 	// }, []);
+	
 
 	const [head, setHead] = useState("Frontend Masters Courses");
 
@@ -59,7 +56,7 @@ export const CoursePage = () => {
 		return <AuthorData />;
 	}
 
-	return (
+	return(
 		<>
 			<Container>
 				<Heading>{head}</Heading>
@@ -72,9 +69,6 @@ export const CoursePage = () => {
 							value={title}
 							placeholder="Type to search..."
 						/>
-						{/* <Serachbut onClick={handleFilterCourse}>
-							<i className="fa fa-search"></i>
-						</Serachbut> */}
 					</Inputbtnbox>
 				</Inputbox>
 			</Container>
@@ -105,13 +99,11 @@ export const CoursePage = () => {
 							Popular Courses
 						</Link>
 					</Buttons>
-					<Buttons
-					// className="tablinks"
-					// onClick={(e) => {
-					//   ActivationButtons(e, "learning");
-					// }}
-					>
-						Learning Paths
+					<Buttons>
+						{" "}
+						<Link className="courselinks" to="/learn">
+							Learning Paths
+						</Link>
 					</Buttons>
 				</Buttonbox>
 			</SmallNav>

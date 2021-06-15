@@ -43,7 +43,7 @@ const Minicontainer = styled.div`
 	height: 100%;
 
 	/* border: 1px solid black; */
-	background-color: #1b1919;
+	background-color: #000;
 	float: right;
 `;
 const Content = styled.div`
@@ -94,7 +94,7 @@ const ProfileImage = styled.img`
 const Profilecontent = styled.div`
 	width: 33%;
 	height: 100px;
-	border: 1px solid #1b1919;
+	border: 1px solid #000;
 	margin-left: 120px;
 	margin-top: 10px;
 `;
@@ -165,7 +165,7 @@ const Subtitles = styled.div`
 	height: 25px;
 	/* border: 1px solid white; */
 	margin-left: 10px;
-	margin-top: 13px;
+	margin-top: 0px;
 	border-radius: 10px;
 	background-color: rgb(138, 138, 138);
 	text-align: center;

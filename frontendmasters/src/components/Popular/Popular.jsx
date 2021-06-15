@@ -27,8 +27,9 @@ import {
 } from "./PopularStyles";
 import { SearchCourses } from "./SearchCourses";
 import Footer from "../Footer/Footer";
+import { Searching } from "../Course/SearchIncludes";
 export const Popular = ({ title }) => {
-	const { populardata, isLoading, isError, isSuccess } = useSelector(
+	const { populardata, isLoading, isError } = useSelector(
 		(state) => state.popular
 	);
 	// console.log(populardata);
@@ -41,7 +42,7 @@ export const Popular = ({ title }) => {
 		return (
 			<>
 				{populardata
-					?.filter((item) => item.type === title && item.rating > 4)
+					?.filter((item) => Searching(item, title) && item.rating > 4)
 					.map((item) => item && <SearchCourses key={item.id} item={item} />)}
 			</>
 		);

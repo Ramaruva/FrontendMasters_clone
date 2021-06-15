@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { FetchCoursedata, PreviewCoursedata } from "../../redux/Courses/action";
+import { FetchCoursedata } from "../../redux/Courses/action";
 import { LoaderSpinner } from "./Loader";
 
 //importing styles from "AllCoursesStyles-page"
@@ -31,18 +31,26 @@ import "../Navbar/Navbar.css";
 
 import { SearchCourses } from "../Popular/SearchCourses";
 import Footer from "../Footer/Footer";
+import { Searching } from "./SearchIncludes";
 
 // import { FilterAuthordata } from "../../redux/Author/authoraction";
 
 export const AllCourses = ({ title }) => {
-	console.log(title);
+	// console.log(title);
 	const dispatch = useDispatch();
 	const { coursedata, isLoading, isError, isSuccess } = useSelector(
 		(state) => state.course
 	);
+
+	const history = useHistory();
+	const handleAccess = () => {
+		history.push("/pricing");
+	};
 	// console.log(coursedata);
 
 	//fetching the data from server ....dispatching action here...
+
+	
 
 	useEffect(() => {
 		if (title.length === 0) {
@@ -58,24 +66,11 @@ export const AllCourses = ({ title }) => {
 		return (
 			<>
 				{coursedata
-					.filter((item) => item.type === title)
+					.filter((item) => Searching(item, title))
 					.map((item) => item && <SearchCourses key={item.id} item={item} />)}
 			</>
 		);
 	}
-
-	// const history = useHistory();
-	const handlePreview = (id) => {
-		dispatch(PreviewCoursedata(id));
-	};
-
-	// if (isSuccess) {
-	// 	history.push("/preview-course");
-	// }
-
-	// const handleAuthordata = (authorname) => {
-	// 	dispatch(FilterAuthordata(authorname));
-	// };
 
 	return isLoading ? (
 		<LoaderSpinner />
@@ -125,7 +120,9 @@ export const AllCourses = ({ title }) => {
 															Watch Free Preview
 														</Link>
 													</PreviewButton>
-													<AccessButton>Get Full Access</AccessButton>
+													<AccessButton onClick={handleAccess}>
+														Get Full Access
+													</AccessButton>
 												</Buttonbox>
 											</AboutAuthor>
 										</Content>

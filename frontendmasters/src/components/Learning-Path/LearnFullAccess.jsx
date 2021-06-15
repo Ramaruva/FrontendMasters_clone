@@ -11,17 +11,9 @@ import {
 	ProfileImage,
 	Profilebox,
 	Title,
-} from "./AllCoursesStyles";
+} from "../Course/AllCoursesStyles";
 
-import {
-	Previewwraper,
-	Imagewraper,
-	Gridpreview,
-	CourseImage,
-	AboutCourseauth,
-	Profilecontent2,
-} from "./GetFullAccessStyels";
-import Videoplayer from "./VideoPlayer";
+import Videoplayer from "../Course/VideoPlayer";
 import Footer from "../Footer/Footer";
 import {
 	Blackwrraper,
@@ -31,15 +23,17 @@ import {
 	Aboutcontent,
 	Publish,
 	Unlimitedbutton,
-} from "./GetFullAccessStyels";
-import { useHistory } from "react-router-dom";
+	Previewwraper,
+	Imagewraper,
+	Gridpreview,
+	CourseImage,
+	AboutCourseauth,
+	Profilecontent2,
+} from "../Course/GetFullAccessStyels";
 
-export const GetFullAccess = () => {
+export const LearnFullAccess = () => {
 	const [previewData, setPreviewData] = useState("");
 	// console.log(previewdata);
-
-	// const [isLoading, setIsLoading] = useState(false);
-	// const [isError, setIsError] = useState(false);
 
 	//destructuring the data from previewdata.....
 	const {
@@ -57,29 +51,23 @@ export const GetFullAccess = () => {
 	} = previewData;
 
 	const { id } = useParams();
-
-	const PreviewCoursedata = () => {
+	// console.log(id);
+	const PreviewLearndata = () => {
 		//using axios for making network request from server endpoint
 		//we are using our own mockserver as database
 		return axios
-			.get(`https://ramserver54.herokuapp.com/courses/${id}`)
+			.get(`https://ramserver54.herokuapp.com/profeesional/${id}`)
 			.then((res) => {
 				setPreviewData(res.data);
-				// console.log(res.data);
+				console.log(res.data);
 			})
 			.catch((error) => {
-				//console.log(error);
-				alert(error);
+				console.log(error);
 			});
 	};
 
-	const history = useHistory();
-	const GetfullAccess = () => {
-		history.push("/pricing");
-	};
-
 	useEffect(() => {
-		PreviewCoursedata();
+		PreviewLearndata();
 	}, []);
 
 	return (
@@ -119,9 +107,7 @@ export const GetFullAccess = () => {
 							<Aboutcontent>{description}</Aboutcontent>
 							<Aboutcontent>{preview}</Aboutcontent>
 							<Publish>{publish}</Publish>
-							<Unlimitedbutton onClick={GetfullAccess}>
-								Get Unlimited Access Now
-							</Unlimitedbutton>
+							<Unlimitedbutton>Get Unlimited Access Now</Unlimitedbutton>
 						</Descriptionbox>
 					</Gridvideobox>
 				</Blackwrraper>

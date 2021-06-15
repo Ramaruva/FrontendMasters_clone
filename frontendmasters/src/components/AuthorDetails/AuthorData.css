@@ -8,3 +8,9 @@
 	cursor: pointer;
 	border-radius: 50%;
 }
+
+.break {
+	width: 92%;
+	margin: auto;
+	margin-left: 50px;
+}

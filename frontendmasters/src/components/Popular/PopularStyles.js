@@ -42,8 +42,9 @@ const ContentBoxpop = styled.div`
 	height: 100%;
 	margin: auto;
 	/* border: 1px solid red; */
-	background-color: #1b1919;
+	background-color: #000;
 	float: right;
+	padding-left:10px;
 `;
 
 const Buttonbox = styled.div`
@@ -117,6 +118,26 @@ const AccessButton = styled.button`
 		height: 30px;
 	}
 `;
+const Heading5 = styled.h1`
+	font-family: Open Sans, sans-serif;
+	display: block;
+	font-size: 46px;
+	color: rgb(230, 230, 230);
+	line-height: normal;
+	font-weight: 600;
+	margin-left: 20px;
+	text-align: center;
+`;
+const Para5 = styled.p`
+	color: rgb(230, 230, 230);
+	font-size: 21px;
+	font-family: Open Sans, sans-serif;
+	line-height: 21px;
+	letter-spacing: normal;
+	text-align: center;
+
+	text-size-adjust: 100%;
+`;
 
 export {
 	PopularContainer,
@@ -125,4 +146,6 @@ export {
 	Buttonbox,
 	ContentBoxpop,
 	CourseImage,
+	Para5,
+	Heading5
 };
