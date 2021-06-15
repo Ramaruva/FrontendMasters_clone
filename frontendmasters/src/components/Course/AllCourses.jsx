@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { FetchCoursedata, PreviewCoursedata } from "../../redux/Courses/action";
+import { FetchCoursedata } from "../../redux/Courses/action";
 import { LoaderSpinner } from "./Loader";
 
 //importing styles from "AllCoursesStyles-page"

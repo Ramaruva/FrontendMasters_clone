@@ -8,11 +8,13 @@ function Footer() {
 		<div className="footerbody">
 			<div className="footerlink">
 				<div>
-					<img
-						height="40px"
-						src="https://static.frontendmasters.com/assets/fm/js/frontendmasters.e1e10b58c1.svg"
-						alt="LOGO"
-					/>
+					<Link to="/">
+						<img
+							height="40px"
+							src="https://static.frontendmasters.com/assets/fm/js/frontendmasters.e1e10b58c1.svg"
+							alt="LOGO"
+						/>
+					</Link>
 				</div>
 
 				<div className="linkdiv">

@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { ActivationButtons } from "./activationbuttons";
 import { AllCourses } from "./AllCourses";
-import { LearningPaths } from "./LearningPaths";
+// import { LearningPaths } from "./LearningPaths";
 import { FilterCoursedata } from "../../redux/Courses/action";
 
 //importing styles from CoursePageStyles
@@ -45,6 +44,7 @@ export const CoursePage = () => {
 	// useEffect(() => {
 	// 	dispatch(FilterCoursedata(title));
 	// }, []);
+	
 
 	const [head, setHead] = useState("Frontend Masters Courses");
 
@@ -56,7 +56,7 @@ export const CoursePage = () => {
 		return <AuthorData />;
 	}
 
-	return (
+	return(
 		<>
 			<Container>
 				<Heading>{head}</Heading>

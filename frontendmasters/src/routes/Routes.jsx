@@ -1,4 +1,5 @@
 import { Route, Switch } from "react-router-dom";
+
 import { AuthorData } from "../components/AuthorDetails/AuthorData";
 import { BootCamp } from "../components/Bootcamp/BootCamp";
 import { CoursePage } from "../components/Course/CoursePage";
@@ -11,6 +12,8 @@ import { Login } from "../components/Login/Login";
 import { ResetPassword } from "../components/Login/ResetPassword";
 import Navbars from "../components/Navbar/Navbar";
 import { Pricing } from "../components/Pricing/Pricing";
+import { Guides } from "../components/Guides/Guides";
+
 
 export const Routes = () => {
 	return (
@@ -54,9 +57,9 @@ export const Routes = () => {
 				<Route path="/recover-password">
 					<ResetPassword />
 				</Route>
-				{/* <Route exact path="/fullaccess">
-					<GetFullAccess />
-				</Route> */}
+				<Route path="/guides">
+					<Guides />
+				</Route>
 				<Route>
 					<h2>Page Not found</h2>
 				</Route>

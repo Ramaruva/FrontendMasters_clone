@@ -106,7 +106,7 @@ export const footerlink = [
 	{ title: "Courses", links: "/courses" },
 	{ title: "Learn", links: "/learn" },
 	{ title: "Teachers", links: "/" },
-	{ title: "Guides", links: "/" },
+	{ title: "Guides", links: "/guides" },
 	{ title: "Pricing", links: "/pricing" },
 	{ title: "Login", links: "/login" },
 	{ title: "Join Now", links: "/pricing" },
