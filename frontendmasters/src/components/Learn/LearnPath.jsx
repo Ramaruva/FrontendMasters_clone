@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { learn, learnCourse } from "../../LocalData/Localdata";
 import "./LearnPath.css";
 import Section from "./Section";
 import Footer from "../Footer/Footer";
 
 function LearnPath() {
+	const [learnData, setLearnData] = useState(learn);
+
+	const handleProgress = () => {
+		const newdata = learnData.map((item) => {
+			if (item.title === "Beginner") {
+				return { ...item, pro: 1 };
+			} else {
+				return { ...item };
+			}
+		});
+
+		setLearnData(newdata);
+	};
+
+	useEffect(() => {
+		handleProgress();
+	}, []);
 	return (
 		<div style={{ marginTop: "60px" }}>
 			<svg
@@ -67,10 +84,11 @@ function LearnPath() {
 			<hr style={{ width: "68%", margin: "auto" }} />
 			<br />
 			<div className="MainContainer">
-				{learn.map((el) => {
+				{learnData.map((el) => {
 					return (
 						<div key={el.id}>
 							<Section
+								pro={el.pro}
 								url={el.url}
 								des={el.des}
 								title={el.title}
@@ -136,12 +154,15 @@ function LearnPath() {
 			<br />
 			<div className="MainContainer">
 				{learnCourse.map((el) => (
-					<Section
-						url={el.url}
-						des={el.des}
-						title={el.title}
-						color={el.color}
-					/>
+					<div key={el.id}>
+						<Section
+							pro={el.pro}
+							url={el.url}
+							des={el.des}
+							title={el.title}
+							color={el.color}
+						/>
+					</div>
 				))}
 			</div>
 			<Footer />

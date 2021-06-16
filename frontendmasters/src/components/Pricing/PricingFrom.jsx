@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React, { useState } from "react";
 import { NavLink, Redirect } from "react-router-dom";
-import { useDispatch,  useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../redux/auth/authAction";
 
 const Form = styled.div`
@@ -106,205 +106,185 @@ const Form = styled.div`
 		margin: 0;
 	}
 `;
-const initobj={
-  email:"",
-  firstname:"",
-  lastname:"",
-  password:"",
-  passwordmatch:""
-}
-const checkobj={
-  em:false,
-  fn:false,
-  ln:false,
-  pass:false,
-  passw:false
-}
+const initobj = {
+	email: "",
+	firstname: "",
+	lastname: "",
+	password: "",
+	passwordmatch: "",
+};
+const checkobj = {
+	em: false,
+	fn: false,
+	ln: false,
+	pass: false,
+	passw: false,
+};
 export const PricingFrom = ({ plan }) => {
-  const [data,setData]=useState(initobj);
-  const [check,setCheck]=useState(checkobj);
-  const {email,firstname,lastname,password,passwordmatch}=data;
-  const {em,fn,ln,pass,passw}=check;
-  const dispatch = useDispatch();
-  const loading=useSelector(state=>state.author.loading)
-  const success=useSelector(state=>state.author.success)
-  const failure=useSelector(state=>state.author.failure);
-  console.log(success);
-  const handleChange =(e)=>
-  {
-      const {name,value}=e.target
-      setData({...data,[name]:value});
-  }
-  const handleSubmit =(e)=>{
-    e.preventDefault();
-    if(data.email.length<=0&&!data.email.includes("@"))
-    {
-      setCheck({...check,em:true})
-     
-    }
-    if(data.firstname.length<=0)
-    {
-      setCheck({...check,fn:true})
-     
-    }
-    if(data.lastname.length<=0)
-    {
-      setCheck({...check,ln:true})
-     
-    }
-    if(data.password.length<6)
-    {
-      setCheck({...check,pass:true})
-    }
-    if(data.password!==data.passwordmatch||data.passwordmatch.length<0)
-    {
-      setCheck({...check,passw:true})
-    }
-    if(!check.em&&!check.fn&&!check.pass&&!check.passw)
-    {
-      dispatch(register(data))
-    }
-    
-  }
-  // if(failure)
-  // {
-  //   alert("failed to register")
-  // }
-  if(success)
-  {
-    return <Redirect push to="/login" />
-  }
-  return (
-    <div>
-      <Form>
-        <h2 className="h2class">
-          Register for a <span>{plan}</span> Account
-        </h2>
-        <form onSubmit={handleSubmit}>
-          <div className="formrow">
-            <label className="label">Email</label>
-            <span>(you'll need to confirm this email address)</span>
-            <br></br>
-            <input
-              name="email"
-              type="email"
-              title="Please Enter Valid Email id"
-              value={email}
-              onChange={handleChange}
-             
-              className="inputbox"
-            />
-            <div className="formerror">
-              {em&&"Please Enter Valid Email id"}
-            </div>
-          </div>
-          <div className="sgrid">
-            <div className="sgird1">
-              <label className="label">First Name</label>
-              <br />
-              <input
-                type="text"
-                name="firstname"
-                value={firstname}
-                onChange={handleChange}
-                title="Please Enter First Name"
-               
-                className="inputbox"
-              />
-              <div className="formerror">
-                {fn&&"Please Enter First"}
-              </div>
-            </div>
-            <div className="sgird1">
-              <label className="label">Last Name</label>
-              <br />
-              <input
-                type="text"
-                name="lastname"
-                title="Please Enter First Name"
-                value={lastname}
-                onChange={handleChange}
-               
-                className="inputbox"
-              />
-              <div className="formerror">
-                {ln&&"Please Enter Last Name"}
-              </div>
-            </div>
-          </div>
-          <div className="formrow">
-            <label className="label" htmlFor="pass_id">
-              Password
-            </label>
-            <br />
-            <input
-              type="password"
-              name="password"
-              value={password}
-              onChange={handleChange}
-              title="Please Enter a Password (at least 6 Characters)"
-              minlength="6"
-             
-              className="inputbox"
-            />
-            <div className="formerror">
-              {pass&&"Please Enter a Password of length 6 characters"}
-            </div>
-          </div>
-          <div className="formrow">
-            <label htmlFor="passmatch_id" className="label">
-              Password Again
-            </label>
-            <br />
-            <input
-              type="password"
-              name="passwordmatch"
-              value={passwordmatch}
-              onChange={handleChange}
-              title="Please enter Matching Password"
-              data-match-id="pass_id"
-              className="inputbox"
-            />
-            <div className="formerror">
-              {passw&&"Please enter matching password"}
-            </div>
-          </div>
-          <fieldset className="stripfield">
-            <label htmlFor="payment_id" className="label">
-              Choose Your Payment Method
-            </label>
-            <br />
-            <select name="payment" id="payment_id" className="inputbox">
+	const [data, setData] = useState(initobj);
+	const [check, setCheck] = useState(checkobj);
+	const { email, firstname, lastname, password, passwordmatch } = data;
+	const { em, fn, ln, pass, passw } = check;
+	const dispatch = useDispatch();
+	const loading = useSelector((state) => state.author.loading);
+	const success = useSelector((state) => state.author.success);
+	const failure = useSelector((state) => state.author.failure);
+	console.log(success);
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+		setData({ ...data, [name]: value });
+	};
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		if (data.email.length <= 0 && !data.email.includes("@")) {
+			setCheck({ ...check, em: true });
+		}
+		if (data.firstname.length <= 0) {
+			setCheck({ ...check, fn: true });
+		}
+		if (data.lastname.length <= 0) {
+			setCheck({ ...check, ln: true });
+		}
+		if (data.password.length < 6) {
+			setCheck({ ...check, pass: true });
+		}
+		if (data.password !== data.passwordmatch || data.passwordmatch.length < 0) {
+			setCheck({ ...check, passw: true });
+		}
+		if (!check.em && !check.fn && !check.pass && !check.passw) {
+			dispatch(register(data));
+		}
+	};
+	// if(failure)
+	// {
+	//   alert("failed to register")
+	// }
+	if (success) {
+		return <Redirect push to="/payment" />;
+	}
+	return (
+		<div>
+			<Form>
+				<h2 className="h2class">
+					Register for a <span>{plan}</span> Account
+				</h2>
+				<form onSubmit={handleSubmit}>
+					<div className="formrow">
+						<label className="label">Email</label>
+						<span>(you'll need to confirm this email address)</span>
+						<br></br>
+						<input
+							name="email"
+							type="email"
+							title="Please Enter Valid Email id"
+							value={email}
+							onChange={handleChange}
+							className="inputbox"
+						/>
+						<div className="formerror">
+							{em && "Please Enter Valid Email id"}
+						</div>
+					</div>
+					<div className="sgrid">
+						<div className="sgird1">
+							<label className="label">First Name</label>
+							<br />
+							<input
+								type="text"
+								name="firstname"
+								value={firstname}
+								onChange={handleChange}
+								title="Please Enter First Name"
+								className="inputbox"
+							/>
+							<div className="formerror">{fn && "Please Enter First"}</div>
+						</div>
+						<div className="sgird1">
+							<label className="label">Last Name</label>
+							<br />
+							<input
+								type="text"
+								name="lastname"
+								title="Please Enter First Name"
+								value={lastname}
+								onChange={handleChange}
+								className="inputbox"
+							/>
+							<div className="formerror">{ln && "Please Enter Last Name"}</div>
+						</div>
+					</div>
+					<div className="formrow">
+						<label className="label" htmlFor="pass_id">
+							Password
+						</label>
+						<br />
+						<input
+							type="password"
+							name="password"
+							value={password}
+							onChange={handleChange}
+							title="Please Enter a Password (at least 6 Characters)"
+							minlength="6"
+							className="inputbox"
+						/>
+						<div className="formerror">
+							{pass && "Please Enter a Password of length 6 characters"}
+						</div>
+					</div>
+					<div className="formrow">
+						<label htmlFor="passmatch_id" className="label">
+							Password Again
+						</label>
+						<br />
+						<input
+							type="password"
+							name="passwordmatch"
+							value={passwordmatch}
+							onChange={handleChange}
+							title="Please enter Matching Password"
+							data-match-id="pass_id"
+							className="inputbox"
+						/>
+						<div className="formerror">
+							{passw && "Please enter matching password"}
+						</div>
+					</div>
+					<fieldset className="stripfield">
+						<label htmlFor="payment_id" className="label">
+							Your Payment Method is
+						</label>
+						<br />
+						<input
+							type="text"
+							name="payment"
+							value="Credit/Debit-card"
+							className="inputbox"
+						/>
+						{/* <select name="payment" id="payment_id" className="inputbox">
               <option>Credit/Debit Card</option>
               <option>Paypal</option>
-            </select>
-          </fieldset>
-          <div className="formrow">
-            <div
-              class="g-recaptcha brochure__form__captcha"
-              data-sitekey="6LeqHSEbAAAAABSPac4lSJQ_079Hsd_MYtwCFGPd"
-            ></div>
-          </div>
-          <div className="terms">
-            <div className="termservices">
-              BY Clicking Startinng Learning ,your agree to our
-              <NavLink to="/">
-                <span className="navlink">Terms of service</span>
-              </NavLink>
-              and
-              <NavLink to="/">
-                <span className="navlink">Privacy Policy</span>
-              </NavLink>
-            </div>
-            <button type="submit" className="redButton" disabled={loading}>
-              Start Learning
-            </button>
-          </div>
-        </form>
-      </Form>
-      
-    </div>
-  );
+            </select> */}
+					</fieldset>
+
+					<div className="terms">
+						<div className="termservices">
+							BY Clicking Startinng Learning ,your agree to our
+							<NavLink to="/">
+								<span className="navlink">Terms of service</span>
+							</NavLink>
+							and
+							<NavLink to="/">
+								<span className="navlink">Privacy Policy</span>
+							</NavLink>
+						</div>
+						<button type="submit" className="redButton" disabled={loading}>
+							Proceed to Checkout
+						</button>
+					</div>
+				</form>
+			</Form>
+		</div>
+	);
 };
 
 // 6LeqHSEbAAAAABSPac4lSJQ_079Hsd_MYtwCFGPd

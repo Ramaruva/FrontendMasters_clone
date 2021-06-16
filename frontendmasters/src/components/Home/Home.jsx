@@ -34,7 +34,7 @@ function Home() {
 			<div>
 				<div className="Onvideo">
 					<h1>
-						<strong>Advance Your Skills</strong>
+						<strong className="heading">Advance Your Skills</strong>
 						<br />
 						<span>with In-Depth, Modern</span>
 						<br />

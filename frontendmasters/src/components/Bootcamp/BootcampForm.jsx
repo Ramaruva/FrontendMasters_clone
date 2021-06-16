@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const Form = styled.div`
@@ -108,7 +108,27 @@ const Form = styled.div`
 		text-decoration: underline;
 	}
 `;
-export const BootcampForm = () => {
+
+const init = {
+	email: "",
+	fname: "",
+	lname: "",
+	psd: "",
+	cfnpsd: "",
+};
+export const BootcampForm = (init) => {
+	const [bootcampData, setBootcampData] = useState(init);
+	const { email, psd, cfnpsd, fname, lname } = bootcampData;
+
+	const handleChange = (e) => {
+		let { name, value } = e.target;
+		setBootcampData({ ...bootcampData, [name]: value });
+	};
+
+	const handleBootcamp = (e) => {
+		e.preventDefault();
+		alert("Form submmited successfully");
+	};
 	return (
 		<div>
 			<Form>
@@ -118,6 +138,8 @@ export const BootcampForm = () => {
 						<span>(you'll need to confirm this email address)</span>
 						<br></br>
 						<input
+							onChange={handleChange}
+							value={email}
 							name="email"
 							type="email"
 							title="Please Enter Valid Email id"
@@ -131,6 +153,8 @@ export const BootcampForm = () => {
 							<label className="label">First Name</label>
 							<br />
 							<input
+								onChange={handleChange}
+								value={fname}
 								type="text"
 								name="firstname"
 								title="Please Enter First Name"
@@ -143,6 +167,8 @@ export const BootcampForm = () => {
 							<label className="label">Last Name</label>
 							<br />
 							<input
+								onChange={handleChange}
+								value={lname}
 								type="text"
 								name="firstname"
 								title="Please Enter First Name"
@@ -158,6 +184,8 @@ export const BootcampForm = () => {
 						</label>
 						<br />
 						<input
+							onChange={handleChange}
+							value={psd}
 							type="password"
 							name="password"
 							title="Please Enter a Password (at least 6 Characters)"
@@ -173,6 +201,8 @@ export const BootcampForm = () => {
 						</label>
 						<br />
 						<input
+							onChange={handleChange}
+							value={cfnpsd}
 							type="password"
 							name="passwordmatch"
 							title="Please enter Matching Password"
@@ -182,14 +212,12 @@ export const BootcampForm = () => {
 						<div className="formerror"></div>
 					</div>
 
-					<div className="formrow">
-						<div
-							class="g-recaptcha brochure__form__captcha"
-							data-sitekey="6LeqHSEbAAAAABSPac4lSJQ_079Hsd_MYtwCFGPd"
-						></div>
-					</div>
 					<div className="terms">
-						<button type="submit" className="redButton">
+						<button
+							onClick={handleBootcamp}
+							type="submit"
+							className="redButton"
+						>
 							Start Learning for Free
 						</button>
 					</div>
