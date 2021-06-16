@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./LearnPath.css";
 import Pprogress from "./Pprogress";
 
-function Section({ url, des, title, color }) {
+function Section({ url, des, title, color ,pro}) {
 	return (
 		<div>
 			<div className="contain">
@@ -11,7 +11,7 @@ function Section({ url, des, title, color }) {
 					className="background"
 					style={{ backgroundImage: `url(${url})` }}
 				></div>
-				<Pprogress />
+				<Pprogress pro={pro} />
 				<br />
 				<h2>{title}</h2>
 				<p style={{ height: "70px" }}>{des}</p>

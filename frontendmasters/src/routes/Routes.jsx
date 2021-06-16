@@ -14,6 +14,7 @@ import Navbars from "../components/Navbar/Navbar";
 import { Pricing } from "../components/Pricing/Pricing";
 import { Guides } from "../components/Guides/Guides";
 import { PrivateRoute } from "./PrivateRoutes";
+import { Payment } from "../components/Pricing/Payment";
 
 export const Routes = () => {
 	return (
@@ -60,6 +61,9 @@ export const Routes = () => {
 				<PrivateRoute path="/guides">
 					<Guides />
 				</PrivateRoute>
+				<Route path="/payment">
+					<Payment/>
+				</Route>
 				<Route>
 					<h2>Page Not found</h2>
 				</Route>

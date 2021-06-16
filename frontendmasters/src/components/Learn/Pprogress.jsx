@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { render } from "react-dom";
 
 // Import react-circular-progressbar module and styles
@@ -8,14 +8,22 @@ import "react-circular-progressbar/dist/styles.css";
 // Animation
 import { easeQuadInOut } from "d3-ease";
 import { AnimatedProgressProvider } from "./AnimatedProgressProvider";
+import { useParams } from "react-router-dom";
 
-function Pprogress() {
+function Pprogress({pro}) {
+	const [progressData, setProgressData] = useState(0);
+
+	// if (title === "Expert") {
+	// 	setProgressData(5);
+	// }
+
+	
 	return (
 		<div>
 			<Example label="Fully controlled text animation using react-move">
 				<AnimatedProgressProvider
 					valueStart={100}
-					valueEnd={0}
+					valueEnd={pro}
 					duration={3}
 					reapet
 					easingFunction={easeQuadInOut}
