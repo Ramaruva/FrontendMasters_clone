@@ -13,7 +13,7 @@ import { ResetPassword } from "../components/Login/ResetPassword";
 import Navbars from "../components/Navbar/Navbar";
 import { Pricing } from "../components/Pricing/Pricing";
 import { Guides } from "../components/Guides/Guides";
-
+import { PrivateRoute } from "./PrivateRoutes";
 
 export const Routes = () => {
 	return (
@@ -29,9 +29,9 @@ export const Routes = () => {
 				<Route exact path="/courses/">
 					<CoursePage />
 				</Route>
-				<Route exact path="/learn">
+				<PrivateRoute exact path="/learn">
 					<LearnPath />
-				</Route>
+				</PrivateRoute>
 				<Route exact path="/learn/:level">
 					<LearnLevelData />
 				</Route>
@@ -57,9 +57,9 @@ export const Routes = () => {
 				<Route path="/recover-password">
 					<ResetPassword />
 				</Route>
-				<Route path="/guides">
+				<PrivateRoute path="/guides">
 					<Guides />
-				</Route>
+				</PrivateRoute>
 				<Route>
 					<h2>Page Not found</h2>
 				</Route>

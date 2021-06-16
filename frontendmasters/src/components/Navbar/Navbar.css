@@ -9,9 +9,14 @@
 	height: 80px;
 	background-color: rgb(61, 19, 12);
 }
-@media screen and (max-width: 790px) {
+@media screen and (max-width: 780px) {
 	.Navbody {
-		height: 105px;
+		height: 112px;
+	}
+}
+@media screen and (max-width: 600px) {
+	.Navbody {
+		height: 112px;
 	}
 }
 
