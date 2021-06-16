@@ -9,9 +9,9 @@ import { popualReducer } from "./Popular/popularreducer";
 const rootreducer = combineReducers({
 	course: courseReducer,
 	popular: popualReducer,
-	author:authReducer,
+	author: authReducer,
+	learn: learnReducer,
 });
-
 
 /**
  *

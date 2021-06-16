@@ -117,8 +117,8 @@ export const Login = () => {
 	const logFailure=useSelector(state=>state.author.logFailure);
 	const logLoading=useSelector(state=>state.author.logLoading);
     
-	console.log(logSuccess)
-	console.log(logFailure)
+	// console.log(logSuccess)
+	// console.log(logFailure)
    const dispatch = useDispatch();
 	const handleLogin=(e)=>{
          e.preventDefault();

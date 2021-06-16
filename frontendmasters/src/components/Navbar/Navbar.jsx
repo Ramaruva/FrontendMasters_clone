@@ -8,7 +8,7 @@ import "../Navbar/Navbar.css";
 function Navbars() {
 	//const outSuccess=useSelector(state => state.author.outSuccess);
 	const logSuccess=useSelector(state=>state.author.logSuccess);
-	const success=useSelector(state => state.author.success);
+	// const success=useSelector(state => state.author.success);
 	const dispatch = useDispatch();
 	const handleLogout =()=>
 	{

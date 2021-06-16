@@ -496,7 +496,7 @@ export const BootCamp = () => {
 							<Link style={{ color: "#dd625e" }} to="/login">
 								login
 							</Link>{" "}
-							and return to this page. Otherwise sign-up for a free account now.
+							and return to this page. Otherwise sign-up for a free account now..
 						</Para>
 					</Tutorials3>
 					<Tutorials4>
