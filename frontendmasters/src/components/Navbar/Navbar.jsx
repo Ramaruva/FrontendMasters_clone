@@ -1,9 +1,18 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { logout } from "../../redux/auth/authAction";
 import "../Navbar/Navbar.css";
 
 function Navbars() {
+	//const outSuccess=useSelector(state => state.author.outSuccess);
+	const logSuccess = useSelector((state) => state.author.logSuccess);
+	// const success=useSelector(state => state.author.success);
+	const dispatch = useDispatch();
+	const handleLogout = () => {
+		dispatch(logout());
+	};
 	return (
 		<div className="Navbody">
 			<Navbar>
@@ -20,6 +29,7 @@ function Navbars() {
 						width: "400px",
 						justifyContent: "space-between",
 						display: "flex",
+						minWidth: "400px",
 						paddingTop: "10px",
 					}}
 				>
@@ -34,37 +44,75 @@ function Navbars() {
 						</Link>
 					</Hover>
 					<Hover>
+						{logSuccess ? (
+							<Link to="/guides" className="links">
+								Guides
+							</Link>
+						) : null}
+					</Hover>
+					<Hover>
 						<Link to="/pricing" className="links">
 							Pricing
 						</Link>
 					</Hover>
 					<Hover>
-						<Link to="/login" className="links">
-							Login
-						</Link>
+						{logSuccess ? (
+							<button
+								style={{
+									borderRadius: "30px",
+									width: "100px",
+									border: "none",
+									backgroundColor: "rgb(192,45,40)",
+									marginTop: "-9px",
+									height: "40px",
+									paddingTop: "5px",
+									cursor: "pointer",
+								}}
+								onClick={handleLogout}
+							>
+								<Link
+									style={{
+										fontWeight: "500",
+										fontSize: "16px",
+										textDecoration: "none",
+										fontFamily: "'Open Sans', sans-serif",
+										color: "white",
+									}}
+								>
+									Logout
+								</Link>
+							</button>
+						) : (
+							<Link to="/login" className="links">
+								Login
+							</Link>
+						)}
 					</Hover>
-					<button
-						style={{
-							borderRadius: "30px",
-							width: "100px",
-							border: "none",
-							backgroundColor: "rgb(192,45,40)",
-							marginTop: "-6px",
-							paddingTop: "5px",
-						}}
-					>
-						<Link to="/pricing"
+					{logSuccess ? null : (
+						<button
 							style={{
-								fontWeight: "500",
-								fontSize: "16px",
-								textDecoration: "none",
-								fontFamily: "'Open Sans', sans-serif",
-								color: "white",
+								borderRadius: "30px",
+								width: "100px",
+								border: "none",
+								backgroundColor: "rgb(192,45,40)",
+								marginTop: "-9px",
+								paddingTop: "5px",
 							}}
 						>
-							Join Now
-						</Link>
-					</button>
+							<Link
+								to="/pricing"
+								style={{
+									fontWeight: "500",
+									fontSize: "16px",
+									textDecoration: "none",
+									fontFamily: "'Open Sans', sans-serif",
+									color: "white",
+								}}
+							>
+								Join Now
+							</Link>
+						</button>
+					)}
 				</div>
 			</Navbar>
 			<svg style={{ height: "30", width: "100%", zIndex: "1" }}>

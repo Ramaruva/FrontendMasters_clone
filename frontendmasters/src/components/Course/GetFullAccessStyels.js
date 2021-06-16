@@ -21,7 +21,7 @@ const Previewwraper = styled.div`
 const Imagewraper = styled.div`
 	width: 22%;
 	height: 99%;
-	/* border: 1px solid white; */
+	/* border: 1px solid red; */
 	@media screen and (max-width: 900px) {
 		height: 300px;
 		width: 100%;

@@ -47,6 +47,7 @@ const ProfileImage1 = styled.img`
 const Profilecontent1 = styled.div`
 	width: 63%;
 	height: 100px;
+	/* border: 1px solid white; */
 	/* border: 1px solid #222; */
 	/* border: 1px solid rgba(0, 0, 0, 0.8); */
 	margin-left: 170px;
@@ -78,7 +79,7 @@ const CompanyName1 = styled.p`
 const Pro1 = styled.div`
 	width: 95%;
 	height: 160px;
-	border: 1px solid rgba(0, 0, 0, 0.8);
+	/* border: 1px solid rgba(0, 0, 0, 0.8); */
 	margin: 10px auto;
 `;
 

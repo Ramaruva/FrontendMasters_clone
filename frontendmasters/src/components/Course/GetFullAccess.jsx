@@ -32,12 +32,14 @@ import {
 	Publish,
 	Unlimitedbutton,
 } from "./GetFullAccessStyels";
-
-
+import { useHistory } from "react-router-dom";
 
 export const GetFullAccess = () => {
 	const [previewData, setPreviewData] = useState("");
 	// console.log(previewdata);
+
+	// const [isLoading, setIsLoading] = useState(false);
+	// const [isError, setIsError] = useState(false);
 
 	//destructuring the data from previewdata.....
 	const {
@@ -66,8 +68,14 @@ export const GetFullAccess = () => {
 				// console.log(res.data);
 			})
 			.catch((error) => {
-				console.log(error);
+				//console.log(error);
+				alert(error);
 			});
+	};
+
+	const history = useHistory();
+	const GetfullAccess = () => {
+		history.push("/pricing");
 	};
 
 	useEffect(() => {
@@ -111,7 +119,9 @@ export const GetFullAccess = () => {
 							<Aboutcontent>{description}</Aboutcontent>
 							<Aboutcontent>{preview}</Aboutcontent>
 							<Publish>{publish}</Publish>
-							<Unlimitedbutton>Get Unlimited Access Now</Unlimitedbutton>
+							<Unlimitedbutton onClick={GetfullAccess}>
+								Get Unlimited Access Now
+							</Unlimitedbutton>
 						</Descriptionbox>
 					</Gridvideobox>
 				</Blackwrraper>

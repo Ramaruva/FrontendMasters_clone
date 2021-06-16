@@ -1,5 +1,6 @@
 import { applyMiddleware, combineReducers, createStore, compose } from "redux";
 import thunk from "redux-thunk";
+import { authReducer } from "./auth/auhtReducer";
 
 import { courseReducer } from "./Courses/coursereducer";
 import { learnReducer } from "./LearnPaths/learnreducer";
@@ -8,6 +9,7 @@ import { popualReducer } from "./Popular/popularreducer";
 const rootreducer = combineReducers({
 	course: courseReducer,
 	popular: popualReducer,
+	author: authReducer,
 	learn: learnReducer,
 });
 

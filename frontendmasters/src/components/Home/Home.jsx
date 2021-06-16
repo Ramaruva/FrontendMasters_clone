@@ -34,7 +34,7 @@ function Home() {
 			<div>
 				<div className="Onvideo">
 					<h1>
-						<strong>Advance Your Skills</strong>
+						<strong className="heading">Advance Your Skills</strong>
 						<br />
 						<span>with In-Depth, Modern</span>
 						<br />
@@ -58,8 +58,8 @@ function Home() {
 				<div className="Subject">
 					{Subjectimg.map((el) => (
 						<div>
-							<Link to="">
-								<img id="Subimage" src={el} alt="logo" />
+							<Link to={`/learn/${el.title}`}>
+								<img id="Subimage" src={el.image} alt="logo" />
 							</Link>
 						</div>
 					))}

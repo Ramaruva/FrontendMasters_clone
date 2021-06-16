@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 import Footer from "../Footer/Footer";
+import { useState } from "react";
+import { useDispatch,  useSelector } from "react-redux";
+import { login } from "../../redux/auth/authAction";
 
 const Form = styled.div`
 	padding: 30px 30px 20px;
@@ -108,21 +111,49 @@ const Form = styled.div`
 	}
 `;
 export const Login = () => {
-	return (
+	const [email,setEmail]=useState("");
+	const [password,setPassword]=useState("");
+	const logSuccess=useSelector(state=>state.author.logSuccess);
+	const logFailure=useSelector(state=>state.author.logFailure);
+	const logLoading=useSelector(state=>state.author.logLoading);
+    
+	// console.log(logSuccess)
+	// console.log(logFailure)
+   const dispatch = useDispatch();
+	const handleLogin=(e)=>{
+         e.preventDefault();
+		 const payload={email,password}
+		 dispatch(login(payload))
+		console.log(email,password)
+	}
+	// if(logFailure)
+	// {
+	// 	alert("Login failed")
+	// }
+	// if(logSuccess)
+	// {
+	// 	alert("hi")
+		
+	// }
+	//
+
+	return logSuccess? (<Redirect exact to='/' />):(
 		<>
 			<div>
 				<Form>
-					<form>
+					<form onSubmit={handleLogin} >
 						<div className="formrow">
 							<label className="label">Username or Email</label>
 							<br></br>
 							<input
 								name="username"
-								type="text"
+								type="email"
 								title="Please Enter Valid Email id"
 								required
 								className="inputbox"
-								placeholder="Username or Email"
+								placeholder="Email"
+								value={email}
+								onChange={(e)=>setEmail(e.target.value)}
 							/>
 							<div className="formerror"></div>
 						</div>
@@ -140,16 +171,18 @@ export const Login = () => {
 								placeholder="Password"
 								required
 								className="inputbox"
+								value={password}
+								onChange={(e)=>setPassword(e.target.value)}
 							/>
 							<div className="formerror"></div>
 						</div>
-						<input type="checkbox" name="checkbox" required />
+						<input type="checkbox" name="checkbox"  />
 						<label className="label" htmlFor="pass_id">
 							Remember Me
 						</label>
 
 						<div className="terms">
-							<button type="submit" className="redButton">
+							<button type="submit" className="redButton" disabled={logLoading} >
 								Login
 							</button>
 							<div className="termservices">

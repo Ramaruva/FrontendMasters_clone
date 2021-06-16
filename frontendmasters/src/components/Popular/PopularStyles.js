@@ -44,6 +44,7 @@ const ContentBoxpop = styled.div`
 	/* border: 1px solid red; */
 	background-color: #000;
 	float: right;
+	padding-left:10px;
 `;
 
 const Buttonbox = styled.div`
