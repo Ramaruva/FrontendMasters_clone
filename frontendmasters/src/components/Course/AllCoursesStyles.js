@@ -42,7 +42,7 @@ const Minicontainer = styled.div`
 	width: 80%;
 	height: 100%;
 
-	/* border: 1px solid black; */
+	/* border: 1px solid white; */
 	background-color: #000;
 	float: right;
 `;
@@ -165,7 +165,7 @@ const Subtitles = styled.div`
 	height: 25px;
 	/* border: 1px solid white; */
 	margin-left: 10px;
-	margin-top: 0px;
+	margin-top: 10px;
 	border-radius: 10px;
 	background-color: rgb(138, 138, 138);
 	text-align: center;

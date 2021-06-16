@@ -28,7 +28,7 @@ export const CoursePage = () => {
 	const [title, setTitle] = useState("");
 	const dispatch = useDispatch();
 	const { author_name } = useParams();
-	console.log(author_name);
+	// console.log(author_name);
 	//by changing the title , fetching the data from endpoint of server
 	//fetching the data from server ....dispatching action here...
 

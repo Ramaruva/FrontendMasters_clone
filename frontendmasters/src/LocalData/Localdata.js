@@ -40,6 +40,7 @@ export const Subjectimg = [
 			"data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTI4IDEyOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTE3LjI5IDk4LjFMNjYuMjQgMTI3di0yMi41MUw5OCA4N3ptMy41LTMuMTZWMzQuNTVsLTE4LjY4IDEwLjh2MzguODFsMTguNjcgMTAuNzd6TTEwLjcxIDk4LjFsNTEgMjguODh2LTIyLjQ5TDI5Ljk0IDg3em0tMy41LTMuMTZWMzQuNTVsMTguNjggMTAuOHYzOC44MXptMi4xOS02NC4zTDYxLjc2IDF2MjEuNzZMMjguMjEgNDEuMjFsLS4yNy4xNXptMTA5LjE4IDBMNjYuMjQgMXYyMS43Nkw5OS43OSA0MS4ybC4yNy4xNSAxOC41NC0xMC43MXoiIGZpbGw9IiM4ZWQ2ZmIiLz48cGF0aCBkPSJNNjEuNzYgOTkuMzdMMzAuMzcgODIuMVY0Ny45Mkw2MS43NiA2NnptNC40OCAwbDMxLjM5LTE3LjI1di0zNC4yTDY2LjI0IDY2ek0zMi41IDQ0TDY0IDI2LjY2IDk1LjUgNDQgNjQgNjIuMTZ6IiBmaWxsPSIjMWM3OGMwIi8+PC9zdmc+",
 	},
 ];
+
 export const twiter = [
 	{
 		img: "https://pbs.twimg.com/profile_images/1111257701835788290/7U7PLuAK_reasonably_small.jpg",
@@ -102,6 +103,7 @@ export const twiter = [
 		date: "11:43pm · Apr 28, 2020",
 	},
 ];
+
 export const footerlink = [
 	{ title: "Courses", links: "/courses" },
 	{ title: "Learn", links: "/learn" },
