@@ -1,9 +1,19 @@
 import React from "react";
+import { useDispatch,  useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { logout } from "../../redux/auth/authAction";
 import "../Navbar/Navbar.css";
 
 function Navbars() {
+	//const outSuccess=useSelector(state => state.author.outSuccess);
+	const logSuccess=useSelector(state=>state.author.logSuccess);
+	// const success=useSelector(state => state.author.success);
+	const dispatch = useDispatch();
+	const handleLogout =()=>
+	{
+		dispatch(logout())
+	}
 	return (
 		<div className="Navbody">
 			<Navbar>
@@ -39,9 +49,11 @@ function Navbars() {
 						</Link>
 					</Hover>
 					<Hover>
-						<Link to="/login" className="links">
+						{
+							logSuccess?<button onClick={handleLogout}>Logout</button>:<Link to="/login" className="links">
 							Login
 						</Link>
+						}
 					</Hover>
 					<button
 						style={{

@@ -14,7 +14,7 @@ const Allcoursebox = styled.div`
 const Conatiner = styled.div`
 	width: 85%;
 	cursor: pointer;
-	height: 450px;
+	height: 420px;
 	margin: 10px auto;
 	/* border: 1px solid white; */
 	filter: brightness(90%);
@@ -165,7 +165,7 @@ const Subtitles = styled.div`
 	height: 25px;
 	/* border: 1px solid white; */
 	margin-left: 10px;
-	margin-top: 10px;
+	margin-top: 0px;
 	border-radius: 10px;
 	background-color: rgb(138, 138, 138);
 	text-align: center;

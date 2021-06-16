@@ -16,7 +16,7 @@ function Section({ url, des, title, color }) {
 				<h2>{title}</h2>
 				<p style={{ height: "70px" }}>{des}</p>
 				<br />
-				<Link to={`learn/${title}`}>
+				<Link to={`/learn/${title}`}>
 					{" "}
 					<button className="btn" style={{ backgroundColor: `${color}` }}>
 						{" "}
