@@ -221,11 +221,10 @@ export const PricingFrom = ({ plan }) => {
 							onChange={handleChange}
 							name="course"
 							id="payment_id"
-              className="inputbox"
-              title="Please select your type of course"
+							className="inputbox"
+							title="Please select your type of course"
 						>
 							<option value="Select">Select</option>
-
 							<option value="Beginner">Beginner</option>
 							<option value="Professional">Professional</option>
 							<option value="Expert">Expert</option>
@@ -244,9 +243,8 @@ export const PricingFrom = ({ plan }) => {
 							onChange={handleChange}
 							name="payment"
 							id="payment_id"
-              className="inputbox"
-              title="Please select your payment method"
-              
+							className="inputbox"
+							title="Please select your payment method"
 						>
 							<option value="Select">Select</option>
 
