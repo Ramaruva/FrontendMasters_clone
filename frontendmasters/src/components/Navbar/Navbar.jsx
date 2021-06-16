@@ -44,6 +44,13 @@ function Navbars() {
 						</Link>
 					</Hover>
 					<Hover>
+						{logSuccess ? (
+							<Link to="/guides" className="links">
+								Guides
+							</Link>
+						) : null}
+					</Hover>
+					<Hover>
 						<Link to="/pricing" className="links">
 							Pricing
 						</Link>
