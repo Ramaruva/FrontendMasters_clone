@@ -1,8 +1,16 @@
 import styled from "styled-components";
-import React, { useState } from "react";
-import { NavLink, Redirect } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../redux/auth/authAction";
+
+import StripeCheckout from "react-stripe-checkout";
+import axios from "axios";
+import { toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
+import { AppContext } from "../../Context/AppContxetProvider";
+toast.configure();
 
 const Form = styled.div`
 	padding: 30px 30px 20px;
@@ -105,6 +113,7 @@ const Form = styled.div`
 		font-family: inherit;
 		margin: 0;
 	}
+	
 `;
 const initobj = {
 	email: "",
@@ -130,6 +139,28 @@ export const PricingFrom = ({ plan }) => {
 	const success = useSelector((state) => state.author.success);
 	const failure = useSelector((state) => state.author.failure);
 	console.log(success);
+	// payment part------>
+	const { price, ispay, setispay } = useContext(AppContext);
+	const [details] = React.useState({
+		plan: price.plan,
+		price: price.price,
+	});
+
+	async function handleToken(token) {
+		const response = await axios.post(
+			"https://aroul303.herokuapp.com/payment",
+			{ token, details }
+		);
+		const status = response.data.token.id;
+		const rate = response.data.details.plan;
+		if (status) {
+			setispay(true);
+			toast(`Successfully completed ${rate} subscription`, { type: "success" });
+		} else {
+			toast("Something went wrong", { type: "error" });
+		}
+	}
+
 	const handleChange = (e) => {
 		const { name, value } = e.target;
 		setData({ ...data, [name]: value });
@@ -155,13 +186,15 @@ export const PricingFrom = ({ plan }) => {
 			dispatch(register(data));
 		}
 	};
-	// if(failure)
-	// {
-	//   alert("failed to register")
-	// }
-	if (success) {
-		return <Redirect push to="/payment" />;
-	}
+
+	const history = useHistory();
+
+	useEffect(() => {
+		if (ispay) {
+			history.push("/login");
+		}
+	}, [ispay]);
+
 	return (
 		<div>
 			<Form>
@@ -277,9 +310,15 @@ export const PricingFrom = ({ plan }) => {
 								<span className="navlink">Privacy Policy</span>
 							</NavLink>
 						</div>
-						<button type="submit" className="redButton" disabled={loading}>
+						{/* <button type="submit" className="redButton" disabled={loading}>
 							Proceed to Checkout
-						</button>
+						</button> */}
+						<StripeCheckout
+							stripeKey="pk_test_51J2c5MSJXP7UJEsaX09X6zs7lMCN3XUj3PYnH67gO15T98UKO3njq0h54A4GMrp28KRX9J0nGgs5nKB0ddJVownD00w9wRgoZa"
+							token={handleToken}
+							price={price.price * 100}
+							plan={price.plan}
+						/>
 					</div>
 				</form>
 			</Form>

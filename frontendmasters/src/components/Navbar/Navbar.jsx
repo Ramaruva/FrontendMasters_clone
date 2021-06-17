@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { AppContext } from "../../Context/AppContxetProvider";
 import { logout } from "../../redux/auth/authAction";
 import "../Navbar/Navbar.css";
 
@@ -10,9 +11,14 @@ function Navbars() {
 	const logSuccess = useSelector((state) => state.author.logSuccess);
 	// const success=useSelector(state => state.author.success);
 	const dispatch = useDispatch();
+
+	const { setispay } = useContext(AppContext);
+
 	const handleLogout = () => {
 		dispatch(logout());
+		setispay(false);
 	};
+
 	return (
 		<div className="Navbody">
 			<Navbar>
@@ -51,9 +57,11 @@ function Navbars() {
 						) : null}
 					</Hover>
 					<Hover>
-						<Link to="/pricing" className="links">
-							Pricing
-						</Link>
+						{logSuccess ? null : (
+							<Link to="/pricing" className="links">
+								Pricing
+							</Link>
+						)}
 					</Hover>
 					<Hover>
 						{logSuccess ? (
