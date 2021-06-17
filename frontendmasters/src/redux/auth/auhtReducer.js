@@ -1,3 +1,4 @@
+import { getData, setData } from "../../localstorage/localstorage";
 import { AUHTSUCCESS, AUTHFAILURE, AUTHLOADING, LOGINFAILURE, LOGINLOADING, LOGINSUCCESS, LOGOUTSUCCESS } from "./authactionTypes";
 
 const initstate={
@@ -9,7 +10,8 @@ const initstate={
     //loginpart
     logLoading:false,
     logFailure:false,
-    logSuccess:false,
+    logSuccess:getData("logFinish")||false,
+    logId:getData("id")||""
 
    // outSuccess:false
 }
@@ -52,11 +54,14 @@ export const authReducer =(state=initstate, { type, payload })=>
                  logFailure:true
              } 
          case LOGINSUCCESS :
+             setData("logFinish",true)
+             setData("id",payload)
              return {
                  ...state,
                  logLoading:false,
                  logFailure:false,
-                 logSuccess:true
+                 logSuccess:true,
+                 logId:payload
              } 
           
              
