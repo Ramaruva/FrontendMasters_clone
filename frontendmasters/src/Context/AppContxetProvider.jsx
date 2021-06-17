@@ -16,7 +16,7 @@ export const AppContextProvider=({children})=>{
         price,
         setprice,
         ispay,
-         setispay
+        setispay
     }
     return(
         <>

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { render } from "react-dom";
 
 // Import react-circular-progressbar module and styles
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
@@ -8,7 +7,6 @@ import "react-circular-progressbar/dist/styles.css";
 // Animation
 import { easeQuadInOut } from "d3-ease";
 import { AnimatedProgressProvider } from "./AnimatedProgressProvider";
-import { useParams } from "react-router-dom";
 
 function Pprogress({pro}) {
 	const [progressData, setProgressData] = useState(0);

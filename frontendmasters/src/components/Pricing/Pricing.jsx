@@ -33,8 +33,10 @@ const Question = styled.div`
 `;
 
 export const Pricing = () => {
-	const {setprice,price}= useContext(AppContext)
+	const { setprice, price } = useContext(AppContext)
+	
 	const [plan, setPlan] = useState("Monthly");
+	
 	const handlePlan = (e) => {
 		
 		setPlan(e.target.id);
