@@ -45,8 +45,9 @@ export const loginFailure = () => ({
   type: LOGINFAILURE,
 });
 
-export const loginSuccess = () => ({
+export const loginSuccess = (payload) => ({
   type: LOGINSUCCESS,
+  payload
 });
 
 export const login =(payload)=>async(dispatch)=>
@@ -55,7 +56,8 @@ export const login =(payload)=>async(dispatch)=>
     const {email,password}=payload
     try {
           await auth.signInWithEmailAndPassword(email, password)
-          dispatch(loginSuccess())
+          return auth.onAuthStateChanged((user)=>dispatch(loginSuccess(user.uid)));
+         
     } catch (error) {
         dispatch(loginFailure())
     }
@@ -71,6 +73,7 @@ export const logout =() => async(dispatch)=>
 {
   try {
     await auth.signOut();
+    localStorage.removeItem('id');
     dispatch(logoutSuccess())
   } catch (error) {
     
