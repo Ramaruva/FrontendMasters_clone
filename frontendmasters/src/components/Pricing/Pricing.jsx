@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { AppContext } from "../../Context/AppContxetProvider";
 import Footer from "../Footer/Footer";
 
 import { PricingFrom } from "./PricingFrom";
 import PricingHeading from "./PricingHeading";
 import { PricingPackage } from "./PricingPackage";
 import { PricingTwitter } from "./PricingTwitter";
-
+  
 const Question = styled.div`
 	padding: 20px 0 80px;
 	text-align: center;
@@ -30,10 +31,42 @@ const Question = styled.div`
 		text-decoration: underline;
 	}
 `;
+
 export const Pricing = () => {
+	const {setprice,price}= useContext(AppContext)
 	const [plan, setPlan] = useState("Monthly");
 	const handlePlan = (e) => {
+		
 		setPlan(e.target.id);
+		if(e.target.id==="YEARLY"){
+         setprice({...price,
+			 plan:"YEARLY",
+			 price:"390$"
+		 })
+		}
+		else if(e.target.id==="Monthly"){
+			setprice({...price,
+				plan:"Monthly",
+				price:"39$"
+			})
+		 
+		}
+		else if(e.target.id==="Monthly Team"){
+			setprice({...price,
+				plan:"Monthly Team",
+				price:"159$"
+			})
+		 
+		}
+		else if(e.target.id==="Yearly Team"){
+			setprice({...price,
+				plan:"Yearly Team",
+				price:"1950$"
+			})
+		 
+		}
+		console.log(price)
+
 	};
 	return (
 		<>
