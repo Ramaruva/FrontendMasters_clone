@@ -3,24 +3,134 @@ import { learn, learnCourse } from "../../LocalData/Localdata";
 import "./LearnPath.css";
 import Section from "./Section";
 import Footer from "../Footer/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserData } from "../Useraxios/UserOperations";
+import { userData } from "../../redux/user/userAction";
 
 function LearnPath() {
 	const [learnData, setLearnData] = useState(learn);
-
+	const [plusLearn,setPlusLearn]=useState(learnCourse);
+    const logId=useSelector((state) => state.author.logId);
+	const data=useSelector((state) => state.user.data);
+   const dispatch =useDispatch();
+	//const data=;
+	console.log(data);
+	const comp="Computer Science"
+	const design="Design to Code"
+	const node="Node Js"
+	const react="React Js"
+	const vue="Vue.js"
+	const angular="Angular.js"
+	const Visualization="Data Visualization with D3.js"
+	const synced="Async JS & Rx.js"
+	console.log(data.comp);
 	const handleProgress = () => {
 		const newdata = learnData.map((item) => {
-			if (item.title === "Beginner") {
-				return { ...item, pro: 1 };
-			} else {
-				return { ...item };
-			}
+			  switch (item.title) {
+				  case "Beginner":
+					   return{
+						   ...item,
+						   pro:Number(data.Beginner)
+					   }
+			      case "Expert": 
+				    return {
+						...item,
+						pro:Number(data.Expert)
+					}	
+				  case "Professional": 
+				    return{
+						...item,
+						pro:Number(data.Professional)
+					}
+			    
+				case "Computer Science": 
+				  return{
+					  ...item,
+					  pro:Number(data[comp])
+				  }	 
+				case "Fullstack": 
+				  return{
+					  ...item,
+					  pro:Number(data.Fullstack)
+				  }  	
+               case "Design to Code": 
+			       return{
+					   ...item,
+					   pro:Number(data[design])
+				   }
+				  default:
+					  return {
+						  ...item,
+					  }
+			  }
 		});
-
+       
 		setLearnData(newdata);
+		const newCourse=plusLearn.map((item) => {
+			switch (item.title)
+			{
+                case "CSS": 
+				return {
+					...item,
+					pro:Number(data.CSS)
+				}
+				case "Node Js" : 
+				return {
+					...item,
+					pro:Number(data[node])
+				}
+		      case "React Js": 
+			  return {
+				  ...item,
+				  pro:Number(data[react])
+			   }
+			  case "Vue.js" :
+				  return {
+					  ...item,
+					  pro:Number(data[vue])
+				  }	
+			 case "Angular.js":  
+			   return {
+				   ...item,
+				   pro:Number(data[angular])
+			   }
+			   case "JavaScript":
+		        return{
+			       ...item,
+			      pro:Number(data.JavaScript)
+		       }
+			  case  "Webpack": 
+			    return {
+					...item,
+					pro:Number(data.Webpack)
+				}	
+			  case "Data Visualization with D3.js": 
+			    return {
+					...item,
+					pro:Number(data[Visualization])
+				}	
+				case "Async JS & Rx.js": 
+				return {
+					...item,
+					pro:Number(data[synced])
+				} 
+			   default :return {...item}	 	
+			}
+		})
+		setPlusLearn(newCourse);
 	};
+	
+	
+	// if (item.title === "Beginner") {
+	// 	return { ...item, pro: 1 };
+	// } else {
+	// 	return { ...item };
+	// }
 
-	useEffect(() => {
-		handleProgress();
+	useEffect(async() => {
+			 
+			 handleProgress();
+		    dispatch(userData(logId))
 	}, []);
 	return (
 		<div style={{ marginTop: "60px" }}>
@@ -153,7 +263,7 @@ function LearnPath() {
 			<hr style={{ width: "68%", margin: "auto" }} />
 			<br />
 			<div className="MainContainer">
-				{learnCourse.map((el) => (
+				{plusLearn.map((el) => (
 					<div key={el.id}>
 						<Section
 							pro={el.pro}

@@ -87,7 +87,7 @@ export const FetchCoursedata = (payload) => (dispatch) => {
 	//using axios for making network request from server endpoint
 	//we are using our own mockserver as database
 	return axios
-		.get("https://ramserver54.herokuapp.com/courses")
+		.get("https://ramserver54.herokuapp.com/profeesional")
 		.then((res) => {
 			//dispatching success action here
 			const successAction = courseSuceess(res.data);

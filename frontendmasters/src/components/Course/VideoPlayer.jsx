@@ -2,12 +2,17 @@ import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import { useHistory } from "react-router-dom";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./VideoPlayer.module.css";
-function Videoplayer({ video }) {
+import { userPatch } from "../../redux/user/userAction";
+function Videoplayer({ video ,level}) {
+	console.log(level)
+	 const data=useSelector((state) => state.user.data)
 	const [counter, setCounter] = useState(false);
 	const [duration, setDuration] = useState("");
+	
+	const dispatch = useDispatch();
 
 	const logSuccess = useSelector((state) => state.author.logSuccess);
 
@@ -39,7 +44,12 @@ function Videoplayer({ video }) {
 					console.log("Video is paused");
 				}}
 				onEnded={() => {
+					console.log({...data,[level]:Number(data[level])+5})
+					const patchdata={...data,[level]:Number(data[level])+5}
+					const id=data.id
+					dispatch(userPatch(patchdata,id))
 					console.log("Video was  ended");
+					
 				}}
 				onError={() => {
 					alert("Something went wroung ,Video is not available");

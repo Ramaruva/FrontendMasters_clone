@@ -66,6 +66,7 @@ export const authReducer =(state=initstate, { type, payload })=>
           
              
          case LOGOUTSUCCESS:
+             setData("logFinish",false)
              return {
                  ...state,
                  logSuccess:false
