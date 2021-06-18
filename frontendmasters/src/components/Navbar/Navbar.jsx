@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -11,13 +12,17 @@ function Navbars() {
 	const logSuccess = useSelector((state) => state.author.logSuccess);
 	// const success=useSelector(state => state.author.success);
 	const dispatch = useDispatch();
+	//const [data,setData]=useState({});
+	const logId =useSelector((state)=> state.author.logId);
+
 
 	const { setispay } = useContext(AppContext);
-
+  
 	const handleLogout = () => {
 		dispatch(logout());
 		setispay(false);
 	};
+   
 
 	return (
 		<div className="Navbody">

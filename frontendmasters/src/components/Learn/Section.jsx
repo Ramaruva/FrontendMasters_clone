@@ -4,6 +4,7 @@ import "./LearnPath.css";
 import Pprogress from "./Pprogress";
 
 function Section({ url, des, title, color ,pro}) {
+	
 	return (
 		<div>
 			<div className="contain">

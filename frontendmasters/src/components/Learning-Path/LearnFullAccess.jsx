@@ -48,6 +48,7 @@ export const LearnFullAccess = () => {
 		video_link,
 		preview,
 		publish,
+		level
 	} = previewData;
 
 	const { id } = useParams();
@@ -101,7 +102,7 @@ export const LearnFullAccess = () => {
 				<Blackwrraper>
 					<Gridvideobox>
 						<Videobox>
-							<Videoplayer video={video_link} />
+							<Videoplayer video={video_link} level={level}/>
 						</Videobox>
 						<Descriptionbox>
 							<Aboutcontent>{description}</Aboutcontent>

@@ -5,12 +5,14 @@ import { authReducer } from "./auth/auhtReducer";
 import { courseReducer } from "./Courses/coursereducer";
 import { learnReducer } from "./LearnPaths/learnreducer";
 import { popualReducer } from "./Popular/popularreducer";
+import { userReducer } from "./user/userReducer";
 
 const rootreducer = combineReducers({
 	course: courseReducer,
 	popular: popualReducer,
 	author: authReducer,
 	learn: learnReducer,
+	user:userReducer
 });
 
 /**
