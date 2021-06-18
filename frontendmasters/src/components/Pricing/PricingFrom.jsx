@@ -138,7 +138,7 @@ export const PricingFrom = ({ plan }) => {
 	const loading = useSelector((state) => state.author.loading);
 	const success = useSelector((state) => state.author.success);
 	const failure = useSelector((state) => state.author.failure);
-	console.log(success);
+	//console.log(success);
 	// payment part------>
 	const { price, ispay, setispay } = useContext(AppContext);
 	const [details] = React.useState({

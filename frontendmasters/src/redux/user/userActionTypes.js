@@ -1,0 +1,3 @@
+export const USER_SUCCESS="USER_SUCCESS"
+
+//export const USER_PATCH_SUCCESS="USER_PATCH_SUCCESS"

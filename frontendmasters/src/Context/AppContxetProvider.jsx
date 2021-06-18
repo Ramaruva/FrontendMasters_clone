@@ -11,7 +11,7 @@ export const AppContext = createContext();
 export const AppContextProvider=({children})=>{
     const [price,setprice] = useState(init)
     const [ispay, setispay] = useState(false)
-
+    
     const value ={
         price,
         setprice,

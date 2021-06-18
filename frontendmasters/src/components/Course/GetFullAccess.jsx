@@ -54,6 +54,7 @@ export const GetFullAccess = () => {
 		video_link,
 		preview,
 		publish,
+		level
 	} = previewData;
 
 	const { id } = useParams();
@@ -61,11 +62,12 @@ export const GetFullAccess = () => {
 	const PreviewCoursedata = () => {
 		//using axios for making network request from server endpoint
 		//we are using our own mockserver as database
+		//https://ramserver54.herokuapp.com/
 		return axios
-			.get(`https://ramserver54.herokuapp.com/courses/${id}`)
+			.get(`https://ramserver54.herokuapp.com/profeesional/${id}`)
 			.then((res) => {
 				setPreviewData(res.data);
-				// console.log(res.data);
+			    console.log(res.data);
 			})
 			.catch((error) => {
 				//console.log(error);
@@ -81,7 +83,7 @@ export const GetFullAccess = () => {
 	useEffect(() => {
 		PreviewCoursedata();
 	}, []);
-
+  console.log(previewData.level);
 	return (
 		<>
 			<div>
@@ -113,7 +115,7 @@ export const GetFullAccess = () => {
 				<Blackwrraper>
 					<Gridvideobox>
 						<Videobox>
-							<Videoplayer video={video_link} />
+							<Videoplayer video={video_link} level={previewData.level}/>
 						</Videobox>
 						<Descriptionbox>
 							<Aboutcontent>{description}</Aboutcontent>
