@@ -113,7 +113,6 @@ const Form = styled.div`
 		font-family: inherit;
 		margin: 0;
 	}
-	
 `;
 const initobj = {
 	email: "",
@@ -203,8 +202,8 @@ export const PricingFrom = ({ plan }) => {
 				</h2>
 				<form onSubmit={handleSubmit}>
 					<div className="formrow">
-						<label className="label">Email</label>
-						<span>(you'll need to confirm this email address)</span>
+						<label className="label">Email </label>
+						<span> (you'll need to confirm this email address)</span>
 						<br></br>
 						<input
 							name="email"
@@ -318,6 +317,9 @@ export const PricingFrom = ({ plan }) => {
 							token={handleToken}
 							price={price.price * 100}
 							plan={price.plan}
+							label="Start Learning"
+							className="redButton"
+							
 						/>
 					</div>
 				</form>

@@ -14,7 +14,7 @@ const Allcoursebox = styled.div`
 const Conatiner = styled.div`
 	width: 85%;
 	cursor: pointer;
-	height: 420px;
+	height: 450px;
 	margin: 10px auto;
 	/* border: 1px solid white; */
 	filter: brightness(90%);
@@ -29,7 +29,7 @@ const Conatiner = styled.div`
 		width: 95%;
 	}
 	@media screen and (max-width: 900px) {
-		height: 550px;
+		height: 570px;
 		width: 83%;
 	}
 	@media screen and (max-width: 600px) {
@@ -58,7 +58,7 @@ const Content = styled.div`
 		width: 83%;
 	}
 	@media screen and (max-width: 600px) {
-		height: 520px;
+		height: 470px;
 		width: 83%;
 	}
 `;
