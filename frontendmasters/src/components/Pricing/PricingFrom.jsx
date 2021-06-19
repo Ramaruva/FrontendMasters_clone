@@ -1,14 +1,14 @@
 import styled from "styled-components";
-import React, { useContext, useEffect, useState } from "react";
-import { NavLink, useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { register } from "../../redux/auth/authAction";
-
-import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
 import { toast } from "react-toastify";
-
+import StripeCheckout from "react-stripe-checkout";
 import "react-toastify/dist/ReactToastify.css";
+// eslint-disable-next-line
+import { useDispatch, useSelector } from "react-redux";
+import React, { useContext, useEffect, useState } from "react";
+import { NavLink, useHistory } from "react-router-dom";
+
+import { register } from "../../redux/auth/authAction";
 import { AppContext } from "../../Context/AppContxetProvider";
 toast.configure();
 
@@ -134,9 +134,9 @@ export const PricingFrom = ({ plan }) => {
 	const { email, firstname, lastname, password, passwordmatch } = data;
 	const { em, fn, ln, pass, passw } = check;
 	const dispatch = useDispatch();
-	const loading = useSelector((state) => state.author.loading);
-	const success = useSelector((state) => state.author.success);
-	const failure = useSelector((state) => state.author.failure);
+	// const loading = useSelector((state) => state.author.loading);
+	// const success = useSelector((state) => state.author.success);
+	// const failure = useSelector((state) => state.author.failure);
 	//console.log(success);
 	// payment part------>
 	const { price, ispay, setispay } = useContext(AppContext);
@@ -192,6 +192,7 @@ export const PricingFrom = ({ plan }) => {
 		if (ispay) {
 			history.push("/login");
 		}
+		// eslint-disable-next-line 
 	}, [ispay]);
 
 	return (
@@ -256,7 +257,7 @@ export const PricingFrom = ({ plan }) => {
 							value={password}
 							onChange={handleChange}
 							title="Please Enter a Password (at least 6 Characters)"
-							minlength="6"
+							minLength="6"
 							className="inputbox"
 						/>
 						<div className="formerror">

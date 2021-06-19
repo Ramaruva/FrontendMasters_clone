@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
 
 import { FetchCoursedata } from "../../redux/Courses/action";
 import { LoaderSpinner } from "./Loader";
@@ -26,11 +27,10 @@ import {
 	PreviewButton,
 	AccessButton,
 } from "./AllCoursesStyles";
-import { Link, useHistory } from "react-router-dom";
 import "../Navbar/Navbar.css";
 
 import { SearchCourses } from "../Popular/SearchCourses";
-import Footer from "../Footer/Footer";
+import {Footer} from "../Footer/Footer";
 import { Searching } from "./SearchIncludes";
 
 // import { FilterAuthordata } from "../../redux/Author/authoraction";
@@ -38,6 +38,7 @@ import { Searching } from "./SearchIncludes";
 export const AllCourses = ({ title }) => {
 	// console.log(title);
 	const dispatch = useDispatch();
+	// eslint-disable-next-line
 	const { coursedata, isLoading, isError, isSuccess } = useSelector(
 		(state) => state.course
 	);

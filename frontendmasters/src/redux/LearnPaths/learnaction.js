@@ -37,7 +37,7 @@ export const FilterLearndata = (payload) => (dispatch) => {
 			const successAction = learnSuceess(res.data);
 			dispatch(successAction);
 
-			console.log(res.data);
+			// console.log(res.data);
 		})
 		.catch((error) => {
 			//dispatching error action here

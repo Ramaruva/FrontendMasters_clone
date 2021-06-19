@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
+import { Link, useParams } from "react-router-dom";
 
 import { AllCourses } from "./AllCourses";
 // import { LearningPaths } from "./LearningPaths";
-import { FilterCoursedata } from "../../redux/Courses/action";
+// import { FilterCoursedata } from "../../redux/Courses/action";
 
 //importing styles from CoursePageStyles
 import {
@@ -19,14 +20,13 @@ import {
 import { Popular } from "../Popular/Popular";
 import "./CoursePage.css";
 
-import { Link, useParams } from "react-router-dom";
 import { AuthorData } from "../AuthorDetails/AuthorData";
 
 // import { AuthorData } from "../AuthorDetails/AuthorData";
 
 export const CoursePage = () => {
 	const [title, setTitle] = useState("");
-	const dispatch = useDispatch();
+	// const dispatch = useDispatch();
 	const { author_name } = useParams();
 	// console.log(author_name);
 	//by changing the title , fetching the data from endpoint of server
@@ -36,10 +36,10 @@ export const CoursePage = () => {
 		setTitle(e.target.value);
 	};
 
-	const handleFilterCourse = () => {
-		dispatch(FilterCoursedata(title));
-		// setTitle(" ");
-	};
+	// const handleFilterCourse = () => {
+	// 	dispatch(FilterCoursedata(title));
+	// 	// setTitle(" ");
+	// };
 
 	// useEffect(() => {
 	// 	dispatch(FilterCoursedata(title));

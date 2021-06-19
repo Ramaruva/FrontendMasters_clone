@@ -30,7 +30,7 @@ import {
 	Para5,
 	Heading5,
 } from "../Popular/PopularStyles";
-import Footer from "../Footer/Footer";
+import {Footer} from "../Footer/Footer";
 import "../Navbar/Navbar.css";
 
 export const LearnLevelData = () => {
@@ -41,6 +41,7 @@ export const LearnLevelData = () => {
 
 	useEffect(() => {
 		dispatch(FilterLearndata(level));
+		// eslint-disable-next-line 
 	}, [dispatch]);
 
 	const { learndata, isLoading, isError } = useSelector((state) => state.learn);

@@ -40,4 +40,4 @@ function Midpage() {
 	);
 }
 
-export default Midpage;
+export  {Midpage};
