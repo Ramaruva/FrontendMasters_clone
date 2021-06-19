@@ -1,5 +1,6 @@
 import React from 'react'
 import "../carousal/carousalcomponent.css"
+
 function Carousalcomponent({img,des,date,name}) {
     return (
         <div className="Combody" >
@@ -19,4 +20,4 @@ function Carousalcomponent({img,des,date,name}) {
     )
 }
 
-export default Carousalcomponent
+export  {Carousalcomponent}

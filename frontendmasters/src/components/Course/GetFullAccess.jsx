@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
+
 import {
 	Subtitles,
 	Time,
@@ -21,8 +23,8 @@ import {
 	AboutCourseauth,
 	Profilecontent2,
 } from "./GetFullAccessStyels";
-import Videoplayer from "./VideoPlayer";
-import Footer from "../Footer/Footer";
+import {Videoplayer} from "./VideoPlayer";
+import {Footer} from "../Footer/Footer";
 import {
 	Blackwrraper,
 	Gridvideobox,
@@ -32,7 +34,6 @@ import {
 	Publish,
 	Unlimitedbutton,
 } from "./GetFullAccessStyels";
-import { useHistory } from "react-router-dom";
 
 export const GetFullAccess = () => {
 	const [previewData, setPreviewData] = useState("");
@@ -54,7 +55,6 @@ export const GetFullAccess = () => {
 		video_link,
 		preview,
 		publish,
-		level
 	} = previewData;
 
 	const { id } = useParams();
@@ -67,7 +67,7 @@ export const GetFullAccess = () => {
 			.get(`https://ramserver54.herokuapp.com/profeesional/${id}`)
 			.then((res) => {
 				setPreviewData(res.data);
-			    console.log(res.data);
+			    // console.log(res.data);
 			})
 			.catch((error) => {
 				//console.log(error);
@@ -82,8 +82,9 @@ export const GetFullAccess = () => {
 
 	useEffect(() => {
 		PreviewCoursedata();
+		// eslint-disable-next-line
 	}, []);
-  console.log(previewData.level);
+//   console.log(previewData.level);
 	return (
 		<>
 			<div>

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import { FetchPopulardata } from "../../redux/Popular/popularaction";
 import { LoaderSpinner } from "../Course/Loader";
 import {
@@ -16,7 +17,6 @@ import {
 	Time,
 	Subtitles,
 } from "../Course/AllCoursesStyles";
-
 import {
 	PopularContainer,
 	AccessButton,
@@ -26,8 +26,9 @@ import {
 	CourseImage,
 } from "./PopularStyles";
 import { SearchCourses } from "./SearchCourses";
-import Footer from "../Footer/Footer";
+import {Footer} from "../Footer/Footer";
 import { Searching } from "../Course/SearchIncludes";
+
 export const Popular = ({ title }) => {
 	const { populardata, isLoading, isError } = useSelector(
 		(state) => state.popular

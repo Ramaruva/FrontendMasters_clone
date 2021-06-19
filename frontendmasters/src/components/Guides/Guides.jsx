@@ -1,7 +1,7 @@
 import React from "react";
-import { frontendGuides } from "./localdata";
-import Footer from "../Footer/Footer";
 
+import { frontendGuides } from "./localdata";
+import {Footer} from "../Footer/Footer";
 import {
 	BookLinks,
 	Container,

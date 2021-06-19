@@ -1,136 +1,137 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import { learn, learnCourse } from "../../LocalData/Localdata";
 import "./LearnPath.css";
 import Section from "./Section";
-import Footer from "../Footer/Footer";
-import { useDispatch, useSelector } from "react-redux";
-import { getUserData } from "../Useraxios/UserOperations";
+import {Footer} from "../Footer/Footer";
+// import { getUserData } from "../Useraxios/UserOperations";
 import { userData } from "../../redux/user/userAction";
 
 function LearnPath() {
 	const [learnData, setLearnData] = useState(learn);
-	const [plusLearn,setPlusLearn]=useState(learnCourse);
-    const logId=useSelector((state) => state.author.logId);
-	const data=useSelector((state) => state.user.data);
-   const dispatch =useDispatch();
+	const [plusLearn, setPlusLearn] = useState(learnCourse);
+	const logId = useSelector((state) => state.author.logId);
+	const data = useSelector((state) => state.user.data);
+	const dispatch = useDispatch();
 	//const data=;
-	console.log(data);
-	const comp="Computer Science"
-	const design="Design to Code"
-	const node="Node Js"
-	const react="React Js"
-	const vue="Vue.js"
-	const angular="Angular.js"
-	const Visualization="Data Visualization with D3.js"
-	const synced="Async JS & Rx.js"
-	console.log(data.comp);
+	// console.log(data);
+	const comp = "Computer Science";
+	const design = "Design to Code";
+	const node = "Node Js";
+	const react = "React Js";
+	const vue = "Vue.js";
+	const angular = "Angular.js";
+	const Visualization = "Data Visualization with D3.js";
+	const synced = "Async JS & Rx.js";
+	// console.log(data.comp);
 	const handleProgress = () => {
 		const newdata = learnData.map((item) => {
-			  switch (item.title) {
-				  case "Beginner":
-					   return{
-						   ...item,
-						   pro:Number(data.Beginner)
-					   }
-			      case "Expert": 
-				    return {
+			switch (item.title) {
+				case "Beginner":
+					return {
 						...item,
-						pro:Number(data.Expert)
-					}	
-				  case "Professional": 
-				    return{
+						pro: Number(data.Beginner),
+					};
+				case "Expert":
+					return {
 						...item,
-						pro:Number(data.Professional)
-					}
-			    
-				case "Computer Science": 
-				  return{
-					  ...item,
-					  pro:Number(data[comp])
-				  }	 
-				case "Fullstack": 
-				  return{
-					  ...item,
-					  pro:Number(data.Fullstack)
-				  }  	
-               case "Design to Code": 
-			       return{
-					   ...item,
-					   pro:Number(data[design])
-				   }
-				  default:
-					  return {
-						  ...item,
-					  }
-			  }
-		});
-       
-		setLearnData(newdata);
-		const newCourse=plusLearn.map((item) => {
-			switch (item.title)
-			{
-                case "CSS": 
-				return {
-					...item,
-					pro:Number(data.CSS)
-				}
-				case "Node Js" : 
-				return {
-					...item,
-					pro:Number(data[node])
-				}
-		      case "React Js": 
-			  return {
-				  ...item,
-				  pro:Number(data[react])
-			   }
-			  case "Vue.js" :
-				  return {
-					  ...item,
-					  pro:Number(data[vue])
-				  }	
-			 case "Angular.js":  
-			   return {
-				   ...item,
-				   pro:Number(data[angular])
-			   }
-			   case "JavaScript":
-		        return{
-			       ...item,
-			      pro:Number(data.JavaScript)
-		       }
-			  case  "Webpack": 
-			    return {
-					...item,
-					pro:Number(data.Webpack)
-				}	
-			  case "Data Visualization with D3.js": 
-			    return {
-					...item,
-					pro:Number(data[Visualization])
-				}	
-				case "Async JS & Rx.js": 
-				return {
-					...item,
-					pro:Number(data[synced])
-				} 
-			   default :return {...item}	 	
+						pro: Number(data.Expert),
+					};
+				case "Professional":
+					return {
+						...item,
+						pro: Number(data.Professional),
+					};
+
+				case "Computer Science":
+					return {
+						...item,
+						pro: Number(data[comp]),
+					};
+				case "Fullstack":
+					return {
+						...item,
+						pro: Number(data.Fullstack),
+					};
+				case "Design to Code":
+					return {
+						...item,
+						pro: Number(data[design]),
+					};
+				default:
+					return {
+						...item,
+					};
 			}
-		})
+		});
+
+		setLearnData(newdata);
+		const newCourse = plusLearn.map((item) => {
+			switch (item.title) {
+				case "CSS":
+					return {
+						...item,
+						pro: Number(data.CSS),
+					};
+				case "Node Js":
+					return {
+						...item,
+						pro: Number(data[node]),
+					};
+				case "React Js":
+					return {
+						...item,
+						pro: Number(data[react]),
+					};
+				case "Vue.js":
+					return {
+						...item,
+						pro: Number(data[vue]),
+					};
+				case "Angular.js":
+					return {
+						...item,
+						pro: Number(data[angular]),
+					};
+				case "JavaScript":
+					return {
+						...item,
+						pro: Number(data.JavaScript),
+					};
+				case "Webpack":
+					return {
+						...item,
+						pro: Number(data.Webpack),
+					};
+				case "Data Visualization with D3.js":
+					return {
+						...item,
+						pro: Number(data[Visualization]),
+					};
+				case "Async JS & Rx.js":
+					return {
+						...item,
+						pro: Number(data[synced]),
+					};
+				default:
+					return { ...item };
+			}
+		});
 		setPlusLearn(newCourse);
 	};
-	
-	
+
 	// if (item.title === "Beginner") {
 	// 	return { ...item, pro: 1 };
 	// } else {
 	// 	return { ...item };
 	// }
 
-	useEffect(async() => {
-			 
-			 handleProgress();
-		    dispatch(userData(logId))
+	// eslint-disable-next-line
+	useEffect(async () => {
+		handleProgress();
+		dispatch(userData(logId));
+		// eslint-disable-next-line
 	}, []);
 	return (
 		<div style={{ marginTop: "60px" }}>
@@ -143,8 +144,8 @@ function LearnPath() {
 			>
 				<defs>
 					<linearGradient id="paths-linear" x1="0%" y1="0%" x2="100%" y2="100%">
-						<stop offset="0%" stop-color="#c23028"></stop>
-						<stop offset="100%" stop-color="#e25d25"></stop>
+						<stop offset="0%" stopColor="#c23028"></stop>
+						<stop offset="100%" stopColor="#e25d25"></stop>
 					</linearGradient>
 				</defs>
 				<g fill="url(#paths-linear)">
@@ -230,8 +231,8 @@ function LearnPath() {
 						x2="100%"
 						y2="100%"
 					>
-						<stop offset="0%" stop-color="#00505f"></stop>
-						<stop offset="100%" stop-color="#01d9ff"></stop>
+						<stop offset="0%" stopColor="#00505f"></stop>
+						<stop offset="100%" stopColor="#01d9ff"></stop>
 					</linearGradient>
 				</defs>
 				<g fill="url(#electives-linear)">

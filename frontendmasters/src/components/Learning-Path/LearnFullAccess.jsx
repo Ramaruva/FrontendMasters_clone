@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
+
 import {
 	Subtitles,
 	Time,
@@ -13,8 +14,8 @@ import {
 	Title,
 } from "../Course/AllCoursesStyles";
 
-import Videoplayer from "../Course/VideoPlayer";
-import Footer from "../Footer/Footer";
+import {Videoplayer} from "../Course/VideoPlayer";
+import {Footer} from "../Footer/Footer";
 import {
 	Blackwrraper,
 	Gridvideobox,
@@ -60,7 +61,7 @@ export const LearnFullAccess = () => {
 			.get(`https://ramserver54.herokuapp.com/profeesional/${id}`)
 			.then((res) => {
 				setPreviewData(res.data);
-				console.log(res.data);
+				// console.log(res.data);
 			})
 			.catch((error) => {
 				console.log(error);
@@ -69,6 +70,7 @@ export const LearnFullAccess = () => {
 
 	useEffect(() => {
 		PreviewLearndata();
+		// eslint-disable-next-line 
 	}, []);
 
 	return (

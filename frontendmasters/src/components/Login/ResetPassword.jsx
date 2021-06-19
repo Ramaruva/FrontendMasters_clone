@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import React from "react";
-import Footer from "../Footer/Footer";
+
+import {Footer} from "../Footer/Footer";
 
 const Form = styled.div`
 	padding: 30px 30px 20px;

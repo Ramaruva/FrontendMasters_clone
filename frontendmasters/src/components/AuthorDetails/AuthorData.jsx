@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
-import styled from "styled-components";
-import { LoaderSpinner } from "../Course/Loader";
-import "./AuthorData.css";
 import { useSelector } from "react-redux";
+import styled from "styled-components";
+
+// import { LoaderSpinner } from "../Course/Loader";
+import "./AuthorData.css";
 
 //importing styles from "AllCoursesStyles-page"
 import {
@@ -29,7 +30,7 @@ import {
 	AccessButton,
 	Heading,
 } from "../Course/AllCoursesStyles";
-import Footer from "../Footer/Footer";
+import {Footer} from "../Footer/Footer";
 import { BookIcon } from "./BookIcon";
 const Profilebox1 = styled.div`
 	width: 150px;
@@ -131,12 +132,11 @@ const Social1 = styled.div`
 export const AuthorData = () => {
 	const [authordata, setAuthorData] = useState("");
 
-	const [isLoading, setIsLoading] = useState(false);
-	const [isError, setIsError] = useState(false);
+	 
 
 	const { author } = useParams();
 
-	console.log(author);
+	// console.log(author);
 
 	const coursedata = useSelector((state) => state.course.coursedata);
 
@@ -147,17 +147,16 @@ export const AuthorData = () => {
 			.get(`https://ramserver54.herokuapp.com/authors/${author}`)
 			.then((res) => {
 				setAuthorData(res.data);
-				setIsLoading(true);
-				console.log(res.data);
+				// console.log(res.data);
 			})
 			.catch((error) => {
-				setIsError(true);
 				alert(error);
 			});
 	};
 
 	useEffect(() => {
 		FilterAuthordata();
+		// eslint-disable-next-line
 	}, []);
 
 	const {
@@ -167,12 +166,11 @@ export const AuthorData = () => {
 		profile_pic,
 		blog,
 		company_name,
-		author_name,
 		big_profile,
 		about_author,
 	} = authordata;
 
-	console.log(authordata);
+	// console.log(authordata);
 
 	return (
 		<>
@@ -192,21 +190,21 @@ export const AuthorData = () => {
 							</Profilecontent1>
 						</Pro1>
 						<Social1>
-							<a href={blog} target="_blank" className="anchortag">
+							<a href={blog}  className="anchortag">
 								<img
 									className="imagecontrol"
 									src="https://icon-library.com/images/circle-blogger-512.png"
 									alt="blog.png"
 								/>
 							</a>
-							<a href={github} target="_blank" className="anchortag">
+							<a href={github}  className="anchortag">
 								<img
 									className="imagecontrol"
 									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSydz6A-sYVmfwH5ZYXmGg2-8C4Noq1tYpy4lK0IA2f00cUXXnyZQwcH-nZB6IxcMncY&usqp=CAU"
 									alt="blog.png"
 								/>
 							</a>
-							<a href={Linkedin} target="_blank" className="anchortag">
+							<a href={Linkedin}  className="anchortag">
 								<img
 									className="imagecontrol"
 									src="https://www.pngarea.com/pngs/102/1113783_linkedin-icon-png-twitter-facebook-linkedin-png-download.png"
@@ -214,7 +212,7 @@ export const AuthorData = () => {
 								/>
 							</a>
 
-							<a href={twitter} target="_blank" className="anchortag">
+							<a href={twitter}  className="anchortag">
 								<img
 									className="imagecontrol"
 									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsEoqArAKCFNxiG1mCGClEVTBMpV590XdDYP5dSUXBJSha4tWwpjcXKtF7mOANbCwg_yI&usqp=CAU"

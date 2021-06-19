@@ -5,9 +5,10 @@ import hero from "../../assets/hero.mp4";
 import Cbtn from "../Home/Homepage.js";
 import { Subjectimg } from "../../LocalData/Localdata";
 import { Link, useHistory } from "react-router-dom";
-import Carousel from "../carousal/carousal";
-import Midpage from "../Midpage/Midpage";
-import Footer from "../Footer/Footer";
+
+import { Carousel } from "../carousal/carousal";
+import { Midpage } from "../Midpage/Midpage";
+import { Footer } from "../Footer/Footer";
 
 function Home() {
 	const history = useHistory();
@@ -57,7 +58,7 @@ function Home() {
 			<div className="Subject-flex">
 				<div className="Subject">
 					{Subjectimg.map((el) => (
-						<div>
+						<div key={el.id}>
 							<Link to={`/learn/${el.title}`}>
 								<img id="Subimage" src={el.image} alt="logo" />
 							</Link>

@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import "./BootCamp.css";
 import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
+
 import { BootcampForm } from "./BootcampForm";
-import Footer from "../Footer/Footer";
+import {Footer} from "../Footer/Footer";
+import "./BootCamp.css";
+
 const Bootcampcont = styled.div`
 	height: 550px;
 	width: 99.9%;
@@ -160,16 +162,16 @@ const Video = styled.div`
 		/* width: 100%; */
 	}
 `;
-const Break = styled.hr`
-	width: 92%;
-	margin: auto;
-	margin-left: 50px;
-	@media screen and (max-width: 900px) {
-		/* height: 500px; */
-		display: none;
-		/* width: 100%; */
-	}
-`;
+// const Break = styled.hr`
+// 	width: 92%;
+// 	margin: auto;
+// 	margin-left: 50px;
+// 	@media screen and (max-width: 900px) {
+// 		/* height: 500px; */
+// 		display: none;
+// 		/* width: 100%; */
+// 	}
+// `;
 
 const TutorialBox2 = styled.div`
 	display: grid;
@@ -246,16 +248,16 @@ const Timing = styled.p`
 	float: right;
 	text-size-adjust: 100%;
 `;
-const Break2 = styled.hr`
-	width: 47%;
-	margin: auto;
-	margin-left: 350px;
-	@media screen and (max-width: 900px) {
-		/* height: 500px; */
-		display: none;
-		/* width: 100%; */
-	}
-`;
+// const Break2 = styled.hr`
+// 	width: 47%;
+// 	margin: auto;
+// 	margin-left: 350px;
+// 	@media screen and (max-width: 900px) {
+// 		/* height: 500px; */
+// 		display: none;
+// 		/* width: 100%; */
+// 	}
+// `;
 
 const Campbox2 = styled.div`
 	width: 45%;
@@ -394,7 +396,6 @@ export const BootCamp = () => {
 								</AccessButton>
 								<a
 									href="https://twitter.com/intent/tweet?url=https://frontendmasters.com/bootcamp/&text=Get%20started%20learning%20web%20development%20for%20free%20in%20this%20two-week%20online%20curriculum%20by%20@FrontendMasters!"
-									target="_blank"
 									className="anchortag"
 								>
 									<IconImage
@@ -496,7 +497,8 @@ export const BootCamp = () => {
 							<Link style={{ color: "#dd625e" }} to="/login">
 								login
 							</Link>{" "}
-							and return to this page. Otherwise sign-up for a free account now..
+							and return to this page. Otherwise sign-up for a free account
+							now..
 						</Para>
 					</Tutorials3>
 					<Tutorials4>

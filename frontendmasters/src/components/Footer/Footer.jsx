@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import { footerlink } from "../../LocalData/Localdata";
 import "../Footer/Footer.css";
 
@@ -19,7 +20,7 @@ function Footer() {
 
 				<div className="linkdiv">
 					{footerlink.map((el) => (
-						<Link className="flink" to={`${el.links}`}>
+						<Link key={el.id} className="flink" to={`${el.links}`}>
 							{el.title}
 						</Link>
 					))}
@@ -36,11 +37,7 @@ function Footer() {
 				/>
 			</div>
 			<div className="social">
-				<a
-					href="https://twitter.com/FrontendMasters"
-					target="_blank"
-					className="anchortag"
-				>
+				<a href="https://twitter.com/FrontendMasters" className="anchortag">
 					<svg
 						className="Fimage"
 						xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +51,6 @@ function Footer() {
 				</a>
 				<a
 					href="https://www.linkedin.com/company/frontend-masters/"
-					target="_blank"
 					className="anchortag"
 				>
 					<svg
@@ -74,7 +70,6 @@ function Footer() {
 				</a>
 				<a
 					href="https://www.facebook.com/FrontendMasters"
-					target="_blank"
 					className="anchortag"
 				>
 					<svg
@@ -89,11 +84,7 @@ function Footer() {
 					</svg>
 				</a>
 
-				<a
-					href="https://instagram.com/FrontendMasters"
-					target="_blank"
-					className="anchortag"
-				>
+				<a href="https://instagram.com/FrontendMasters" className="anchortag">
 					<svg
 						className="Fimage"
 						xmlns="http://www.w3.org/2000/svg"
@@ -101,16 +92,16 @@ function Footer() {
 					>
 						<g>
 							<path
-								  style={{fill:"#C21975"}}
+								style={{ fill: "#C21975" }}
 								d="M386.878,0H164.156C73.64,0,0,73.64,0,164.156v222.722 c0,90.516,73.64,164.156,164.156,164.156h222.722c90.516,0,164.156-73.64,164.156-164.156V164.156 C551.033,73.64,477.393,0,386.878,0z M495.6,386.878c0,60.045-48.677,108.722-108.722,108.722H164.156 c-60.045,0-108.722-48.677-108.722-108.722V164.156c0-60.046,48.677-108.722,108.722-108.722h222.722 c60.045,0,108.722,48.676,108.722,108.722L495.6,386.878L495.6,386.878z"
 							></path>
-						
+
 							<path
-								 style={{fill:"#C74C4D"}}
+								style={{ fill: "#C74C4D" }}
 								d="M275.517,133C196.933,133,133,196.933,133,275.516s63.933,142.517,142.517,142.517 S418.034,354.1,418.034,275.516S354.101,133,275.517,133z M275.517,362.6c-48.095,0-87.083-38.988-87.083-87.083 s38.989-87.083,87.083-87.083c48.095,0,87.083,38.988,87.083,87.083C362.6,323.611,323.611,362.6,275.517,362.6z"
 							></path>
 							<circle
-								 style={{fill:"#E09B3D"}}
+								style={{ fill: "#E09B3D" }}
 								cx="418.31"
 								cy="134.07"
 								r="34.15"
@@ -136,4 +127,4 @@ function Footer() {
 	);
 }
 
-export default Footer;
+export { Footer };

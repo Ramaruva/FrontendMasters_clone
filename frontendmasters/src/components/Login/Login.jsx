@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import React from "react";
-import { NavLink, Redirect } from "react-router-dom";
-import Footer from "../Footer/Footer";
 import { useState } from "react";
 import { useDispatch,  useSelector } from "react-redux";
+import React from "react";
+import { NavLink, Redirect } from "react-router-dom";
+
+import {Footer} from "../Footer/Footer";
 import { login } from "../../redux/auth/authAction";
 
 const Form = styled.div`
@@ -114,7 +115,7 @@ export const Login = () => {
 	const [email,setEmail]=useState("");
 	const [password,setPassword]=useState("");
 	const logSuccess=useSelector(state=>state.author.logSuccess);
-	const logFailure=useSelector(state=>state.author.logFailure);
+	// const logFailure=useSelector(state=>state.author.logFailure);
 	const logLoading=useSelector(state=>state.author.logLoading);
     
 	// console.log(logSuccess)
@@ -124,7 +125,7 @@ export const Login = () => {
          e.preventDefault();
 		 const payload={email,password}
 		 dispatch(login(payload))
-		console.log(email,password)
+		// console.log(email,password)
 	}
 	// if(logFailure)
 	// {
@@ -167,7 +168,7 @@ export const Login = () => {
 								type="password"
 								name="password"
 								title="Please Enter a Password (at least 6 Characters)"
-								minlength="6"
+								minLength="6"
 								placeholder="Password"
 								required
 								className="inputbox"

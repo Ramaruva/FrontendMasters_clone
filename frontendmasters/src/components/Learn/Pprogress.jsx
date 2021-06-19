@@ -1,15 +1,16 @@
+// eslint-disable-next-line 
 import React, { useState } from "react";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import { easeQuadInOut } from "d3-ease";
 
 // Import react-circular-progressbar module and styles
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
 // Animation
-import { easeQuadInOut } from "d3-ease";
 import { AnimatedProgressProvider } from "./AnimatedProgressProvider";
 
 function Pprogress({pro}) {
-	const [progressData, setProgressData] = useState(0);
+	// const [progressData, setProgressData] = useState(0);
 
 	// if (title === "Expert") {
 	// 	setProgressData(5);
@@ -59,4 +60,4 @@ function Example(props) {
 	);
 }
 
-export default Pprogress;
+export  {Pprogress};

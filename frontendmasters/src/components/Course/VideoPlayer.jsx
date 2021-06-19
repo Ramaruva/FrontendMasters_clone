@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import { useHistory } from "react-router-dom";
-
 import { useDispatch, useSelector } from "react-redux";
-
 import styles from "./VideoPlayer.module.css";
+
 import { userPatch } from "../../redux/user/userAction";
+
 function Videoplayer({ video ,level}) {
-	console.log(level)
+	// console.log(level)
 	 const data=useSelector((state) => state.user.data)
 	const [counter, setCounter] = useState(false);
+	// eslint-disable-next-line
 	const [duration, setDuration] = useState("");
 	
 	const dispatch = useDispatch();
@@ -28,6 +29,7 @@ function Videoplayer({ video ,level}) {
 		if (counter) {
 			history.push("/login");
 		}
+		// eslint-disable-next-line
 	}, [counter]);
 
 	const handleDuration = (duration) => {
@@ -38,17 +40,17 @@ function Videoplayer({ video ,level}) {
 			<ReactPlayer
 				controls
 				onReady={() => {
-					console.log("Video is ready");
+					// console.log("Video is ready");
 				}}
 				onPause={() => {
-					console.log("Video is paused");
+					// console.log("Video is paused");
 				}}
 				onEnded={() => {
-					console.log({...data,[level]:Number(data[level])+5})
+					// console.log({...data,[level]:Number(data[level])+5})
 					const patchdata={...data,[level]:Number(data[level])+5}
 					const id=data.id
 					dispatch(userPatch(patchdata,id))
-					console.log("Video was  ended");
+					// console.log("Video was  ended");
 					
 				}}
 				onError={() => {
@@ -63,4 +65,4 @@ function Videoplayer({ video ,level}) {
 		</div>
 	);
 }
-export default Videoplayer;
+export  {Videoplayer};
