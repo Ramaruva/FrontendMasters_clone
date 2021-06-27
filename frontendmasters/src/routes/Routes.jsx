@@ -54,7 +54,7 @@ export const Routes = () => {
 				<Route path="/pricing">
 					<Pricing />
 				</Route>
-
+				
 				<Route path="/recover-password">
 					<ResetPassword />
 				</Route>

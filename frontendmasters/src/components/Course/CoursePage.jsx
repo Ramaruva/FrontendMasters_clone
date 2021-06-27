@@ -21,6 +21,7 @@ import { Popular } from "../Popular/Popular";
 import "./CoursePage.css";
 
 import { AuthorData } from "../AuthorDetails/AuthorData";
+import { useSelector } from "react-redux";
 
 // import { AuthorData } from "../AuthorDetails/AuthorData";
 
@@ -28,6 +29,8 @@ export const CoursePage = () => {
 	const [title, setTitle] = useState("");
 	// const dispatch = useDispatch();
 	const { author_name } = useParams();
+
+	const logSuccess = useSelector((state) => state.author.logSuccess);
 	// console.log(author_name);
 	//by changing the title , fetching the data from endpoint of server
 	//fetching the data from server ....dispatching action here...
@@ -44,7 +47,6 @@ export const CoursePage = () => {
 	// useEffect(() => {
 	// 	dispatch(FilterCoursedata(title));
 	// }, []);
-	
 
 	const [head, setHead] = useState("Frontend Masters Courses");
 
@@ -56,7 +58,7 @@ export const CoursePage = () => {
 		return <AuthorData />;
 	}
 
-	return(
+	return (
 		<>
 			<Container>
 				<Heading>{head}</Heading>
@@ -99,6 +101,14 @@ export const CoursePage = () => {
 							Popular Courses
 						</Link>
 					</Buttons>
+					{logSuccess && (
+						<Buttons>
+							{" "}
+							<Link className="courselinks" to="/courses/bookmarks">
+								Your Bookmarks
+							</Link>
+						</Buttons>
+					)}
 					<Buttons>
 						{" "}
 						<Link className="courselinks" to="/learn">
@@ -111,6 +121,8 @@ export const CoursePage = () => {
 				<AllCourses title={title} />
 			) : author_name === "popular" ? (
 				<Popular title={title} />
+			) : author_name === "bookmarks" ? (
+				<h1>Bookmarks</h1>
 			) : (
 				<AllCourses title={title} />
 			)}

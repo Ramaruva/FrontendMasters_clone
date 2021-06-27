@@ -262,6 +262,12 @@ const Heading = styled.h1`
 	text-align: center;
 `;
 
+const Bookmarksdiv = styled.div`
+	cursor: pointer;
+	
+
+`;
+
 export {
 	Allcoursebox,
 	Conatiner,
@@ -283,4 +289,5 @@ export {
 	PreviewButton,
 	AccessButton,
 	Heading,
+	Bookmarksdiv
 };
