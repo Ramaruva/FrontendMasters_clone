@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 
 import { FetchCoursedata } from "../../redux/Courses/action";
 import { LoaderSpinner } from "./Loader";
+import BookmarkBorderOutlinedIcon from '@material-ui/icons/BookmarkBorderOutlined';
 
 //importing styles from "AllCoursesStyles-page"
 import {
@@ -26,11 +27,12 @@ import {
 	Buttonbox,
 	PreviewButton,
 	AccessButton,
+	Bookmarksdiv
 } from "./AllCoursesStyles";
 import "../Navbar/Navbar.css";
 
 import { SearchCourses } from "../Popular/SearchCourses";
-import {Footer} from "../Footer/Footer";
+import { Footer } from "../Footer/Footer";
 import { Searching } from "./SearchIncludes";
 
 // import { FilterAuthordata } from "../../redux/Author/authoraction";
@@ -43,6 +45,7 @@ export const AllCourses = ({ title }) => {
 		(state) => state.course
 	);
 
+	const logSuccess = useSelector((state) => state.author.logSuccess);
 	const history = useHistory();
 	const handleAccess = () => {
 		history.push("/pricing");
@@ -50,8 +53,6 @@ export const AllCourses = ({ title }) => {
 	// console.log(coursedata);
 
 	//fetching the data from server ....dispatching action here...
-
-	
 
 	useEffect(() => {
 		if (title.length === 0) {
@@ -118,12 +119,18 @@ export const AllCourses = ({ title }) => {
 															to={`/courses/preview-course/${item.id}`}
 															className="authname2"
 														>
-															Watch Free Preview
+															{logSuccess ?"Watch Class" :"Watch Free Preview"}
 														</Link>
 													</PreviewButton>
-													<AccessButton onClick={handleAccess}>
-														Get Full Access
-													</AccessButton>
+													{logSuccess ? (
+														<Bookmarksdiv>
+															<BookmarkBorderOutlinedIcon/>
+														</Bookmarksdiv>
+													) : (
+														<AccessButton onClick={handleAccess}>
+															Get Full Access
+														</AccessButton>
+													)}
 												</Buttonbox>
 											</AboutAuthor>
 										</Content>
