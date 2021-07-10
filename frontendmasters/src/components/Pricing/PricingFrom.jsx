@@ -1,15 +1,12 @@
 import styled from "styled-components";
-import axios from "axios";
 import { toast } from "react-toastify";
-import StripeCheckout from "react-stripe-checkout";
 import "react-toastify/dist/ReactToastify.css";
 // eslint-disable-next-line
 import { useDispatch, useSelector } from "react-redux";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
-
 import { register } from "../../redux/auth/authAction";
-import { AppContext } from "../../Context/AppContxetProvider";
+
 toast.configure();
 
 const Form = styled.div`
@@ -134,31 +131,26 @@ export const PricingFrom = ({ plan }) => {
 	const { email, firstname, lastname, password, passwordmatch } = data;
 	const { em, fn, ln, pass, passw } = check;
 	const dispatch = useDispatch();
-	// const loading = useSelector((state) => state.author.loading);
-	// const success = useSelector((state) => state.author.success);
-	// const failure = useSelector((state) => state.author.failure);
-	//console.log(success);
-	// payment part------>
-	const { price, ispay, setispay } = useContext(AppContext);
-	const [details] = React.useState({
-		plan: price.plan,
-		price: price.price,
-	});
+	const loading = useSelector((state) => state.author.loading);
+	const success = useSelector((state) => state.author.success);
+	const failure = useSelector((state) => state.author.failure);
 
-	async function handleToken(token) {
-		const response = await axios.post(
-			"https://aroul303.herokuapp.com/payment",
-			{ token, details }
-		);
-		const status = response.data.token.id;
-		const rate = response.data.details.plan;
-		if (status) {
-			setispay(true);
-			toast(`Successfully completed ${rate} subscription`, { type: "success" });
-		} else {
-			toast("Something went wrong", { type: "error" });
+	const history = useHistory();
+
+	const handleLearning = () => {
+		if (success) {
+			history.push("/payment");
+		} else if (failure) {
+			alert("Registration Failed try again");
 		}
-	}
+	};
+	console.log(success);
+	// payment part------>
+	// const { price, ispay, setispay } = useContext(AppContext);
+	// const [details] = React.useState({
+	// 	plan: price.plan,
+	// 	price: price.price,
+	// });
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -183,17 +175,9 @@ export const PricingFrom = ({ plan }) => {
 		}
 		if (!check.em && !check.fn && !check.pass && !check.passw) {
 			dispatch(register(data));
+			handleLearning();
 		}
 	};
-
-	const history = useHistory();
-
-	useEffect(() => {
-		if (ispay) {
-			history.push("/login");
-		}
-		// eslint-disable-next-line 
-	}, [ispay]);
 
 	return (
 		<div>
@@ -209,6 +193,7 @@ export const PricingFrom = ({ plan }) => {
 						<input
 							name="email"
 							type="email"
+							required
 							title="Please Enter Valid Email id"
 							value={email}
 							onChange={handleChange}
@@ -226,6 +211,7 @@ export const PricingFrom = ({ plan }) => {
 								type="text"
 								name="firstname"
 								value={firstname}
+								required
 								onChange={handleChange}
 								title="Please Enter First Name"
 								className="inputbox"
@@ -240,6 +226,7 @@ export const PricingFrom = ({ plan }) => {
 								name="lastname"
 								title="Please Enter First Name"
 								value={lastname}
+								required
 								onChange={handleChange}
 								className="inputbox"
 							/>
@@ -254,6 +241,7 @@ export const PricingFrom = ({ plan }) => {
 						<input
 							type="password"
 							name="password"
+							required
 							value={password}
 							onChange={handleChange}
 							title="Please Enter a Password (at least 6 Characters)"
@@ -276,6 +264,7 @@ export const PricingFrom = ({ plan }) => {
 							onChange={handleChange}
 							title="Please enter Matching Password"
 							data-match-id="pass_id"
+							required
 							className="inputbox"
 						/>
 						<div className="formerror">
@@ -292,6 +281,7 @@ export const PricingFrom = ({ plan }) => {
 							name="payment"
 							value="Credit/Debit-card"
 							className="inputbox"
+							required
 						/>
 						{/* <select name="payment" id="payment_id" className="inputbox">
               <option>Credit/Debit Card</option>
@@ -310,18 +300,9 @@ export const PricingFrom = ({ plan }) => {
 								<span className="navlink">Privacy Policy</span>
 							</NavLink>
 						</div>
-						{/* <button type="submit" className="redButton" disabled={loading}>
-							Proceed to Checkout
-						</button> */}
-						<StripeCheckout
-							stripeKey="pk_test_51J2c5MSJXP7UJEsaX09X6zs7lMCN3XUj3PYnH67gO15T98UKO3njq0h54A4GMrp28KRX9J0nGgs5nKB0ddJVownD00w9wRgoZa"
-							token={handleToken}
-							price={price.price * 100}
-							plan={price.plan}
-							label="Start Learning"
-							className="redButton"
-							
-						/>
+						<button type="submit" className="redButton" disabled={loading}>
+							Start Learning
+						</button>
 					</div>
 				</form>
 			</Form>
