@@ -27,7 +27,6 @@ import {
 	Buttonbox,
 	PreviewButton,
 	AccessButton,
-	Bookmarksdiv
 } from "./AllCoursesStyles";
 import "../Navbar/Navbar.css";
 

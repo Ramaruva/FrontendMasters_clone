@@ -51,8 +51,8 @@ export const CoursePage = () => {
 
 	const [head, setHead] = useState("Frontend Masters Courses");
 
-	const handleHead = (e) => {
-		setHead(e.target.id);
+	const handleHead = (value) => {
+		setHead(value);
 	};
 
 	if (author_name > 0 && author_name !== "all" && author_name !== "popular") {
@@ -79,11 +79,10 @@ export const CoursePage = () => {
 			<SmallNav>
 				<Buttonbox>
 					<Buttons
-						id="Frontend Masters Courses"
 						// className="tablinks"
 						onClick={(e) => {
 							// 	ActivationButtons(e, "all");
-							handleHead(e);
+							handleHead("Frontend Masters Courses");
 						}}
 					>
 						<Link className="courselinks" to="/courses/all">
@@ -92,10 +91,9 @@ export const CoursePage = () => {
 					</Buttons>
 					<Buttons
 						// className="tablinks"
-						id="Popular Courses"
 						onClick={(e) => {
-							// 	ActivationButtons(e, "popular");
-							handleHead(e);
+							// 	ActivationButtons(e, "all");
+							handleHead("Popular Courses");
 						}}
 					>
 						<Link className="courselinks" to="/courses/popular">
@@ -103,7 +101,10 @@ export const CoursePage = () => {
 						</Link>
 					</Buttons>
 					{logSuccess && (
-						<Buttons>
+						<Buttons onClick={(e) => {
+							// 	ActivationButtons(e, "all");
+							handleHead("Your Bookmarks");
+						}}>
 							{" "}
 							<Link className="courselinks" to="/courses/bookmarks">
 								Your Bookmarks
