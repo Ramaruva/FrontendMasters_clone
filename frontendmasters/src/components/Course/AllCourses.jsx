@@ -4,8 +4,8 @@ import { Link, useHistory } from "react-router-dom";
 
 import { FetchCoursedata } from "../../redux/Courses/action";
 import { LoaderSpinner } from "./Loader";
-import BookmarkBorderOutlinedIcon from '@material-ui/icons/BookmarkBorderOutlined';
 
+import {userPatch} from "../../redux/user/userAction"
 //importing styles from "AllCoursesStyles-page"
 import {
 	Allcoursebox,
@@ -46,6 +46,27 @@ export const AllCourses = ({ title }) => {
 	);
 
 	const logSuccess = useSelector((state) => state.author.logSuccess);
+	let data=useSelector((state)=>state.user.data)
+	//console.log(data);
+	//let array=data.bookmark
+	//console.log(array);
+	const handleBookMark=(id)=>
+	{
+		let array=data.bookmark||[]
+
+          if(array.includes(id))
+		  {
+			  return
+		  }
+		  else {
+			  array.push(id)
+		  }
+		  console.log(array)
+		  let patcher={...data,bookmark:array}
+		   //console.log(patcher)
+
+		 dispatch(userPatch(patcher,data.id))
+	}
 	const history = useHistory();
 	const handleAccess = () => {
 		history.push("/pricing");
@@ -123,9 +144,9 @@ export const AllCourses = ({ title }) => {
 														</Link>
 													</PreviewButton>
 													{logSuccess ? (
-														<Bookmarksdiv>
-															<BookmarkBorderOutlinedIcon/>
-														</Bookmarksdiv>
+														<AccessButton onClick={()=>handleBookMark(item.id)}>
+															Add to Bookmark
+														</AccessButton>
 													) : (
 														<AccessButton onClick={handleAccess}>
 															Get Full Access

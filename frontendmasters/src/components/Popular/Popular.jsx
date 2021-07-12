@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { FetchPopulardata } from "../../redux/Popular/popularaction";
 import { LoaderSpinner } from "../Course/Loader";
+import {userPatch} from '../../redux/user/userAction'
+import { useHistory } from "react-router-dom";
+
 import {
 	Title,
 	Profilebox,
@@ -35,7 +38,32 @@ export const Popular = ({ title }) => {
 	);
 	// console.log(populardata);
 	const dispatch = useDispatch();
+	const logSuccess = useSelector((state) => state.author.logSuccess);
+	let data=useSelector((state)=>state.user.data)
+	//console.log(data);
+	//let array=data.bookmark
+	//console.log(array);
+	const handleBookMark=(id)=>
+	{
+		let array=data.bookmark||[]
 
+          if(array.includes(id))
+		  {
+			  return
+		  }
+		  else {
+			  array.push(id)
+		  }
+		  console.log(array)
+		  let patcher={...data,bookmark:array}
+		   //console.log(patcher)
+
+		 dispatch(userPatch(patcher,data.id))
+	}
+	const history = useHistory();
+	const handleAccess = () => {
+		history.push("/pricing");
+	};
 	useEffect(() => {
 		dispatch(FetchPopulardata());
 	}, [dispatch, title]);
@@ -83,7 +111,15 @@ export const Popular = ({ title }) => {
 											</Timebox>
 											<Buttonbox>
 												<PreviewButton>Watch Free Preview</PreviewButton>
-												<AccessButton>Get Full Access</AccessButton>
+												{logSuccess ? (
+														<AccessButton onClick={()=>handleBookMark(item.id)}>
+															Add to Bookmark
+														</AccessButton>
+													) : (
+														<AccessButton onClick={handleAccess}>
+															Get Full Access
+														</AccessButton>
+													)}
 											</Buttonbox>
 										</AboutAuthor>
 									</ContentBoxpop>
