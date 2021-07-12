@@ -22,6 +22,7 @@ import "./CoursePage.css";
 
 import { AuthorData } from "../AuthorDetails/AuthorData";
 import { useSelector } from "react-redux";
+import { Bookmark } from "./Bookmark";
 
 // import { AuthorData } from "../AuthorDetails/AuthorData";
 
@@ -122,7 +123,7 @@ export const CoursePage = () => {
 			) : author_name === "popular" ? (
 				<Popular title={title} />
 			) : author_name === "bookmarks" ? (
-				<h1>Bookmarks</h1>
+				<Bookmark />
 			) : (
 				<AllCourses title={title} />
 			)}

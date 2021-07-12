@@ -1,5 +1,7 @@
 import React from "react";
-
+import {useSelector,useDispatch} from 'react-redux'
+import {useHistory} from 'react-router-dom'
+import {userPatch} from '../../redux/user/userAction'
 import {
 	AboutAuthor,
 	Aboutcontent,
@@ -24,6 +26,33 @@ import {
 } from "./PopularStyles";
 
 export const SearchCourses = ({ item }) => {
+	const dispatch= useDispatch()
+const logSuccess = useSelector((state) => state.author.logSuccess);
+	let data=useSelector((state)=>state.user.data)
+	//console.log(data);
+	//let array=data.bookmark
+	//console.log(array);
+	const handleBookMark=(id)=>
+	{
+		let array=data.bookmark||[]
+
+          if(array.includes(id))
+		  {
+			  return
+		  }
+		  else {
+			  array.push(id)
+		  }
+		  console.log(array)
+		  let patcher={...data,bookmark:array}
+		   //console.log(patcher)
+
+		 dispatch(userPatch(patcher,data.id))
+	}
+	const history = useHistory();
+	const handleAccess = () => {
+		history.push("/pricing");
+	};
 	return (
 		<div>
 			<PopularContainer>
@@ -47,7 +76,15 @@ export const SearchCourses = ({ item }) => {
 						</Timebox>
 						<Buttonbox>
 							<PreviewButton>Watch Free Preview</PreviewButton>
-							<AccessButton>Get Full Access</AccessButton>
+							{logSuccess ? (
+												<AccessButton onClick={()=>handleBookMark(item.id)}>
+															Add to Bookmark
+														</AccessButton>
+													) : (
+														<AccessButton onClick={handleAccess}>
+															Get Full Access
+														</AccessButton>
+													)}
 						</Buttonbox>
 					</AboutAuthor>
 				</ContentBoxpop>
