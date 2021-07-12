@@ -60,13 +60,13 @@ function Navbars() {
 							</Link>
 						) : null}
 					</Hover>
-					<Hover>
+					{/* <Hover>
 						{logSuccess ? (
 							<Link to="/myaccount" className="links">
 								My Account
 							</Link>
 						) : null}
-					</Hover>
+					</Hover> */}
 					<Hover>
 						{logSuccess ? null : <Link to="/pricing" className="links">
 							Pricing
