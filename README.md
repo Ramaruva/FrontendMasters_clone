@@ -4,7 +4,7 @@
 
 <!--- ![Product Presentation Image](public/cover.png) -->
 
-This is the project we started as a four memeber team during [Constructor week](https://frontendmasters.com/courses/). We are trying to build as same as the website is and still this project is in continuous upgradation and soon will be launched under custom domain .
+This is the project we started as a four memeber team during [Constructor week](https://frontendmasters.com/courses/). We are trying to build as same as the website is and still this project is in continuous upgradation and soon will be launched under custom domain , for [Live Demo](https://frontendmasterclone.vercel.app/).
 
 # Table of Contents
 
