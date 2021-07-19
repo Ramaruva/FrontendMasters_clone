@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import React from "react";
-
+import React ,{useState} from "react";
+import {useDispatch,useSelector} from "react-redux"
 import {Footer} from "../Footer/Footer";
-
+import {resetpassword} from "../../redux/auth/authAction"
 const Form = styled.div`
 	padding: 30px 30px 20px;
 	margin-top: 50px;
@@ -108,10 +108,20 @@ const Form = styled.div`
 	}
 `;
 export const ResetPassword = () => {
+
+	const [email,setEmail]=useState("")
+	const dispatch =  useDispatch()
+	const resuccess =  useSelector(state=>state.author.resuccess)
+	const refailure= useSelector(state=>state.author.refailure)
+	const handleRecover =(e)=>
+	{
+		e.preventDefault()
+          dispatch(resetpassword(email))
+	}
 	return (
 		<>
 			<div>
-				<Form>
+				<Form onSubmit={handleRecover}>
 					<form>
 						<div className="formrow">
 							<label className="label">
@@ -122,10 +132,12 @@ export const ResetPassword = () => {
 							<input
 								name="username"
 								type="text"
+								value={email}
 								title="Please Enter Valid Email id"
 								required
 								className="inputbox"
-								placeholder="Username or Email"
+								placeholder="enter your  Email"
+								onChange={(e)=>setEmail(e.target.value)}
 							/>
 							<div className="formerror"></div>
 						</div>
@@ -137,6 +149,8 @@ export const ResetPassword = () => {
 						</div>
 					</form>
 				</Form>
+				{resuccess&&"Please Check your email for further information"}
+				{refailure&&"Failed to reset password please enter valid email"}
 			</div>
 			<Footer />
 		</>

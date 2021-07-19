@@ -9,6 +9,8 @@ import {
 	LOGINLOADING,
 	LOGINSUCCESS,
 	LOGOUTSUCCESS,
+	RESETSUCCESS,
+	RESETFAILURE
 } from "./authactionTypes";
 
 //signup part
@@ -47,6 +49,7 @@ export const register = (payload) => async (dispatch) => {
 		Webpack: 0,
 		"Data Visualization with D3.js": 0,
 		"Async JS & Rx.js": 0,
+		"bookmark":[]
 	};
 
 	try {
@@ -111,3 +114,26 @@ export const logout = () => async (dispatch) => {
 		dispatch(logoutSuccess());
 	} catch (error) {}
 };
+
+export const resetSuccess =()=>
+(
+	{
+		type:RESETSUCCESS
+	}
+)
+export const resetFailure =()=>
+(
+	{
+		type:RESETFAILURE
+	}
+)
+
+export const resetpassword =(email)=>async(dispatch)=>
+{
+	try {
+		 await auth.sendPasswordResetEmail(email)
+		 dispatch(resetSuccess())
+	} catch (error) {
+		dispatch(resetFailure())
+	}
+}

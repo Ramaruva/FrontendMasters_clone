@@ -1,5 +1,5 @@
 import { getData, setData } from "../../localstorage/localstorage";
-import { AUHTSUCCESS, AUTHFAILURE, AUTHLOADING, LOGINFAILURE, LOGINLOADING, LOGINSUCCESS, LOGOUTSUCCESS } from "./authactionTypes";
+import { AUHTSUCCESS, AUTHFAILURE, AUTHLOADING, LOGINFAILURE, LOGINLOADING, LOGINSUCCESS, LOGOUTSUCCESS,RESETSUCCESS,RESETFAILURE } from "./authactionTypes";
 
 const initstate={
     success:false,
@@ -11,8 +11,9 @@ const initstate={
     logLoading:false,
     logFailure:false,
     logSuccess:getData("logFinish")||false,
-    logId:getData("id")||""
-
+    logId:getData("id")||"",
+   resuccess:false,
+  refailure:false
    // outSuccess:false
 }
 
@@ -70,7 +71,19 @@ export const authReducer =(state=initstate, { type, payload })=>
              return {
                  ...state,
                  logSuccess:false
-             }    
+             } 
+          
+         case RESETSUCCESS:
+             return{
+                 ...state,
+                 resuccess:true
+             }
+        case RESETFAILURE :
+            return {
+                ...state,
+                refailure:true
+            }
+
         default:
             return state;
     }

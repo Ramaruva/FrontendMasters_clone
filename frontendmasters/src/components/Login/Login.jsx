@@ -115,7 +115,7 @@ export const Login = () => {
 	const [email,setEmail]=useState("");
 	const [password,setPassword]=useState("");
 	const logSuccess=useSelector(state=>state.author.logSuccess);
-	// const logFailure=useSelector(state=>state.author.logFailure);
+	const logFailure=useSelector(state=>state.author.logFailure);
 	const logLoading=useSelector(state=>state.author.logLoading);
     
 	// console.log(logSuccess)
@@ -186,6 +186,7 @@ export const Login = () => {
 							<button type="submit" className="redButton" disabled={logLoading} >
 								Login
 							</button>
+							
 							<div className="termservices">
 								<NavLink to="/recover-password">
 									<span className="navlink">Forgot your password?</span>
@@ -194,6 +195,7 @@ export const Login = () => {
 						</div>
 					</form>
 				</Form>
+				<div>{logFailure&&"Please enter correct password Or email"}</div>
 			</div>
 			<Footer />
 		</>
